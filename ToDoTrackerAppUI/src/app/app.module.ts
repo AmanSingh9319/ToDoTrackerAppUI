@@ -3,57 +3,67 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
-import { HeaderSidenavComponent } from './components/header-sidenav/header-sidenav.component';
-import { LayoutModule } from '@angular/cdk/layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
+import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-=======
+import {MatRippleModule} from '@angular/material/core';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { HeaderSidenavComponent } from './components/header-sidenav/header-sidenav.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HelpcenterComponent } from './components/helpcenter/helpcenter.component';
-import { ViewArchiveTaskComponent } from './components/view-archive-task/view-archive-task.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ArchiveTaskCardComponent } from './components/archive-task-card/archive-task-card.component';
->>>>>>> 5c8c7460c9406d1251d3f4acf8295874f9e82d73
-=======
->>>>>>> 145bf6dceec8ad2a18e54328976f51ccea0119f6
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ViewArchiveTaskComponent } from './components/view-archive-task/view-archive-task.component';
+import { ViewTasksComponent } from './components/view-tasks/view-tasks.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    HeaderSidenavComponent
-=======
+    HeaderSidenavComponent,
     HomeComponent,
     RegisterComponent,
     LoginComponent,
     HelpcenterComponent,
     ViewArchiveTaskComponent,
     UserProfileComponent,
-    ArchiveTaskCardComponent
->>>>>>> 5c8c7460c9406d1251d3f4acf8295874f9e82d73
-=======
+    ArchiveTaskCardComponent,
     ViewTasksComponent
->>>>>>> 145bf6dceec8ad2a18e54328976f51ccea0119f6
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    LayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatFormFieldModule,
+    MatCardModule,
     MatToolbarModule,
+    MatSnackBarModule,
+    MatRadioModule,
+    LayoutModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatIconModule,
+    MatRippleModule,
+    MatExpansionModule,
+    MatChipsModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

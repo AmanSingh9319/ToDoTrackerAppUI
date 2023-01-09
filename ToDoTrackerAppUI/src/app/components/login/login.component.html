@@ -1,1 +1,30 @@
-<p>login works!</p>
+<p>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>User Login Form</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>
+<div>
+    <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
+        <fieldset class="backcolor">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Email Id" type="text" id="email" formControlName="email" />
+                <mat-error *ngIf="email?.errors?.['required']">
+                    Email Id is required.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput type="password" placeholder="Password" id="password" formControlName="password">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Password is required.
+                </mat-error>
+            </mat-form-field>
+            <br><br>
+            <div>
+                <button color="primary" mat-button mat-raised-button [disabled]="loginForm.invalid" type="submit"class="button alt-gradient-button" >Log In</button>
+            </div>
+        </fieldset>
+        </form>
+</div>
+

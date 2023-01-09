@@ -1,0 +1,19 @@
+mat-form-field {
+    display: block;
+  }
+
+  p{
+    margin:0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    margin-left: 12em;
+    width: 50%;
+    font-size: medium;
+    }
+  .backcolor{
+    background-color:aliceblue;
+  }

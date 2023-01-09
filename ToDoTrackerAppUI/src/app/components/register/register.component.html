@@ -1,1 +1,78 @@
-<p>register works!</p>
+<p>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>User Registration Form</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</p>
+<div>
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
+        <fieldset class="backcolor">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="First Name" type="text" id="firstName" formControlName="firstName" />
+                <mat-error *ngIf="firstName?.errors?.['required']">
+                    First Name is required.
+                </mat-error>
+                <mat-error *ngIf="firstName?.errors?.['minlength']">
+                    First Name should have minimum of 2 characters.
+                </mat-error>
+                <mat-error *ngIf="firstName?.errors?.['pattern']">
+                    Do not enter Numeric values
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Last Name" type="text" id="lastName" formControlName="lastName" />
+                <mat-error *ngIf="lastName?.errors?.['required']">
+                    Last Name is required.
+                </mat-error>
+                <mat-error *ngIf="lastName?.errors?.['minlength']">
+                    Last Name should have minimum of 2 characters.
+                </mat-error>
+                <mat-error *ngIf="lastName?.errors?.['pattern']">
+                    Do not enter Numeric values
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Email Id" type="text" id="email" formControlName="email" />
+                <mat-error *ngIf="email?.errors?.['required']">
+                    Email Id is required.
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['minlength']">
+                </mat-error>
+                <mat-error *ngIf="email?.errors?.['pattern']">
+                   email id must be as name@gmail.com
+                </mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+                <input matInput type="password" placeholder="Password" id="password" formControlName="password">
+                <mat-error *ngIf="password?.errors?.['required']">
+                    Password is required.
+                </mat-error>
+                <mat-error *ngIf="password?.errors?.['pattern']">
+                    Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+                    and a number.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <input matInput type="password" placeholder="Confirm Password" id="confirmPassword"
+                    formControlName="confirmPassword">
+                <mat-error *ngIf="registerForm.errors?.['mustMatch']===false">
+                    Password and Confirm Password should match.
+                </mat-error>
+            </mat-form-field>
+
+            <label>Gender</label>
+            <mat-radio-group aria-label="Select Gender" class="radio-group" formControlName="gender" id="gender">
+                <mat-radio-button class="radio-button" [checked]="true" value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+      <br><br>
+ <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" 
+                type="submit">Submit</button>
+            </fieldset>
+    </form>
+</div>
