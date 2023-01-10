@@ -1,0 +1,14 @@
+
+<div>
+<mat-form-field style=" width: 25%;" class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input style="display:inline ;" matInput type="search" name="searchquery" [(ngModel)]="searchText" id="searchquery">
+  
+</mat-form-field>
+
+<span>
+    <button mat-icon-button  color="primary"(click)="search()" class="btn btn-primary">
+        <mat-icon class="icon">search</mat-icon>
+    </button>
+ </span> 
+</div>
