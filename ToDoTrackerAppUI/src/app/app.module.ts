@@ -25,7 +25,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { TaskCardComponent } from './task-card/task-card.component';
 import { SearchComponent } from './components/search/search.component';
 import {MatInputModule} from '@angular/material/input';
 import { ViewTodayTasksComponent } from './components/view-filtered-tasks/view-today-tasks/view-today-tasks.component';
@@ -49,7 +48,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UserProfileComponent,
     ArchiveTaskCardComponent,
     ViewTasksComponent,
-    TaskCardComponent,
     SearchComponent,
     ViewTodayTasksComponent,
     ViewUpcomingTasksComponent,
