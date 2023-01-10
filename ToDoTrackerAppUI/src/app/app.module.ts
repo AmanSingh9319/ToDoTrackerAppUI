@@ -25,6 +25,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { ViewTodayTasksComponent } from './components/view-filtered-tasks/view-today-tasks/view-today-tasks.component';
+import { ViewUpcomingTasksComponent } from './components/view-filtered-tasks/view-upcoming-tasks/view-upcoming-tasks.component';
+import { ViewPersonalTasksComponent } from './components/view-filtered-tasks/view-personal-tasks/view-personal-tasks.component';
+import { ViewWorkTasksComponent } from './components/view-filtered-tasks/view-work-tasks/view-work-tasks.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ViewArchiveTaskComponent,
     UserProfileComponent,
     ArchiveTaskCardComponent,
-    ViewTasksComponent
+    ViewTasksComponent,
+    ViewTodayTasksComponent,
+    ViewUpcomingTasksComponent,
+    ViewPersonalTasksComponent,
+    ViewWorkTasksComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +67,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     MatRippleModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatChipsModule
   
   ],
   providers: [],
