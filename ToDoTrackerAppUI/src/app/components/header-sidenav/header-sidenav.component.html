@@ -2,12 +2,12 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">To Do Tracker</h1>
-    <span class="profileSpan">
-      <mat-chip>
-        <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/>
-        profile Name
-      </mat-chip>
-    </span>
+
+    <mat-chip class="profileSpan" (click)="userProfileRouteFunc()">
+      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/>
+      profile Name
+    </mat-chip>
+    
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
@@ -31,7 +31,9 @@
           <a mat-list-item routerLink="view-archive-task">Archive</a>
           <mat-divider></mat-divider><br><br><br><br><br><br>
           <a mat-list-item routerLink="settings">Settings</a>
-          <a mat-list-item routerLink="help-center">Help</a><br>
+          <a mat-list-item routerLink="helpcenter">Help</a>
+          <button class="logOutButton" mat-button (click)="logOutFunc()"><h3>log out</h3></button>
+          <br><br><br>
         </div>
       </mat-nav-list>
     </mat-sidenav>

@@ -32,6 +32,7 @@ import { ViewWorkTasksComponent } from './components/view-filtered-tasks/view-wo
 import { SettingsComponent } from './components/settings/settings.component';
 import {MatChipsModule} from '@angular/material/chips';
 
+
 @NgModule({
   declarations: [
     AppComponent,
