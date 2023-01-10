@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { RegisterService } from 'src/app/services/register.service';
+import { UserTaskService } from 'src/app/services/user-task.service';
+
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,7 @@ export class RegisterComponent {
     role: ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private router:Router, private regser:RegisterService) {}
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private router:Router, private userTaskSer:UserTaskService) {}
 
   get firstName() { return this.registerForm.get("firstName") }
 
@@ -37,9 +38,9 @@ export class RegisterComponent {
   onSubmit(): void {
     console.log(" form data--"+this.registerForm.value)
     let data1=JSON.stringify(this.registerForm.value)
-  this.regser.registerUser(this.registerForm.value).subscribe(response=>{
+  this.userTaskSer.registerUser(this.registerForm.value).subscribe(response=>{
       console.log(response);
-      this.regser.userLoggedIn();
+      this.userTaskSer.userLoggedIn();
       this.router.navigate(['user'])
   },
     (error)=>{
