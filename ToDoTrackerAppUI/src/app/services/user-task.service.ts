@@ -37,7 +37,7 @@ constructor(private httpClient:HttpClient) { }
   }
 
   getAllTasksOfUser(user:User):Observable<Task[]>{
-    return this.httpClient.get<Task[]>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId);
+    return this.httpClient.get<Task[]>(this.url+"/api/v1/task/getAllTasksOfUserFromUserTask/"+user.userId);
   }
 
   getUserById(user:User):Observable<User>{
