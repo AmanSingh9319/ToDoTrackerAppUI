@@ -31,7 +31,7 @@ import { ViewPersonalTasksComponent } from './components/view-filtered-tasks/vie
 import { ViewWorkTasksComponent } from './components/view-filtered-tasks/view-work-tasks/view-work-tasks.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import {MatChipsModule} from '@angular/material/chips';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -69,8 +69,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatRippleModule,
     MatCardModule,
     MatFormFieldModule,
-    MatChipsModule
-  
+    MatChipsModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
