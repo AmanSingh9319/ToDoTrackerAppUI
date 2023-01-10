@@ -35,13 +35,13 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <input matInput placeholder="Email Id" type="text" id="email" formControlName="email" />
-                <mat-error *ngIf="email?.errors?.['required']">
+                <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
+                <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
                 </mat-error>
-                <mat-error *ngIf="email?.errors?.['minlength']">
+                <mat-error *ngIf="emailId?.errors?.['minlength']">
                 </mat-error>
-                <mat-error *ngIf="email?.errors?.['pattern']">
+                <mat-error *ngIf="emailId?.errors?.['pattern']">
                    email id must be as name@gmail.com
                 </mat-error>
             </mat-form-field>
@@ -65,14 +65,13 @@
                 </mat-error>
             </mat-form-field>
 
-            <label>Gender</label>
-            <mat-radio-group aria-label="Select Gender" class="radio-group" formControlName="gender" id="gender">
-                <mat-radio-button class="radio-button" [checked]="true" value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
+            <label>Role</label>
+            <mat-radio-group aria-label="Select Role" class="radio-group" formControlName="role" id="role">
+                <mat-radio-button class="radio-button" [checked]="true" value="student">Student</mat-radio-button>
+                <mat-radio-button value="Employee">Employee</mat-radio-button>
             </mat-radio-group>
       <br><br>
- <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" 
-                type="submit">Submit</button>
-            </fieldset>
+ <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" type="submit">Submit</button>
+</fieldset>
     </form>
 </div>

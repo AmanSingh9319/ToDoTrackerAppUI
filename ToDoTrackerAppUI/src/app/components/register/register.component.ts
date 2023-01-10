@@ -14,10 +14,10 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     firstName: ['', [Validators.required,Validators.minLength(2), Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
     lastName: ['', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
-    email: ['', [Validators.required, 	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+    emailId: ['', [Validators.required, 	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
     confirmPassword: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
-    gender: ['']
+    role: ['', [Validators.required]]
   });
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private router:Router, private regser:RegisterService) {}
@@ -26,12 +26,13 @@ export class RegisterComponent {
 
   get lastName() { return this.registerForm.get("lastName") }
 
-  get email() { return this.registerForm.get("email") }
+  get emailId() { return this.registerForm.get("emailId") }
 
   get password() { return this.registerForm.get("password"); }
 
   get confirmPassword() { return this.registerForm.get("confirmPassword"); }
 
+  get role() { return this.registerForm.get("role") }
 
   onSubmit(): void {
     console.log(" form data--"+this.registerForm.value)
