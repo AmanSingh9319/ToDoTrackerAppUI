@@ -34,6 +34,7 @@ import { ViewWorkTasksComponent } from './components/view-filtered-tasks/view-wo
 import { SettingsComponent } from './components/settings/settings.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ViewUpcomingTasksComponent,
     ViewPersonalTasksComponent,
     ViewWorkTasksComponent,
-    SettingsComponent
+    SettingsComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
