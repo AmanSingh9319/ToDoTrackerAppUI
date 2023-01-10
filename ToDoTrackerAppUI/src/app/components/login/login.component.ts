@@ -48,4 +48,8 @@ export class LoginComponent {
      this.loginForm.reset();
     }
 
+    registerRoutefunc(){
+      this.router.navigateByUrl("register")
+    }
+
 }
