@@ -9,7 +9,7 @@ export class UserAuthenticationService {
 
 constructor(private httpClient:HttpClient) { }
 
-url:string="http://localhost:8086";
+url:string="http://localhost:9000";
   
 loginUser(data:any):Observable<any>{
      return this.httpClient.post<any>(this.url+"/api/v2/AddUserInUserAuth",data);
