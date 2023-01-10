@@ -25,10 +25,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+<<<<<<< HEAD
 import { TaskCardComponent } from './task-card/task-card.component';
 import { SearchComponent } from './components/search/search.component';
 import {MatInputModule} from '@angular/material/input';
 
+=======
+import { ViewTodayTasksComponent } from './components/view-filtered-tasks/view-today-tasks/view-today-tasks.component';
+import { ViewUpcomingTasksComponent } from './components/view-filtered-tasks/view-upcoming-tasks/view-upcoming-tasks.component';
+import { ViewPersonalTasksComponent } from './components/view-filtered-tasks/view-personal-tasks/view-personal-tasks.component';
+import { ViewWorkTasksComponent } from './components/view-filtered-tasks/view-work-tasks/view-work-tasks.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatGridListModule} from '@angular/material/grid-list';
+>>>>>>> 823c5be1737a3ef60e0e476270c28ef2f3db6aa8
 
 @NgModule({
   declarations: [
@@ -42,9 +52,17 @@ import {MatInputModule} from '@angular/material/input';
     UserProfileComponent,
     ArchiveTaskCardComponent,
     ViewTasksComponent,
+<<<<<<< HEAD
     TaskCardComponent,
     SearchComponent,
    
+=======
+    ViewTodayTasksComponent,
+    ViewUpcomingTasksComponent,
+    ViewPersonalTasksComponent,
+    ViewWorkTasksComponent,
+    SettingsComponent
+>>>>>>> 823c5be1737a3ef60e0e476270c28ef2f3db6aa8
   ],
   imports: [
     BrowserModule,
@@ -64,8 +82,13 @@ import {MatInputModule} from '@angular/material/input';
     MatRippleModule,
     MatCardModule,
     MatFormFieldModule,
+<<<<<<< HEAD
     MatInputModule
   
+=======
+    MatChipsModule,
+    MatGridListModule
+>>>>>>> 823c5be1737a3ef60e0e476270c28ef2f3db6aa8
   ],
   providers: [],
   bootstrap: [AppComponent]

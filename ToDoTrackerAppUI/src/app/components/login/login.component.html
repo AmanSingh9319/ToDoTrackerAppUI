@@ -1,3 +1,4 @@
+<mat-card>
 <p>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
@@ -9,8 +10,8 @@
     <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
         <fieldset class="backcolor">
             <mat-form-field appearance="fill">
-                <input matInput placeholder="Email Id" type="text" id="email" formControlName="email" />
-                <mat-error *ngIf="email?.errors?.['required']">
+                <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
+                <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
                 </mat-error>
             </mat-form-field>
@@ -26,5 +27,9 @@
             </div>
         </fieldset>
         </form>
-</div>
+</div><br><br>
+<span id="alreadyUserSpan">
+    <strong>Already an User ? Please</strong><button mat-button (click)="registerRoutefunc()">Register</button>
+</span>
+</mat-card>
 

@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/services/login.service';
+import { UserAuthenticationService } from 'src/app/services/user-authentication.service';
+
 
 @Component({
   selector: 'app-login',
@@ -13,18 +14,18 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent {
 
   loginForm=new FormGroup({
-    email:new FormControl('',Validators.required),
+    emailId:new FormControl('',Validators.required),
     password:new FormControl('',Validators.required),
    
   })
-  get email(){
-    return this.loginForm.get('email');
+  get emailId(){
+    return this.loginForm.get('emailId');
   }
   get password(){
     return this.loginForm.get('password');
   }
 
-  constructor(private httpClient:HttpClient, private _snackBar: MatSnackBar, private loginser:LoginService, private router:Router) { }
+  constructor(private httpClient:HttpClient, private _snackBar: MatSnackBar, private loginser:UserAuthenticationService, private router:Router) { }
   error:String=''
   onLogin(){
    
@@ -34,7 +35,7 @@ export class LoginComponent {
       localStorage.setItem("Jwt_Token",response.token);
     //  localStorage.setItem("User_Name",response.UserName);
       this.loginser.userLoggedIn();
-      this.router.navigate(['admin'])
+      //this.router.navigate(['admin'])
     },(error=>{
       console.log(error);
       alert("Login Failed!!");
@@ -46,6 +47,10 @@ export class LoginComponent {
     //   panelClass: ['mat-toolbar', 'mat-primary']
     // });
      this.loginForm.reset();
+    }
+
+    registerRoutefunc(){
+      this.router.navigateByUrl("register")
     }
 
 }
