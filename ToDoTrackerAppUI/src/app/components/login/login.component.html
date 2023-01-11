@@ -12,12 +12,12 @@
     <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
 
             <mat-form-field appearance="fill">
-<<<<<<< HEAD
+
                 <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId"  [(ngModel)]="email" />
-=======
+
                 
                 <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
->>>>>>> b742e10ac497e65bcdc48d51410fc282e0031c29
+
                 <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
                 </mat-error>

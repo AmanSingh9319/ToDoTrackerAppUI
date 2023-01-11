@@ -28,7 +28,7 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-<<<<<<< HEAD
+
   constructor(private httpClient:HttpClient, private _snackBar: MatSnackBar, private loginser:UserAuthenticationService,
     private taskService:UserTaskService, private router:Router) { }
   
@@ -49,22 +49,7 @@ export class LoginComponent {
     // },(error=>{
     //   console.log(error);
     //   alert("Login Failed!!");
-=======
-  constructor(private httpClient:HttpClient, private _snackBar: MatSnackBar, private loginser:UserAuthenticationService, private router:Router) { }
-  error:String=''
-  onLogin(){
-   
-    this.loginser.loginUser(this.loginForm.value).subscribe(response=>{
-     // localStorage.setItem("User_id",response.userid);
-    //  console.log(response.token+" "+response.username+" "+response.userid)
-      localStorage.setItem("Jwt_Token",response.token);
-    //  localStorage.setItem("User_Name",response.UserName);
-      this.loginser.userLoggedIn();
-      //this.router.navigate(['admin'])
-    },(error=>{
-      console.log(error);
-      alert("Login Failed!!");
->>>>>>> b742e10ac497e65bcdc48d51410fc282e0031c29
+
      
     // }))
      console.log(this.loginForm.value); // .value is a property of ngform: that gives the value
