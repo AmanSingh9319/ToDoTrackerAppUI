@@ -1,3 +1,54 @@
+<<<<<<< HEAD
 form{
     background-color: aqua;
 }
+=======
+mat-form-field {
+    display: block;
+  }
+
+p{
+    display: flex;
+    margin:0px;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.backcolor{
+    background-color:aliceblue;
+}
+
+.card{
+    padding: 30px;
+    width: 500px;
+    position: relative;
+    right: -30em;
+    bottom: -3em;
+    border-radius: 10px;
+    background-image: url("src\app\assets\images\loginbackground.webp");
+    background-size: 100% 100%;
+  }
+
+  #alreadyUserSpan{
+    margin-left: 6em;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    bottom: 1em;
+}
+
+.emailId, .password{
+    display: block;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px, 0;
+}
+>>>>>>> b742e10ac497e65bcdc48d51410fc282e0031c29
