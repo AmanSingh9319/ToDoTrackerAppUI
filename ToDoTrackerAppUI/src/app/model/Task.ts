@@ -2,7 +2,7 @@ export class Task {
     taskId?: number;
     taskName?: string;
     taskContent?:String;
-    taskDeadline?: Date;
+    taskDeadline?: string;
     taskCategory?: string;
     taskPriorityLevel?: string;
     isTaskCompleted?:boolean;

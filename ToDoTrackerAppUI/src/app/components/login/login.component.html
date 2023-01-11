@@ -10,7 +10,7 @@
     <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
         <fieldset class="backcolor">
             <mat-form-field appearance="fill">
-                <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
+                <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId"  [(ngModel)]="email" />
                 <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
                 </mat-error>

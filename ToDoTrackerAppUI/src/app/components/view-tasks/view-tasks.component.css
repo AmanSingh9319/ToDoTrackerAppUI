@@ -2,14 +2,14 @@
     border-radius: 4px;
     margin-top: 80px;
     padding: 5px;
-    width: 200px;
+    width: 300px;
     text-align: center;
     float: left; 
     margin-left: 100px;
   }
   #category{
     display: inline;
-    background-color: rgba(135, 137, 139,0.5);
+    background-color: rgba(11, 122, 233, 0.811);
     padding: 5px;
     border-radius: 15px;
     float: left;

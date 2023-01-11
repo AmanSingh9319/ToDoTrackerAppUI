@@ -62,6 +62,14 @@ const routes: Routes = [
   {
     path:"user-profile",
     component:UserProfileComponent
+  },
+  {
+    path:"view-task",
+    component:ViewTasksComponent
+  },
+  {
+    path:"login",
+    component:LoginComponent
   }
 ];
 
