@@ -1,35 +1,38 @@
-<mat-card>
+<div class="logindiv">
+<mat-card class="card">
+    <!-- <img src="../../assets/images/loginbackground.webp" alt="login image"> -->
 <p>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>User Login Form</span>
+            <strong>Login Form</strong>
         </mat-toolbar-row>
     </mat-toolbar>
 </p>
-<div>
+<div class="backcolor">
     <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
-        <fieldset class="backcolor">
+
             <mat-form-field appearance="fill">
+                
                 <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
                 <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field><br>
             <mat-form-field appearance="fill">
                 <input matInput type="password" placeholder="Password" id="password" formControlName="password">
                 <mat-error *ngIf="password?.errors?.['required']">
                     Password is required.
                 </mat-error>
             </mat-form-field>
-            <br><br>
-            <div>
+            <br>
+            <div class="button">
                 <button color="primary" mat-button mat-raised-button [disabled]="loginForm.invalid" type="submit"class="button alt-gradient-button" >Log In</button>
             </div>
-        </fieldset>
         </form>
 </div><br><br>
 <span id="alreadyUserSpan">
-    <strong>Already an User ? Please</strong><button mat-button (click)="registerRoutefunc()">Register</button>
+    <strong>Already an User ? Please  </strong><button mat-button mat-raised-button (click)="registerRoutefunc()">Register</button>
 </span>
 </mat-card>
+</div>
 

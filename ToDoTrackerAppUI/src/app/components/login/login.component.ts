@@ -30,8 +30,8 @@ export class LoginComponent {
   onLogin(){
    
     this.loginser.loginUser(this.loginForm.value).subscribe(response=>{
-    //  localStorage.setItem("User_id",response.userid);
-      console.log(response.token+" "+response.username+" "+response.userid)
+     // localStorage.setItem("User_id",response.userid);
+    //  console.log(response.token+" "+response.username+" "+response.userid)
       localStorage.setItem("Jwt_Token",response.token);
     //  localStorage.setItem("User_Name",response.UserName);
       this.loginser.userLoggedIn();

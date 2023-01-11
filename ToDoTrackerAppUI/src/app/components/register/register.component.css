@@ -1,19 +1,33 @@
 mat-form-field {
-    display: block;
-  }
+  display: block;
+}
 
-  p{
-    margin:0;
+p{
+  display: flex;
+  margin:0px;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    margin-left: 12em;
-    width: 50%;
-    font-size: medium;
-    }
-  .backcolor{
-    background-color:aliceblue;
-  }
+  display: flex;
+  flex-direction: column;
+}
+
+.backcolor{
+  background-color:aliceblue;
+}
+
+.card{
+  padding: 30px;
+  width: 600px;
+  position: relative;
+  right: -30em;
+  bottom: -1em;
+  border-radius: 10px;
+  /* background-image: "../../assets/images/loginbackground.webp"; */
+}
+
+#alreadyUserSpan{
+  margin-left: 9em;
+}
