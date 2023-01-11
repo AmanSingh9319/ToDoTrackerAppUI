@@ -25,15 +25,12 @@ p{
     right: -30em;
     bottom: -3em;
     border-radius: 10px;
+    background-image: url("src\app\assets\images\loginbackground.webp");
+    background-size: 100% 100%;
   }
 
   #alreadyUserSpan{
     margin-left: 6em;
-}
-
-.logindiv{
-background-image: url("ToDoTrackerAppUI\src\app\assets\images\loginbackground.webp");
-background-size: 100% 100%;
 }
 
 .button{
