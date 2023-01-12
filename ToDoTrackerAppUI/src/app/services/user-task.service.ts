@@ -33,10 +33,6 @@ export class UserTaskService {
     return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask",{ headers: this.headers });
   }
 
-  
-  
- 
-
   getUserById(user:User):Observable<User>{
     return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId,{ headers: this.headers });
   }
