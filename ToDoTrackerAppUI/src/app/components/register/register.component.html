@@ -2,13 +2,18 @@
 <p>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>User Registration Form</span>
+            <h2 style="text-align: center;">User Registration Form</h2>
         </mat-toolbar-row>
     </mat-toolbar>
 </p>
 <div>
     <form class="form" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
         <fieldset class="backcolor">
+            <div id="imageUpload">
+                <label for="upload"><mat-icon id="icon">account_circle</mat-icon></label>
+                <input type="file"  (change)="onFileSelect($event)" id="upload">
+            </div>
+            
             <mat-form-field appearance="fill">
                 <input matInput placeholder="First Name" type="text" id="firstName" formControlName="firstName" />
                 <mat-error *ngIf="firstName?.errors?.['required']">
@@ -55,14 +60,6 @@
                 <mat-error *ngIf="password?.errors?.['pattern']">
                     Password should have min 8 letter password, with at least a symbol, upper and lower case letters
                     and a number.
-                </mat-error>
-            </mat-form-field>
-
-            <mat-form-field appearance="fill">
-                <input matInput type="password" placeholder="Confirm Password" id="confirmPassword"
-                    formControlName="confirmPassword">
-                <mat-error *ngIf="registerForm.errors?.['mustMatch']===false">
-                    Password and Confirm Password should match.
                 </mat-error>
             </mat-form-field>
 

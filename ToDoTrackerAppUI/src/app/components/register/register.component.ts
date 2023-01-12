@@ -22,45 +22,43 @@ export class RegisterComponent {
     lastName: ['', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
     emailId: ['', [Validators.required, 	Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     password: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
-    confirmPassword: ['', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/)]],
     role: ['', [Validators.required]]
   });
 
   constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private router:Router, private userTaskSer:UserTaskService) {}
-
-
   
-  get firstName() { return this.registerForm.get("firstName") }
+  formData = new FormData
+  onFileSelect(event:any){
 
-  get lastName() { return this.registerForm.get("lastName") }
+    let file: any = event.target.files[0];
 
-  get emailId() { return this.registerForm.get("emailId") }
+    console.log(file);
 
-  get password() { return this.registerForm.get("password"); }
+    this.formData.append("file", file);
+    
+  }
+ 
 
-  get confirmPassword() { return this.registerForm.get("confirmPassword"); }
-
-  get role() { return this.registerForm.get("role") }
-
-  user:User = {};
-  tempUser:User = {};
   onSubmit(): void {
 
-    this.userTaskSer.registerUser(this.user).subscribe((response:User)=>{
-        this.user.userId = response.userId;
-        this.user.firstName = response.firstName;
-        this.user.lastName = response.lastName; 
-        this.user.emailId = response.emailId; 
-        this.user.password = response.password;
-        this.user.image = response.image;
-        this.user.role = response.role;          
-      },(error)=>{alert ('please enter valid credentials')})
-        console.log(this.user)
-        this._snackBar.open('Congrats, you have registered!!', 'successfully', {
-          duration: 500,
-           panelClass: ['mat-toolbar', 'mat-primary']​
-         }
-      ) 
+    
+      this.formData.append("user",JSON.stringify(this.registerForm.value))
+      this.userTaskSer.registerUser(this.formData).subscribe(response=>{
+              // console.log(response);
+              this._snackBar.open('Congrats!!You have submiited the form!! Hello  {'+response.firstName+'}', 'success', {
+                duration: 5000,
+                panelClass: ['mat-toolbar', 'mat-primary']
+              });
+              this.registerForm.reset();
+              this.router.navigate(['login'])
+          },
+            (error)=>{
+              console.log(error);
+              alert("Form Not Submitted!!");
+            }
+          ) 
+            
+      
       
     }
 
@@ -94,19 +92,19 @@ export class RegisterComponent {
 //     });
 //      this.registerForm.reset();
 
+
+ 
+get firstName() { return this.registerForm.get("firstName") }
+
+get lastName() { return this.registerForm.get("lastName") }
+
+get emailId() { return this.registerForm.get("emailId") }
+
+get password() { return this.registerForm.get("password"); }
+
+get role() { return this.registerForm.get("role") }
     
 
-  mustMatchValidator(fg: AbstractControl) {
-    const passwordValue = fg.get("password")?.value;
-    const confirmPasswordValue = fg.get("confirmPassword")?.value;
-    if (!passwordValue || !confirmPasswordValue) {
-      return null;
-    }
-    if (passwordValue != confirmPasswordValue) {
-        return { mustMatch: false }
-    }
-    return null;
-  }
 
 
 }
