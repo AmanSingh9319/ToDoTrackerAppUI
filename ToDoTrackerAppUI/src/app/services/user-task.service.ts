@@ -43,10 +43,15 @@ export class UserTaskService {
   
   
   endpoint: string = 'http://localhost:9000/api/v1';
+  currentUser?:number; 
 
+  // initializeCurrentUser(userId : number){
+  //   this.currentUser = 
+  // }
 
   getAllTasksOfUser(user :number):Observable<Task[]>{
-    let api = `${this.endpoint}/getAllTasksOfUserFromUserTask/${user}`;
+    this.currentUser = user
+    let api = `${this.endpoint}/getAllTasksOfUserFromUserTask/${this.currentUser}`;
     return this.httpClient.get<Task[]>(api);
   }
   

@@ -1,13 +1,14 @@
-<mat-grid-list cols="3" rowHeight="1:1">
+<mat-grid-list cols="3" rowHeight="1:1" *ngFor="let note of tasks">
     <mat-grid-tile>
         <mat-card class="example-card">
             <mat-card-title>
-                
+                {{note.taskName}}
+             
             </mat-card-title>
         
             <mat-card-content>
                 <mat-card-subtitle>
-
+                    {{note.taskContent}}        
                 </mat-card-subtitle>
             </mat-card-content><br>
             <button mat-raised-button color="accent" id="editButton" ></button>       

@@ -11,19 +11,21 @@ import { UserTaskService } from 'src/app/services/user-task.service';
 export class ViewWorkTasksComponent {
   constructor(private userTaskService:UserTaskService) { }
 
-  user:User={};
+  user:any;
   tasks:Task[] = [];
 
-  // getWorkTask(){                                                             //to view personal tasks
-  //   this.userTaskService.getAllTasksOfUser(this.user).subscribe({
-  //     next:data => { this.tasks=data.filter((task)=>
-  //       {
-  //         return task.taskCategory?.startsWith("work");
-  //       }) },
-  //     error() {alert ("error occured while loading the work tasks")},          
-  //   })
-  // }
+  getWorkTask(){                                                             //to view personal tasks
+    this.userTaskService.getAllTasksOfUser(this.user).subscribe({
+      next:data => { this.tasks=data.filter((task)=>
+        {
+          return task.taskCategory?.startsWith("Work");
+        }) },
+      error() {alert ("error occured while loading the work tasks")},          
+    })
+  }
 
-  // ngOnInit(): void {
-  //   this.getWorkTask(); }
+  ngOnInit(): void {
+    this.user = this.userTaskService.currentUser;
+    console.log(this.user);
+    this.getWorkTask(); }
 }

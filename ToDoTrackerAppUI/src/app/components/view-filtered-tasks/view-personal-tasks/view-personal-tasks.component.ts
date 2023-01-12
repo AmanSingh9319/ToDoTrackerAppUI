@@ -11,22 +11,25 @@ import { User } from '../../../model/User';
 export class ViewPersonalTasksComponent {
   constructor(private userTaskService:UserTaskService) { }
 
-  user:User={};
+  user:any;
   tasks:Task[] = [];
 
-  // getPersonalTask(){                                                             //to view personal tasks
-  //   this.userTaskService.getAllTasksOfUser(this.user).subscribe({
-  //     next:data => { this.tasks=data.filter((task)=>
-  //       {
-  //         return task.taskCategory?.startsWith("personal");
-  //       }) },
-  //     error() {alert ("error occured while loading the Pizza Details")},          
-  //   })
-  // }
+  getPersonalTask(){                                                             //to view personal tasks
+    this.userTaskService.getAllTasksOfUser(this.user).subscribe({
+      next:data => { this.tasks=data.filter((task)=>
+        {
+          return task.taskCategory?.startsWith("Personal");
+        }) },
+      error() {alert ("error occured while loading the Pizza Details")},          
+    })
+  }
 
-  // ngOnInit(): void {
-  //   this.getPersonalTask();
+  ngOnInit(): void {
+    this.user = this.userTaskService.currentUser;
+    console.log(this.user);
+    
+    this.getPersonalTask();
    
-  // }
+  }
 
 }

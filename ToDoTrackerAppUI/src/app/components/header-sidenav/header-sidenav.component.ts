@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints, MediaMatcher } from '@angular/cdk/layo
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { UserTaskService } from 'src/app/services/user-task.service';
 
 @Component({
   selector: 'app-header-sidenav',
@@ -15,11 +16,22 @@ export class HeaderSidenavComponent {
   
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router,private service : UserTaskService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
+  
+  
+  //send this id to view task component and the we get all task of user
+  userId :any;
+  methodToGet(){
+   this.userId = this.service.currentUser;
+   this.router.navigate(['view-task/'+this.userId])
+   console.log(this.userId);
+   
+  }
+
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
