@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { AddTaskComponent } from '../components/add-task/add-task.component';
 import { Task } from '../model/Task';
 import { User } from '../model/User';
 
@@ -9,7 +10,9 @@ import { User } from '../model/User';
 })
 export class UserTaskService {
 
-constructor(private httpClient:HttpClient) { }
+
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  constructor(private httpClient:HttpClient) { }
 
   url:string="http://localhost:9000"
 
@@ -18,56 +21,68 @@ constructor(private httpClient:HttpClient) { }
     return this.httpClient.post<any>(this.url+"/api/v1/AddUserInUserTask",data);
   }
 
-  isLoggedIn:boolean=false
-  public userLoggedIn(){
-    this.isLoggedIn=true;
-    console.log(this.isLoggedIn)
+  addTask(userId:number, task:Task){
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+userId, task );
   }
 
-  addTask(user:User, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+user.userId, task);
-  }
-
-  updateTask(user:User, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+user.userId, task);
+  updateTask(userId:number, task:Task){
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+userId, task,{ headers: this.headers });
   }
 
   getAllUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask");
+    return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask",{ headers: this.headers });
   }
 
-  getAllTasksOfUser(user:User):Observable<Task[]>{
-    return this.httpClient.get<Task[]>(this.url+"/api/v1/task/getAllTasksOfUserFromUserTask/"+user.userId);
-  }
+  
+  
+ 
 
   getUserById(user:User):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId);
+    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId,{ headers: this.headers });
   }
-/////////////////////////////
-  email?: string;
+/////////////////////////////|||||||||||||||||||||||||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+   
+
   
-  getEmail1(email: string) {
-    this.email = email;
+  
+  endpoint: string = 'http://localhost:9000/api/v1';
+
+
+  getAllTasksOfUser(user :number):Observable<Task[]>{
+    let api = `${this.endpoint}/getAllTasksOfUserFromUserTask/${user}`;
+    return this.httpClient.get<Task[]>(api);
+  }
+  
+
+  getUserByEmailId(emailId :string):Observable<any>{
+
+    return this.httpClient.get<any>(this.url+"/api/v1/getUserByEmailIdInUserTask/"+emailId);
   }
 
-  getUserByEmailId():Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByEmailIdInUserTask/"+this.email);
-  }
-
-  getTaskByTaskId(user:User, task:Task):Observable<Task>{
-    return this.httpClient.get<Task>(this.url+"/api/v1/task/getByTaskIdInUserTask/"+user.userId+"/"+task.taskId);
+  getTaskByTaskId(userId:number, taskId:number):Observable<Task>{
+    return this.httpClient.get<Task>(this.url+"/api/v1/task/getByTaskIdInUserTask/"+userId+"/"+taskId);
   }
 
   deleteAllUsers():Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteAllUserFromUserTask");
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteAllUserFromUserTask",{ headers: this.headers });
   }
 
   deleteUserById(user:User):Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteUserByIdInUserTask/"+user.userId);
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteUserByIdInUserTask/"+user.userId,{ headers: this.headers });
   }
 
-  deleteTaskByTaskId(user:User, task:Task):Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteTaskByTaskIdInUserTask/"+user.userId+"/"+task.taskId);
+  deleteTaskByTaskId(userId:number, taskId:number):Observable<boolean>{
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteTaskByTaskIdInUserTask/"+userId+"/"+taskId);
   }
+
+
+
+  ///////////////////////////////////////////////////////Login Part//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
 }

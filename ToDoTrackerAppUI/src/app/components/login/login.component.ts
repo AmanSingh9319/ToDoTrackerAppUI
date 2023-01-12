@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { User } from 'src/app/model/User';
 import { UserAuthenticationService } from 'src/app/services/user-authentication.service';
 import { UserTaskService } from 'src/app/services/user-task.service';
+import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 
 
 @Component({
@@ -12,56 +14,47 @@ import { UserTaskService } from 'src/app/services/user-task.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+@Injectable()
 export class LoginComponent {
 
-  loginForm=new FormGroup({
-    emailId:new FormControl('',Validators.required),
-    password:new FormControl('',Validators.required),
-   
-  })
-  email:string="";
+  loginForm = new FormGroup({
+    emailId: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
 
-  get emailId(){
+  })
+  email: string = "";
+
+  get emailId() {
     return this.loginForm.get('emailId');
   }
-  get password(){
+  get password() {
     return this.loginForm.get('password');
   }
 
 
-  constructor(private httpClient:HttpClient, private _snackBar: MatSnackBar, private loginser:UserAuthenticationService,
-    private taskService:UserTaskService, private router:Router) { }
-  
-    error:String=''
- 
-    onLogin(){
+  constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router ) { }
 
-    this.taskService.getEmail1(this.email);
-    console.log(this.email);
-    this.router.navigate(['view-task'])
-    // this.loginser.loginUser(this.loginForm.value).subscribe(response=>{
-    //   localStorage.setItem("User_id",response.userid);
-    //   console.log(response.token+" "+response.username+" "+response.userid)
-    //   localStorage.setItem("Jwt_Token",response.token);
-    //   localStorage.setItem("User_Name",response.UserName);
-    //   this.loginser.userLoggedIn();
-    //   this.router.navigate(['admin'])
-    // },(error=>{
-    //   console.log(error);
-    //   alert("Login Failed!!");
 
-     
-    // }))
-     console.log(this.loginForm.value); // .value is a property of ngform: that gives the value
-    // this._snackBar.open('Congrats!!You have logged In!!', 'success', {
-    //   duration: 5000,
-    //   panelClass: ['mat-toolbar', 'mat-primary']
-    // });
-     this.loginForm.reset();
-    }
 
-    registerRoutefunc(){
-      this.router.navigateByUrl("register")
-    }
+  onLogin() {
+    this.taskService.generateToken(this.loginForm.value).subscribe(
+      (response: any) => {
+        this.taskService.loginUser(response.secretKeyToken.token);
+        this.router.navigate(['view-task/'+response.user.userId])
+        this._snackBar.open('Congrats!!You have logged In!!', 'success', {
+              duration: 5000,
+              panelClass: ['mat-toolbar', 'mat-primary']
+            });
+      },
+      (err) => {
+        alert("invalid credentials")
+        console.log(err.message);
+      })
+  }
+
+ registerRoutefunc() {
+    this.router.navigateByUrl("register")
+  }
 
 }

@@ -40,7 +40,7 @@ export class RegisterComponent {
     let data1=JSON.stringify(this.registerForm.value)
   this.userTaskSer.registerUser(this.registerForm.value).subscribe(response=>{
       console.log(response);
-      this.userTaskSer.userLoggedIn();
+     
       this.router.navigate(['user'])
   },
     (error)=>{

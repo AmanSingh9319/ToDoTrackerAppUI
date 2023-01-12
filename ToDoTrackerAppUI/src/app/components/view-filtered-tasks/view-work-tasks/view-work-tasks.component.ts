@@ -14,18 +14,16 @@ export class ViewWorkTasksComponent {
   user:User={};
   tasks:Task[] = [];
 
-  getWorkTask(){                                                             //to view personal tasks
-    this.userTaskService.getAllTasksOfUser(this.user).subscribe({
-      next:data => { this.tasks=data.filter((task)=>
-        {
-          return task.taskCategory?.startsWith("work");
-        }) },
-      error() {alert ("error occured while loading the work tasks")},          
-    })
-  }
+  // getWorkTask(){                                                             //to view personal tasks
+  //   this.userTaskService.getAllTasksOfUser(this.user).subscribe({
+  //     next:data => { this.tasks=data.filter((task)=>
+  //       {
+  //         return task.taskCategory?.startsWith("work");
+  //       }) },
+  //     error() {alert ("error occured while loading the work tasks")},          
+  //   })
+  // }
 
-  ngOnInit(): void {
-    this.getWorkTask();
-   
-  }
+  // ngOnInit(): void {
+  //   this.getWorkTask(); }
 }

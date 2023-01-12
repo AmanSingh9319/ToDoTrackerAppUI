@@ -11,15 +11,34 @@ constructor(private httpClient:HttpClient) { }
 
 url:string="http://localhost:9000";
   
-loginUser(data:any):Observable<any>{
-     return this.httpClient.post<any>(this.url+"/api/v2/AddUserInUserAuth",data);
-    }
-  
-isLoggedIn:boolean=false
-  
-public userLoggedIn(){
-      this.isLoggedIn=true;
-      console.log(this.isLoggedIn)
-  
-    }
+generateToken(data:any):Observable<any>{
+  return this.httpClient.post<any>(this.url+"/api/v2/login",data);
+ }
+
+
+
+ //to check that the user is logged in or not !!
+loginUser(token: any) {
+ localStorage.setItem("token", token);
+ return true;
+}
+
+isLoggedIn() {
+ let token = localStorage.getItem("token");
+ if (token == undefined || token === "" || token == null) {
+   return false;
+ }
+ else {
+   return true;
+ }
+}
+
+logout() {
+ localStorage.removeItem('token');
+ return true;
+}
+
+getToken() {
+ return localStorage.getItem("token");
+}
 }

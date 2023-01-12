@@ -2,8 +2,11 @@
 <app-search (searchs)="search($event)"></app-search>
 
 
-<h1>{{check}}</h1>
+<button mat-icon-button color="primary" (click)="open()" aria-label="Example icon button with a home icon">
+  <mat-icon>add</mat-icon>
+</button>
 
+<br>
 
 
 <div id="ca">
@@ -44,6 +47,12 @@
         <div id="category">
           {{note.taskCategory}}
         </div>
+        <button mat-icon-button color="primary" (click)="open1(note.taskId)" aria-label="Example icon button with a home icon">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="delete(note.taskId)" aria-label="Example icon button with a home icon">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-card>
     </div>
   </div> 
