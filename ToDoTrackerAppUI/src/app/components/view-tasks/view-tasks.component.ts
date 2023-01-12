@@ -32,7 +32,7 @@ open() {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
       data: { userId: this.userId ,task:taskId},
       width: "700px",
-      height: "850px"
+      height: "900px"
     })
   }
 delete(taskId:any){

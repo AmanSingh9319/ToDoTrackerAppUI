@@ -68,6 +68,10 @@ const routes: Routes = [
     component:ViewTasksComponent
   },
   {
+    path:"view-task",
+    component:ViewTasksComponent
+  },
+  {
     path:"login",
     component:LoginComponent
   }
