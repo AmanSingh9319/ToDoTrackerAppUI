@@ -15,7 +15,7 @@ export class UserTaskService {
   constructor(private httpClient:HttpClient) { }
 
   url:string="http://localhost:9000"
-
+  
   registerUser(data:any){
     console.log(data)
     return this.httpClient.post<any>(this.url+"/api/v1/AddUserInUserTask",data);
@@ -26,17 +26,11 @@ export class UserTaskService {
   }
 
   updateTask(userId:number, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+userId, task,{ headers: this.headers });
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+userId, task);
   }
 
-  getAllUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask",{ headers: this.headers });
-  }
-
-  getUserById(user:User):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId,{ headers: this.headers });
-  }
-/////////////////////////////|||||||||||||||||||||||||||||||||||||||||||||||||||||\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+ 
+///////////////////////////// All Get request \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
    
 
@@ -45,32 +39,41 @@ export class UserTaskService {
   endpoint: string = 'http://localhost:9000/api/v1';
   currentUser?:number; 
 
-  // initializeCurrentUser(userId : number){
-  //   this.currentUser = 
-  // }
-
   getAllTasksOfUser(user :number):Observable<Task[]>{
     this.currentUser = user
-    let api = `${this.endpoint}/getAllTasksOfUserFromUserTask/${this.currentUser}`;
+    let api = `${this.endpoint}/task/getAllTasksOfUserFromUserTask/${this.currentUser}`;
     return this.httpClient.get<Task[]>(api);
   }
   
 
   getUserByEmailId(emailId :string):Observable<any>{
 
-    return this.httpClient.get<any>(this.url+"/api/v1/getUserByEmailIdInUserTask/"+emailId);
+    return this.httpClient.get<any>(this.url+"/api/v1/task/getUserByEmailIdInUserTask/"+emailId);
   }
 
   getTaskByTaskId(userId:number, taskId:number):Observable<Task>{
     return this.httpClient.get<Task>(this.url+"/api/v1/task/getByTaskIdInUserTask/"+userId+"/"+taskId);
   }
 
+  getAllUsers():Observable<User[]>{
+    return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask");
+  }
+
+  getUserById(user:User):Observable<User>{
+    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId);
+  }
+
+
+
+  ///////////////////////////////////////////DELETE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
   deleteAllUsers():Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteAllUserFromUserTask",{ headers: this.headers });
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteAllUserFromUserTask");
   }
 
   deleteUserById(user:User):Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteUserByIdInUserTask/"+user.userId,{ headers: this.headers });
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteUserByIdInUserTask/"+user.userId);
   }
 
   deleteTaskByTaskId(userId:number, taskId:number):Observable<boolean>{
@@ -79,7 +82,7 @@ export class UserTaskService {
 
 
 
-  ///////////////////////////////////////////////////////Login Part//////////////////////////////////////////////////////////////////////////////////
+  
 
 
 
