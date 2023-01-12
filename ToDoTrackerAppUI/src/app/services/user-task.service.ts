@@ -43,15 +43,9 @@ constructor(private httpClient:HttpClient) { }
   getUserById(user:User):Observable<User>{
     return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId);
   }
-/////////////////////////////
-  email?: string;
-  
-  getEmail1(email: string) {
-    this.email = email;
-  }
 
-  getUserByEmailId():Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByEmailIdInUserTask/"+this.email);
+  getUserByEmailId(user:User):Observable<User>{
+    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByEmailIdInUserTask/"+user.emailId);
   }
 
   getTaskByTaskId(user:User, task:Task):Observable<Task>{

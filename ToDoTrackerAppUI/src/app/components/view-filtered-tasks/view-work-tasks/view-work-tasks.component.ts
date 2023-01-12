@@ -9,6 +9,44 @@ import { UserTaskService } from 'src/app/services/user-task.service';
   styleUrls: ['./view-work-tasks.component.css']
 })
 export class ViewWorkTasksComponent {
+  notes:Task[] = [
+    {
+      taskId:1,
+      taskName:"continue",
+      taskContent:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ",
+      taskCategory:"work",
+      taskDeadline:"23/01/2022",
+      taskPriorityLevel: "Low",
+      isTaskCompleted:true
+    },
+    {
+      taskId:2,
+      taskName:"okokok",
+      taskContent:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ",
+      taskCategory:"work",
+      taskDeadline:"23/01/2022",
+      taskPriorityLevel: "Low",
+      isTaskCompleted:true
+    },
+    {
+      taskId:3,
+      taskName:"do the work",
+      taskContent:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ",
+      taskCategory:"work",
+      taskDeadline:"23/01/2022",
+      taskPriorityLevel: "Low",
+      isTaskCompleted:true
+    },
+    {
+      taskId:4,
+      taskName:"complete the task",
+      taskContent:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ",
+      taskCategory:"work",
+      taskDeadline:"23/01/2022",
+      taskPriorityLevel: "Low",
+      isTaskCompleted:true
+    }
+  ];
   constructor(private userTaskService:UserTaskService) { }
 
   user:User={};
@@ -20,7 +58,7 @@ export class ViewWorkTasksComponent {
         {
           return task.taskCategory?.startsWith("work");
         }) },
-      error() {alert ("error occured while loading the work tasks")},          
+      error() {alert ("error occured while loading work tasks")},          
     })
   }
 
