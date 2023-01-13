@@ -54,7 +54,7 @@ export class RegisterComponent {
           },
             (error)=>{
               console.log(error);
-              alert("Form Not Submitted!!");
+              alert("same emailId already exist ");
             }
           ) 
             

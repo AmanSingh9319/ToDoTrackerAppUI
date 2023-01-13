@@ -15,67 +15,49 @@ import { UpdateTaskComponent } from '../update-task/update-task.component';
 export class ViewTasksComponent implements OnInit {
 
   notes: Task[] = [];
-  userId:any ;
-  
- constructor(private taskService: UserTaskService, private router: Router,
-     public dialog: MatDialog, private actRoute: ActivatedRoute) { }
+  userId: any;
+
+  constructor(private taskService: UserTaskService, private router: Router,
+    public dialog: MatDialog, private actRoute: ActivatedRoute) { }
 
 
-open() {
+  add() {
     const dialogRef = this.dialog.open(AddTaskComponent, {
       data: { userId: this.userId },
       width: "700px",
       height: "850px"
     })
   }
-  open1(taskId:any) {
+  update(taskId: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
-      data: { userId: this.userId ,task:taskId},
+      data: { userId: this.userId, task: taskId },
       width: "700px",
       height: "900px"
     })
   }
-delete(taskId:any){
-  console.log(taskId);
-  
-this.taskService.deleteTaskByTaskId(this.userId,taskId).subscribe({next(){alert("successfully deleted ")},error(){alert("error from server side ")}})
-window.location.reload();
-}
+  delete(taskId: any) {
+    console.log(taskId);
 
-ngOnInit(): void {
+    this.taskService.deleteTaskByTaskId(this.userId, taskId).subscribe({ next() { alert("successfully deleted ") }, error() { alert("error from server side ") } })
+    window.location.reload();
+  }
+
+  ngOnInit(): void {
     this.userId = this.actRoute.snapshot.paramMap.get('userId');
     this.taskService.getAllTasksOfUser(this.userId).subscribe(response => {
       this.notes = response
-        console.log(response);
-        console.log(this.userId);
-    })}
-
-
-
-
-
-
-
-
-
-
+      console.log(response);
+      console.log(this.userId);
+    })
+  }
 
 
   search(searchText: string) {
-    //   this.noteService.getNote().subscribe({
-    //     next: data => 
-
-    //   {if(searchText || searchText !== ''){
-    //  this.notes =data.filter(data => data?.title?.includes(searchText));}
-    //   else
-    //   {
-    //     this.notes = data;
-    //   }
-    // }})
-    //   }
-    //   }
-     this.notes = this.notes.filter(data => data?.taskName?.includes(searchText));
+      this.notes = this.notes.filter((task) => {
+      return task.taskName?.startsWith(searchText);
+    })
   }
- 
-
 }
+
+
+

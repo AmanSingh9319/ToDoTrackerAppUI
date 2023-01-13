@@ -46,7 +46,7 @@
 
           
           
-          <button mat-icon-button color="primary" (click)="open1(note.taskId)" aria-label="Example icon button with a home icon">
+          <button mat-icon-button color="primary" (click)="update(note.taskId)" aria-label="Example icon button with a home icon">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button color="warn" (click)="delete(note.taskId)" aria-label="Example icon button with a home icon">
@@ -60,6 +60,6 @@
   </div> 
 
 </div>
-<button  id="addButton"  mat-fab color="warn" (click)="open()" >
+<button  id="addButton"  mat-fab color="warn" (click)="add()" >
   <mat-icon>add</mat-icon>
 </button>
