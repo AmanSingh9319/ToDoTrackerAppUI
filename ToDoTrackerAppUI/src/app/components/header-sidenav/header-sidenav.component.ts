@@ -32,6 +32,15 @@ export class HeaderSidenavComponent {
    
   }
 
+  methodToGetId(){
+    this.userId = this.service.currentUser;
+    this.router.navigate(['view-archive-task'])
+    console.log(this.userId);
+    
+   }
+
+  
+
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

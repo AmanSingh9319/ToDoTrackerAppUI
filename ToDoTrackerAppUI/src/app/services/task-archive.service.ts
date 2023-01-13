@@ -8,7 +8,7 @@ import { User } from '../model/User';
   providedIn: 'root'
 })
 export class TaskArchiveService {
-
+  currentUserId:any;
   constructor(private httpClient:HttpClient) { }
 
   url:string="http://localhost:9000"
@@ -18,20 +18,20 @@ insertUserInArchive(data:any){
     return this.httpClient.post<any>(this.url+"/api/v3/addUserInArchive",data);
 }
 
-addTaskInArchive(user:User, task:Task){
-  return this.httpClient.put<Task>(this.url+"/api/v3/addTaskInArchive/"+user.userId, task);
+addTaskInArchive(userId:number,task:Task){
+  return this.httpClient.put<Task>(this.url+"/api/v3/addTaskInArchive/"+userId, task);
 }
 
 updateTaskInArchive(user:User, task:Task){
   return this.httpClient.put<Task>(this.url+"/api/v3/updateTaskInArchive/"+user.userId, task);
 }
 
-getAllTasksInArchive(user:User):Observable<Task[]>{
-  return this.httpClient.get<Task[]>(this.url+"/api/v3/getAllTasksFromArchive/"+user.userId);
+getAllTasksInArchive(userId:any):Observable<Task[]>{
+  return this.httpClient.get<Task[]>(this.url+"/api/v3/getAllTasksFromArchive/"+userId);
 }
 
-deleteTaskByInArchive(user:User, task:Task):Observable<boolean>{
-  return this.httpClient.delete<boolean>(this.url+"/api/v3/deleteTaskFromArchive/"+user.userId+"/"+task.taskId);
+deleteTaskByInArchive(userId:number,taskId:any):Observable<boolean>{
+  return this.httpClient.delete<boolean>(this.url+"/api/v3/deleteTaskFromArchive/"+userId+"/"+taskId);
 }
 
 }

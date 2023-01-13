@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/User';
+import { TaskArchiveService } from 'src/app/services/task-archive.service';
 import { UserTaskService } from 'src/app/services/user-task.service';
 
 
@@ -25,7 +26,8 @@ export class RegisterComponent {
     role: ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private router:Router, private userTaskSer:UserTaskService) {}
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar,private router:Router, private userTaskSer:UserTaskService
+    ,private taskarc : TaskArchiveService) {}
   
   formData = new FormData
   onFileSelect(event:any){
@@ -56,10 +58,7 @@ export class RegisterComponent {
               console.log(error);
               alert("same emailId already exist ");
             }
-          ) 
-            
-      
-      
+          )    
     }
 
 
