@@ -28,7 +28,7 @@ p{
   border-radius: 10px; */
   /* background-image: "../../assets/images/loginbackground.webp"; */
   margin: 100px auto ;
-  height: 800px;
+  height: 720px;
   width: 700px;
   padding: 10px;
 }
@@ -47,4 +47,11 @@ p{
   height: 100px;
   width: 100px;
   font-size: 80px;
+}
+#alreadyUserSpan{
+  text-align: center;
+  margin-right: 150px;
+}
+button{
+margin-left: 45%;
 }

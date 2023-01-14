@@ -1,0 +1,41 @@
+.card {
+    background-color: rgb(245, 209, 209);
+    border-radius: 4px;
+    margin-top: 80px;
+    padding: 5px;
+    width: 350px;
+    text-align: center;
+    float: left;
+    margin-left: 100px;
+}
+
+.example-header-image {
+    background-image: url('../../../assets/images/1342400-middle.png');
+    background-size: cover;
+    border: 1px solid;
+
+}
+
+h6 {
+    display: inline;
+    background-color: rgb(169, 69, 236);
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.button {
+    display: inline;
+    float: right;
+    margin-left: 20px;
+
+}
+
+.cat {
+    float: left;
+    margin-top: 10px;
+}
+
+.cont {
+    margin: 2px
+}

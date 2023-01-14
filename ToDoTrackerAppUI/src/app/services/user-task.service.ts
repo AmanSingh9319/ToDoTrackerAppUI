@@ -46,7 +46,7 @@ export class UserTaskService {
     return true;
    }
    
-  logout() {
+  removeEmail() {
     localStorage.removeItem('email');
     return true;
    }

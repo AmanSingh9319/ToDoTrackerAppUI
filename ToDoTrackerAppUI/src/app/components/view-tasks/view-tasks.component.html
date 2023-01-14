@@ -5,11 +5,14 @@
 
     <div *ngFor="let note of notes">
 
-      <mat-card class="card" >
+      <mat-card class="card" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
+                                          'high': note.taskPriorityLevel == 'High', 
+                                         'medium': note.taskPriorityLevel == 'Medium',
+                                          'low': note.taskPriorityLevel =='Low' }" >
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{ note.taskName }}</mat-card-title>
-          <mat-card-subtitle>{{note.taskCategory}}</mat-card-subtitle>
+          <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
+          <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
           
         <mat-card-title-group>
           
@@ -36,7 +39,7 @@
         </mat-card-header>
         <hr>
         <mat-card-content>
-          <p class="text-center">{{ note.taskContent }}</p>
+          <p class="text-center" style="color: black;">{{ note.taskContent }}</p>
         </mat-card-content>
         <hr>
         <div style="justify-content: space-between;">
@@ -97,9 +100,3 @@
 
 
 
-<!-- 
-[ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
-                                          'high': note.taskPriorityLevel == 'High', 
-                                          'medium': note.taskPriorityLevel == 'Medium',
-                                          'low': note.taskPriorityLevel =='Low'
-                                        }" -->

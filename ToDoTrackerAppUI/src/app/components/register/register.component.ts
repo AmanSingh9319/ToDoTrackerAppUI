@@ -62,6 +62,11 @@ export class RegisterComponent {
     }
 
 
+    registerRoutefunc() {
+      this.router.navigateByUrl("login")
+    }
+
+
 
 
 

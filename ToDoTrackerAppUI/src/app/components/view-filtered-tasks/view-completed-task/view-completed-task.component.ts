@@ -6,6 +6,7 @@ import { TaskArchiveService } from 'src/app/services/task-archive.service';
 import { UserTaskService } from 'src/app/services/user-task.service';
 import { AddTaskComponent } from '../../add-task/add-task.component';
 import { UpdateTaskComponent } from '../../update-task/update-task.component';
+import { SendConfirmationComponent } from '../send-confirmation/send-confirmation.component';
 
 @Component({
   selector: 'app-view-completed-task',
@@ -34,37 +35,45 @@ export class ViewCompletedTaskComponent implements OnInit {
   
     }
 
-  getCompletedTask() {                                                           
-    this.taskService.getAllTasksOfUser(this.emailId).subscribe({
-      next: data => {
-        this.notes = data.filter((task) => {
-          return task.isTaskCompleted?.valueOf();
-        })
-      },
-      error() { alert("error occured while loading the Pizza Details") },
-    })
+    move(note: any) {
+      const dialogRef = this.dialog.open(SendConfirmationComponent, {
+        data: { emailId: this.emailId, task: note },
+        width: "400px",
+        height: "247px" })
+    }
+
+
+    update(taskId: any) {
+      const dialogRef = this.dialog.open(UpdateTaskComponent, {
+        data: { emailId: this.emailId, task: taskId },
+        width: "700px",
+        height: "900px"
+      })
+    }
+
   }
+
+  // getCompletedTask() {                                                           
+  //   this.taskService.getAllTasksOfUser(this.emailId).subscribe({
+  //     next: data => {
+  //       this.notes = data.filter((task) => {
+  //         return task.isTaskCompleted?.valueOf();
+  //       })
+  //     },
+  //     error() { alert("error occured while loading the Pizza Details") },
+  //   })
+ // }
   
  
 
 
 
 
-  update(taskId: any) {
-    const dialogRef = this.dialog.open(UpdateTaskComponent, {
-      data: { emailId: this.emailId, task: taskId },
-      width: "700px",
-      height: "900px"
-    })
-  }
-  move(task: any) {
-    this.taskArc.addTaskInArchive(task, this.emailId).subscribe(data => { console.log(task) });
-    this.taskService.deleteTaskByTaskId(this.emailId, task.taskId).subscribe(() => alert("successfull move to archive"))
-    window.location.reload();
-  }
+  
+ 
 
 
 
 
 
-}
+

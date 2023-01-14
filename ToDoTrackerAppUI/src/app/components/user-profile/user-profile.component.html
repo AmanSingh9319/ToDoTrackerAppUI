@@ -1,13 +1,16 @@
-<div>
-    <span class="headerSpan">
-        <h1><strong>My Profile</strong></h1>
-    </span><br><br>
+
+   
     <mat-card class="example-card">
+        <span class="headerSpan">
+            <h1><strong>My Profile</strong></h1>
+        </span><br><br>
         <span>
             <img mat-card-image [src]="'data:image/jpeg;base64,'+userDetail.img">
         </span>
-        <mat-card-title>Name: {{userDetail.firstName}}</mat-card-title><br>
+        <mat-card-title style="color: rgb(221, 147, 147);">Name: {{userDetail.firstName}}&nbsp;{{userDetail.lastName}}</mat-card-title><br>
+        <mat-card-subtitle>Mobile No.:7854125896 </mat-card-subtitle>
+
         <mat-card-subtitle>EmailId:{{userDetail.emailId}}  </mat-card-subtitle>
     </mat-card>
-</div>
+
 

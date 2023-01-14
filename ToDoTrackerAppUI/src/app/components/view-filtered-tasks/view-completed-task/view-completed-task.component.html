@@ -6,8 +6,9 @@
             <mat-card class="card">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{ note.taskName }}</mat-card-title>
-                    <mat-card-subtitle>{{note.taskCategory}}</mat-card-subtitle>
+                    <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
+                    <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
+                    
 
                     <mat-card-title-group>
 
@@ -36,7 +37,7 @@
                 </mat-card-header>
                 <hr>
                 <mat-card-content>
-                    <p class="text-center">{{ note.taskContent }}</p>
+                    <p class="text-center" style="color: black;">{{ note.taskContent }}</p>
                 </mat-card-content>
 
 
@@ -44,7 +45,7 @@
                 <div style="justify-content: space-around;">
                     <div class="button">
                         <div class="cat">
-                            <h6>{{note.taskDeadline}}</h6>
+                            <h6 style="color: black;">{{note.taskDeadline}}</h6>
                         </div>
                         <button mat-icon-button color="primary" (click)="update(note.taskId)"
                             aria-label="Example icon button with a home icon">
@@ -53,6 +54,7 @@
                         <button mat-icon-button color="warn" (click)="move(note)"
                             aria-label="Example icon button with a home icon">
                             <mat-icon>assignment_returned</mat-icon>
+                            
                         </button>
                         
 
@@ -65,53 +67,3 @@
     </div>
 
 </div>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
-    Add Restaurant
-  </button>
-  <!-- Adding Restaurant -->
-  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-title" id="exampleModalLongTitle">Add Restaurant</div>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><mat-icon>close</mat-icon></span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form >
-  
-            <mat-form-field appearance="outline">
-              <mat-label>restaurant Name</mat-label>
-              <input type="text" matInput type="restaurantName" formControlName="restaurantName" id="restaurantName">
-            </mat-form-field>
-  
-            <mat-form-field appearance="outline" class="move">
-              <mat-label>City</mat-label>
-              <input type="text" matInput type="city" formControlName="city" id="city">
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline" class="full">
-              <mat-label>description</mat-label>
-              <textarea matInput type="description"  formControlName="description" id="description"></textarea>
-            </mat-form-field>
-            
-            <div>
-              <input type="file" >
-            </div>
-  
-            <br> <br>
-  
-            <button class="button1" mat-button mat-raised-button type="reset" >Reset</button>
-            <button class="button2"  mat-button mat-raised-button
-            data-bs-dismiss="modal" aria-label="Close">Submit</button>
-          </form>
-  
-        </div>
-      </div>
-    </div>
-  </div>

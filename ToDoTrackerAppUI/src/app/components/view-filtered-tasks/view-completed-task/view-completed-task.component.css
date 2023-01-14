@@ -1,5 +1,5 @@
 .card {
-    background-color: aliceblue;
+    background-color: rgb(209, 245, 213);
     border-radius: 4px;
     margin-top: 80px;
     padding: 5px;
@@ -18,7 +18,7 @@
 
 h6 {
     display: inline;
-    background-color: rgb(198, 241, 241);
+    background-color: rgb(166, 239, 121);
     padding: 10px;
     border-radius: 15px;
 

@@ -7,7 +7,7 @@
             <strong>Login Form</strong>
         </mat-toolbar-row>
     </mat-toolbar>
-</p>
+</p><br>
 <div class="backcolor">
     <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
 
@@ -32,9 +32,9 @@
                 <button color="primary" mat-button mat-raised-button [disabled]="loginForm.invalid" type="submit"class="button alt-gradient-button" >Log In</button>
             </div>
         </form>
-</div><br><br>
+</div><br>
 <span id="alreadyUserSpan">
-    <strong>Already an User ? Please  </strong><button mat-button mat-raised-button (click)="registerRoutefunc()">Register</button>
+    <strong>New User ? Please  </strong><a style="color: blue;" (click)="registerRoutefunc()">Register</a>
 </span>
 </mat-card>
 </div>

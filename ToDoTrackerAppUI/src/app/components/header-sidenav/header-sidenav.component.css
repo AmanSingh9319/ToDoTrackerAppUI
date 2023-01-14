@@ -35,16 +35,16 @@ h1.example-app-name {
 .navListDiv{
   margin: 10px;
   border-radius: 10px;
-  background-color: rgb(243, 243, 243);
+ 
 }
 .headingSpan{
-  color:rgb(97, 97, 97);
+ 
   position: relative;
   left: 10px;
 }
 .menuSpan{
   width: 200px;
-  color:rgb(97, 97, 97);
+ 
   position: relative;
   left: 1em;
 }

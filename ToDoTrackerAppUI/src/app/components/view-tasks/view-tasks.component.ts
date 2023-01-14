@@ -16,6 +16,7 @@ import { UpdateTaskComponent } from '../update-task/update-task.component';
 export class ViewTasksComponent implements OnInit {
 
   notes: Task[] = [];
+  searchResult: Task[] = [];
   emailId: any;
 
   
@@ -48,15 +49,25 @@ export class ViewTasksComponent implements OnInit {
       
       this.taskService.getAllTasksOfUser(this.emailId).subscribe(response => {
       this.notes = response
+      this.searchResult=this.notes
       console.log(this.emailId);})}
 
 
   
 
   search(searchText: string) {
-      this.notes = this.notes.filter((task) => {
-      return task.taskName?.startsWith(searchText);})}
-
+      
+      //  if (searchText === " " || !searchText)
+      //     this.notes = this.searchResult;
+      //   else {
+      //     console.log(this.notes);
+      //      console.log(this.searchResult);
+            
+      //   this.notes = this.searchResult.filter(c => c.taskName?.startsWith(searchText));
+      //   console.log(searchText);
+      //   console.log(this.notes);
+      //  }
+      }
 }
 
 

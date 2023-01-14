@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Task } from 'src/app/model/Task';
 import { TaskArchiveService } from 'src/app/services/task-archive.service';
 import { UserTaskService } from 'src/app/services/user-task.service';
+import { UpdateTaskComponent } from '../update-task/update-task.component';
 
 @Component({
   selector: 'app-view-archive-task',
@@ -15,7 +16,7 @@ export class ViewArchiveTaskComponent  implements OnInit{
  
  
   notes: Task[] = [];
-  task:Task={};
+  task1:Task={};
   userId:any;
 
   
@@ -38,6 +39,8 @@ export class ViewArchiveTaskComponent  implements OnInit{
     this.taskArc.deleteTaskByInArchive(this.userId,task.taskId).subscribe(()=>alert("move to user service"+task)); 
     window.location.reload();
   }
+
+
   
 
   }

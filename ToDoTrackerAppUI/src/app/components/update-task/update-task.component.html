@@ -62,9 +62,9 @@
           <div>
             <mat-form-field style=" width: 80%;">
                 <mat-label>Is Task Completed </mat-label>
-            <mat-select  name="isTaskCompleted"  id="isTaskCompleted"  [(ngModel)]="task.isTaskCompleted">
-                <mat-option value="true">true</mat-option>
-                <mat-option value="false">false</mat-option>
+            <mat-select   name="isTaskCompleted"  id="isTaskCompleted"  [(ngModel)]="task.isTaskCompleted">
+                <mat-option value="true">Yes</mat-option>
+                <mat-option value="false">No</mat-option>
             </mat-select>
              </mat-form-field>
           </div>
@@ -76,7 +76,6 @@
                 <mat-select name="taskCategory"  [(ngModel)]="task.taskCategory">
                     <mat-option value="Work">Work</mat-option>
                     <mat-option value="Personal">Personal</mat-option>
-                    <mat-option value="Archive">Archive</mat-option>
                 </mat-select>
                </mat-form-field>
           </div>

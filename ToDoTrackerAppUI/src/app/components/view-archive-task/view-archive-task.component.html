@@ -1,4 +1,133 @@
 <div class="cont">
+  <div id="con">
+
+      <div *ngFor="let note of notes">
+
+          <mat-card class="card">
+              <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
+                  <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
+
+                  <mat-card-title-group>
+
+                      <ng-container [ngSwitch]="note.taskPriorityLevel">
+                          <ng-container *ngSwitchCase="'Critical'">
+                              <mat-icon style="float: right ;" color="warn" aria-hidden="false"
+                                  aria-label="Example home icon" fontIcon="gpp_maybe"></mat-icon>
+                          </ng-container>
+                          <ng-container *ngSwitchCase="'High'">
+                              <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon"
+                                  fontIcon="arrow_circle_up">
+                              </mat-icon>
+                          </ng-container>
+                          <ng-container *ngSwitchCase="'Low'">
+                              <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon"
+                                  fontIcon="arrow_circle_down">
+                              </mat-icon>
+                          </ng-container>
+                          <ng-container *ngSwitchCase="'Medium'">
+                              <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon"
+                                  fontIcon="remove_circle_outline"></mat-icon>
+                          </ng-container>
+                          <ng-container *ngSwitchDefault>Code Default</ng-container>
+                      </ng-container>
+                  </mat-card-title-group>
+              </mat-card-header>
+              <hr>
+              <mat-card-content>
+                  <p class="text-center" style="color: black;">{{ note.taskContent }}</p>
+              </mat-card-content>
+
+
+              <hr>
+              <div style="justify-content: space-around;">
+                  <div class="button">
+                      <div class="cat">
+                          <h6 style="color: black;">{{note.taskDeadline}}</h6>
+                      </div>
+                     
+                      <button mat-icon-button color="warn" (click)="restore(note)"
+                          aria-label="Example icon button with a home icon">
+                          <mat-icon>check_circle</mat-icon>
+                      </button>
+                      
+
+                  </div>
+              </div>
+          </mat-card>
+
+      </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="cont">
 <div id="con">
  
   
@@ -52,4 +181,4 @@
   </div> 
 
 </div>
-
+ -->

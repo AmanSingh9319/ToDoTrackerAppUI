@@ -1,10 +1,11 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Task } from 'src/app/model/Task';
 import { User } from 'src/app/model/User';
 import { UserTaskService } from 'src/app/services/user-task.service';
+import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 
 @Component({
   selector: 'app-update-task',
@@ -21,7 +22,9 @@ export class UpdateTaskComponent implements OnInit{
 
 
   constructor(
-    private formBuilder: FormBuilder, private taskService: UserTaskService, private router: Router,@Inject(MAT_DIALOG_DATA) public data :{ emailId: any ,task:any}) { }
+    private formBuilder: FormBuilder, private taskService: UserTaskService,
+     private router: Router,@Inject(MAT_DIALOG_DATA) public data :{ emailId: any ,task:any},
+     public dialogRef: MatDialogRef<ViewTasksComponent>) { }
  
  
 
@@ -39,7 +42,7 @@ export class UpdateTaskComponent implements OnInit{
   function1() {
     this.taskService.updateTask(this.user,this.task).subscribe({next(){alert("successfully update done ")},error(){alert("error from server side ")}})
     console.log(this.task);
-    
     window.location.reload();
+    this.dialogRef.close()
   }
 }

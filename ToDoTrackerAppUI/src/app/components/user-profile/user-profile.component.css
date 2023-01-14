@@ -1,6 +1,5 @@
 .example-card {
-    margin-top: 1em;
-    margin-left: 10em;
+   
     padding: 10px;
     width: 600px;
     border-radius: 10px;
@@ -12,8 +11,4 @@ img{
 }
 strong{
     color:dodgerblue
-}
-.headerSpan{
-    position: relative;
-    left: 12em;
 }

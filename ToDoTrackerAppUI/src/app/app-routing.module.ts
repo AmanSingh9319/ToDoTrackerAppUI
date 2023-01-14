@@ -12,6 +12,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { HelpcenterComponent } from './components/helpcenter/helpcenter.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/view-completed-task/view-completed-task.component';
+import { SendConfirmationComponent } from './components/view-filtered-tasks/send-confirmation/send-confirmation.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -75,6 +77,14 @@ const routes: Routes = [
   {
     path:"login",
     component:LoginComponent
+  },
+  {
+    path:"popup",
+    component: SendConfirmationComponent
+  },
+  {
+      path:"**" ,
+      component: PageNotFoundComponent
   }
 ];
 

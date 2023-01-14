@@ -10,7 +10,7 @@ export class UserAuthenticationService {
 constructor(private httpClient:HttpClient) { }
 
 url:string="http://localhost:9000";
-  
+  hideIcon?:boolean;
 generateToken(data:any):Observable<any>{
   return this.httpClient.post<any>(this.url+"/api/v2/login",data);
  }

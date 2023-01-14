@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/User';
 import { UserTaskService } from 'src/app/services/user-task.service';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 
 @Component({
   selector: 'app-add-task',
@@ -19,7 +20,7 @@ export class AddTaskComponent implements OnInit {
   addTaskForm!: FormGroup;
   addEmail: User = {}
   constructor(
-    private formBuilder: FormBuilder, private taskService: UserTaskService, private router: Router,@Inject(MAT_DIALOG_DATA) public data :{ userId: number }) { }
+    private formBuilder: FormBuilder, private taskService: UserTaskService, private router: Router,@Inject(MAT_DIALOG_DATA) public data :{ userId: number },public dialogRef: MatDialogRef<ViewTasksComponent>) { }
  
  
     Category: any[] = [
@@ -48,6 +49,7 @@ export class AddTaskComponent implements OnInit {
    window.location.reload();
    console.log(this.user);
    console.log(this.addTaskForm.value);
+   this.dialogRef.close()
 
   }
 

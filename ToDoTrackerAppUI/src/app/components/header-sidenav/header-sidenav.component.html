@@ -1,17 +1,18 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button *ngIf="userPresent" (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">To Do Tracker</h1>
 
-    <mat-chip class="profileSpan" (click)="userProfileRouteFunc()">
-      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/>
-      profile Name
+    <mat-chip class="profileSpan" *ngIf="userPresent" (click)="userProfileRouteFunc()">
+       <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> 
+      
+     Hii {{userDetail.firstName}}
     </mat-chip>
     
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
 
     <mat-sidenav class="matSNav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
@@ -31,6 +32,8 @@
           <a mat-list-item routerLink="view-work-tasks">Work</a>
           <a mat-list-item (click)="methodToGetId()">Archive</a>
           <mat-divider></mat-divider><br><br><br><br><br><br>
+       
+          <mat-slide-toggle>slide me</mat-slide-toggle>
           <a mat-list-item routerLink="settings">Settings</a>
           <a mat-list-item routerLink="helpcenter">Help</a>
           <button class="logOutButton" mat-button (click)="logOutFunc()"><h3>log out</h3></button>
@@ -46,3 +49,40 @@
 
   </mat-sidenav-container>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle> -->

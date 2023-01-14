@@ -1,0 +1,15 @@
+h2{
+   padding: 5px;
+  
+}
+mat-card{
+    background-color:rgb(195, 195, 243);
+    padding: 15px;
+   
+}
+button{
+    justify-content: center;
+}
+mat-card-actions{
+    justify-content: space-around;
+}
