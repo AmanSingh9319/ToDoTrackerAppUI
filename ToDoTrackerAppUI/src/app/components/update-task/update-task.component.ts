@@ -15,13 +15,13 @@ export class UpdateTaskComponent implements OnInit{
 
   task = new Task()
  
-  user: number = this.data.userId;
-  task1 :number =this.data.task;
+  user: any = this.data.emailId;
+  task1 :any =this.data.task;
 
 
 
   constructor(
-    private formBuilder: FormBuilder, private taskService: UserTaskService, private router: Router,@Inject(MAT_DIALOG_DATA) public data :{ userId: number ,task:number}) { }
+    private formBuilder: FormBuilder, private taskService: UserTaskService, private router: Router,@Inject(MAT_DIALOG_DATA) public data :{ emailId: any ,task:any}) { }
  
  
 

@@ -42,6 +42,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { AuthInterceptor } from './services/authconfig.interceptor';
 import { UpdateTaskComponent } from './components/update-task/update-task.component';
+import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/view-completed-task/view-completed-task.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { UpdateTaskComponent } from './components/update-task/update-task.compon
     SettingsComponent,
     PageNotFoundComponent,
     AddTaskComponent,
-    UpdateTaskComponent
+    UpdateTaskComponent,
+    ViewCompletedTaskComponent
 
   ],
   imports: [

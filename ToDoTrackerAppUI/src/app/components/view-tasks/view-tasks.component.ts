@@ -16,8 +16,7 @@ import { UpdateTaskComponent } from '../update-task/update-task.component';
 export class ViewTasksComponent implements OnInit {
 
   notes: Task[] = [];
-  task:any;
-  userId: any;
+  emailId: any;
 
   
 
@@ -27,47 +26,55 @@ export class ViewTasksComponent implements OnInit {
 
   add() {
     const dialogRef = this.dialog.open(AddTaskComponent, {
-      data: { userId: this.userId },
+      data: { emailId: this.emailId },
       width: "700px",
       height: "850px"
     })
   }
   update(taskId: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
-      data: { userId: this.userId, task: taskId },
+      data: { emailId: this.emailId, task: taskId },
       width: "700px",
-      height: "900px"
-    })
+      height: "900px" })
   }
-  delete(taskId: any) {
-    this.taskService.getTaskByTaskId(this.userId,taskId).subscribe(data =>{
-      this.task =data
-      this.taskArc.addTaskInArchive(this.userId,this.task).subscribe(data=>{
-        console.log(data);});
-     console.log(this.task);} )
-  
-     this.taskService.deleteTaskByTaskId(this.userId, taskId).subscribe({ next() { alert("successfully deleted ") }, error() { alert("error from server side ") } })
-     window.location.reload();
+  delete(task: any) {
+    this.taskService.deleteTaskByTaskId(this.emailId, task.taskId).subscribe(()=>alert("successfull move to archive"))
+    window.location.reload();
   }
 
   ngOnInit(): void {
-
-    this.userId = this.actRoute.snapshot.paramMap.get('userId');
-    this.taskArc.currentUserId = this.userId
-    this.taskService.getAllTasksOfUser(this.userId).subscribe(response => {
+      this.emailId = this.taskService.getEmailId()
+      console.log(this.emailId);
+      
+      this.taskService.getAllTasksOfUser(this.emailId).subscribe(response => {
       this.notes = response
-      console.log(response);
-      console.log(this.userId);
-    })
-  }
+      console.log(this.emailId);})}
 
+
+  
 
   search(searchText: string) {
       this.notes = this.notes.filter((task) => {
-      return task.taskName?.startsWith(searchText);
-    })
-  }
+      return task.taskName?.startsWith(searchText);})}
+
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// this.userId = this.actRoute.snapshot.paramMap.get('userId');

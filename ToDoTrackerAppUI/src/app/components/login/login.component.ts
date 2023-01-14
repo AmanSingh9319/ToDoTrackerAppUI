@@ -33,7 +33,7 @@ export class LoginComponent {
   }
 
 
-  constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router ) { }
+  constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router,private userTaskSer:UserTaskService ) { }
 
 
 
@@ -41,6 +41,7 @@ export class LoginComponent {
     this.taskService.generateToken(this.loginForm.value).subscribe(
       (response: any) => {
         this.taskService.loginUser(response.secretKeyToken.token);
+        this.userTaskSer.captureEmail(response.user.userId)
         this.router.navigate(['view-task/'+response.user.userId])
         this._snackBar.open('Congrats!!You have logged In!!', 'success', {
               duration: 5000,

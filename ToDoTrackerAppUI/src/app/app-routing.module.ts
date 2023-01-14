@@ -11,6 +11,7 @@ import { ViewWorkTasksComponent } from './components/view-filtered-tasks/view-wo
 import { SettingsComponent } from './components/settings/settings.component';
 import { HelpcenterComponent } from './components/helpcenter/helpcenter.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/view-completed-task/view-completed-task.component';
 
 const routes: Routes = [
   {
@@ -24,10 +25,6 @@ const routes: Routes = [
   {
     path:"register",
     component:RegisterComponent
-  },
-  {
-    path:"view-tasks",
-    component:ViewTasksComponent
   },
   {
     path:"view-archive-task",
@@ -58,6 +55,10 @@ const routes: Routes = [
     path:"helpcenter",
     component:HelpcenterComponent,
     
+  },
+  {
+    path:"view-complete-tasks",
+    component:ViewCompletedTaskComponent
   },
   {
     path:"user-profile",

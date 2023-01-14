@@ -25,7 +25,7 @@ export class ViewWorkTasksComponent {
   }
 
   ngOnInit(): void {
-    this.user = this.userTaskService.currentUser;
+    this.user = this.userTaskService.getEmailId()
     console.log(this.user);
     this.getWorkTask(); }
 }

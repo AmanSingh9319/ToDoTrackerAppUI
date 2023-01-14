@@ -15,7 +15,7 @@ export class ViewArchiveTaskComponent  implements OnInit{
  
  
   notes: Task[] = [];
-  task:any;
+  task:Task={};
   userId:any;
 
   
@@ -25,20 +25,19 @@ export class ViewArchiveTaskComponent  implements OnInit{
   
   
  ngOnInit(): void {
-  this.userId= this.taskArc.currentUserId
-  console.log(this.userId);
-   this.taskArc.getAllTasksInArchive(this.userId).subscribe(data =>{
+    this.userId=this.taskService.getEmailId()
+    this.taskArc.getAllTasksInArchive(this.userId).subscribe(data =>{
     this.notes =data
   })}
 
 
-  restore(taskId:any){
-    this.taskService.getTaskByTaskId(this.userId,taskId).subscribe(data =>{
-      this.task =data
-      this.taskService.addTask(this.userId,this.task).subscribe(data=>{
-        console.log(data);});
-     console.log(this.task);} )
-    
-    this.taskArc.deleteTaskByInArchive(this.userId,taskId).subscribe();
+  restore(task:any){
+
+    this.taskService.addTask(this.userId,task).subscribe(data=>{ console.log(data);});
+    console.log(task);
+    this.taskArc.deleteTaskByInArchive(this.userId,task.taskId).subscribe(()=>alert("move to user service"+task)); 
+    window.location.reload();
   }
-}
+  
+
+  }

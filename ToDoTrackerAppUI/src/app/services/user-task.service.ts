@@ -37,11 +37,26 @@ export class UserTaskService {
   
   
   endpoint: string = 'http://localhost:9000/api/v1';
-  currentUser?:number; 
+  currentEmailId:any ;
 
-  getAllTasksOfUser(user :number):Observable<Task[]>{
-    this.currentUser = user
-    let api = `${this.endpoint}/task/getAllTasksOfUserFromUserTask/${this.currentUser}`;
+
+
+  captureEmail(email: any) {
+    this.currentEmailId = localStorage.setItem("email", email);
+    return true;
+   }
+   
+  logout() {
+    localStorage.removeItem('email');
+    return true;
+   }
+  getEmailId() {
+    return localStorage.getItem('email');
+   }
+   
+  
+  getAllTasksOfUser(emailId:any):Observable<Task[]>{
+    let api = `${this.endpoint}/task/getAllTasksOfUserFromUserTask/${emailId}`;
     return this.httpClient.get<Task[]>(api);
   }
   
@@ -59,8 +74,8 @@ export class UserTaskService {
     return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask");
   }
 
-  getUserById(user:User):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId);
+  getUserById(user:any):Observable<User>{
+    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user);
   }
 
 

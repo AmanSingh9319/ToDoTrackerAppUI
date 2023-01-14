@@ -1,6 +1,7 @@
 <div class="cont">
 <div id="con">
-
+ 
+  
     <div *ngFor="let note of notes">
       <mat-card class="card">
         <mat-card-title>
@@ -13,8 +14,7 @@
         <mat-card-content>
             <p class="text-center">{{ note.taskContent }}</p>
         </mat-card-content>
-      
-       
+     
         <hr>
        <div class="button">
           <div class="cat">
@@ -41,7 +41,7 @@
             <ng-container *ngSwitchDefault>Code Default</ng-container>
           </ng-container>
 
-        <button mat-icon-button color="warn" (click)="restore(note.taskId)" aria-label="Example icon button with a home icon">
+        <button mat-icon-button color="warn" (click)="restore(note)" aria-label="Example icon button with a home icon">
           <mat-icon>delete</mat-icon>
         </button>
       </div>

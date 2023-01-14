@@ -18,7 +18,7 @@ insertUserInArchive(data:any){
     return this.httpClient.post<any>(this.url+"/api/v3/addUserInArchive",data);
 }
 
-addTaskInArchive(userId:number,task:Task){
+addTaskInArchive(task:Task,userId:number){
   return this.httpClient.put<Task>(this.url+"/api/v3/addTaskInArchive/"+userId, task);
 }
 
@@ -32,6 +32,10 @@ getAllTasksInArchive(userId:any):Observable<Task[]>{
 
 deleteTaskByInArchive(userId:number,taskId:any):Observable<boolean>{
   return this.httpClient.delete<boolean>(this.url+"/api/v3/deleteTaskFromArchive/"+userId+"/"+taskId);
+}
+
+getTaskByTaskIdFromArchive(userId:number, taskId:number):Observable<Task>{
+  return this.httpClient.get<Task>(this.url+"/api/v3/getByTaskIdInUserTask/"+userId+"/"+taskId);
 }
 
 }

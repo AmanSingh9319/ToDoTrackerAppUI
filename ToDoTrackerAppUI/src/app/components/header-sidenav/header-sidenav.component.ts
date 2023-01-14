@@ -12,8 +12,10 @@ import { UserTaskService } from 'src/app/services/user-task.service';
 })
 export class HeaderSidenavComponent {
 
+ 
+  //send this id to view task component and the we get all task of user
+  userId :any;
   mobileQuery: MediaQueryList;
-  
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router,private service : UserTaskService) {
@@ -23,21 +25,16 @@ export class HeaderSidenavComponent {
   }
   
   
-  //send this id to view task component and the we get all task of user
-  userId :any;
+  
   methodToGet(){
-   this.userId = this.service.currentUser;
+   this.userId = this.service.getEmailId()
    this.router.navigate(['view-task/'+this.userId])
    console.log(this.userId);
    
   }
 
   methodToGetId(){
-    this.userId = this.service.currentUser;
-    this.router.navigate(['view-archive-task'])
-    console.log(this.userId);
-    
-   }
+     this.router.navigate(['view-archive-task'])}
 
   
 
