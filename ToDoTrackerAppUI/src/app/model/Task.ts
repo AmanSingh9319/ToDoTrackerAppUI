@@ -5,6 +5,6 @@ export class Task {
     taskDeadline?: Date;
     taskCategory?: string;
     taskPriorityLevel?: string;
-    isTaskCompleted?:boolean;
+    taskCompleted?:boolean;
 
 }

@@ -19,18 +19,18 @@
               <ng-container [ngSwitch]="note.taskPriorityLevel">
               <ng-container *ngSwitchCase="'Critical'">
                 <mat-icon style="float: right ;" color="warn" aria-hidden="false" aria-label="Example home icon"
-                  fontIcon="gpp_maybe"></mat-icon>
+                  fontIcon="gpp_maybe" (click)="refresh(note.taskPriorityLevel)" ></mat-icon>
               </ng-container>
               <ng-container *ngSwitchCase="'High'">
-                <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_up">
+                <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_up" (click)="refresh(note.taskPriorityLevel)">
                 </mat-icon>
               </ng-container>
               <ng-container *ngSwitchCase="'Low'">
-                <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_down">
+                <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_down" (click)="refresh(note.taskPriorityLevel)">
                 </mat-icon>
               </ng-container>
               <ng-container *ngSwitchCase="'Medium'">
-                <mat-icon color="accent" aria-hidden="false" aria-label="Example home icon"
+                <mat-icon color="accent" aria-hidden="false" aria-label="Example home icon" (click)="refresh(note.taskPriorityLevel)"
                   fontIcon="remove_circle_outline"></mat-icon>
               </ng-container>
               <ng-container *ngSwitchDefault>Code Default</ng-container>
@@ -40,14 +40,20 @@
         <hr>
         <mat-card-content>
           <p class="text-center" style="color: black;">{{ note.taskContent }}</p>
+         
         </mat-card-content>
         <hr>
         <div style="justify-content: space-between;">
           
           <div class="button">
-            <p></p>
-        
-            <button mat-icon-button color="primary" (click)="update(note.taskId)"
+            <p>
+              {{note.taskDeadline}}
+            </p>
+            <button mat-icon-button color="primary" (click)="update1(note.taskName)"
+            aria-label="Example icon button with a home icon">
+            <mat-icon>check</mat-icon>
+          </button>
+            <button mat-icon-button color="primary" (click)="update(note.taskName)"
              aria-label="Example icon button with a home icon">
              <mat-icon>edit</mat-icon>
            </button>

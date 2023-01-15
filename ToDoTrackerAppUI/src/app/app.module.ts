@@ -45,6 +45,7 @@ import { UpdateTaskComponent } from './components/update-task/update-task.compon
 import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/view-completed-task/view-completed-task.component';
 import { SendConfirmationComponent } from './components/view-filtered-tasks/send-confirmation/send-confirmation.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UpdateConfirmationComponent } from './components/view-filtered-tasks/update-confirmation/update-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     AddTaskComponent,
     UpdateTaskComponent,
     ViewCompletedTaskComponent,
-    SendConfirmationComponent
+    SendConfirmationComponent,
+    UpdateConfirmationComponent
 
   ],
   imports: [

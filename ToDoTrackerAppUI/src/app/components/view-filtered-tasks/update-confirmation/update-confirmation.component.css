@@ -1,0 +1,12 @@
+.centre{
+    text-align: center;
+}
+#heading{
+    margin-top: 5%;
+ margin-left: 10%;
+}
+
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+  

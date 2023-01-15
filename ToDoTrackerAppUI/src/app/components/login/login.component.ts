@@ -33,7 +33,7 @@ export class LoginComponent {
   }
 
 
-  constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router,private userTaskSer:UserTaskService ) { }
+  constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router, private userTaskSer: UserTaskService) { }
 
 
 
@@ -42,20 +42,22 @@ export class LoginComponent {
       (response: any) => {
         this.taskService.loginUser(response.secretKeyToken.token);
         this.taskService.hideIcon = true
-        this.userTaskSer.captureEmail(response.user.userId)
-        this.router.navigate(['view-task/'+response.user.userId])
+        this.userTaskSer.captureEmail(response.user.emailId)
+        this.router.navigateByUrl('view-task')
         this._snackBar.open('Congrats!!You have logged In!!', 'success', {
-              duration: 5000,
-              panelClass: ['mat-toolbar', 'mat-primary']
-            });
+          duration: 5000,
+          panelClass: ['mat-toolbar', 'mat-primary']
+        });
+
       },
       (err) => {
         alert("invalid credentials")
         console.log(err.message);
       })
+    // window.location.reload()
   }
 
- registerRoutefunc() {
+  registerRoutefunc() {
     this.router.navigateByUrl("register")
   }
 

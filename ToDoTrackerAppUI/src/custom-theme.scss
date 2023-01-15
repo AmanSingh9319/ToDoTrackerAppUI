@@ -40,17 +40,17 @@ $ToDoTrackerAppUI-theme-dark: mat.define-dark-theme((
   
   @include mat.all-component-colors($ToDoTrackerAppUI-theme-dark);
 }
-.theme-light{
+// .theme-light{
   
-  @include mat.all-component-colors($ToDoTrackerAppUI-theme);
-}
+//   @include mat.all-component-colors($ToDoTrackerAppUI-theme);
+// }
 
 
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($ToDoTrackerAppUI-theme);
+ @include mat.all-component-themes($ToDoTrackerAppUI-theme);
 
 
 

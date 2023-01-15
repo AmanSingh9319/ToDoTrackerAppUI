@@ -37,7 +37,7 @@ export class ViewWorkTasksComponent {
 
    
     delete(note: any) {
-      this.taskService.deleteTaskByTaskId(this.user, note.taskId).subscribe(()=>alert("successfull move to archive"))
+      this.taskService.deleteTaskByTaskId(this.user, note.taskName).subscribe()
       window.location.reload();
     }
   

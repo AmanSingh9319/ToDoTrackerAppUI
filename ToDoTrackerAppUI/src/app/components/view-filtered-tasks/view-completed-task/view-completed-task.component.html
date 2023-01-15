@@ -8,7 +8,7 @@
                     <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
                     <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
-                    
+
 
                     <mat-card-title-group>
 
@@ -41,22 +41,27 @@
                 </mat-card-content>
 
 
-                <hr>
+                <hr style="color: black;">
                 <div style="justify-content: space-around;">
+
                     <div class="button">
+
                         <div class="cat">
                             <h6 style="color: black;">{{note.taskDeadline}}</h6>
+
                         </div>
-                        <button mat-icon-button color="primary" (click)="update(note.taskId)"
+                        &nbsp;
+                        <mat-icon color="warn">done_all</mat-icon>
+                        <button mat-icon-button color="primary" (click)="update(note.taskName)"
                             aria-label="Example icon button with a home icon">
                             <mat-icon>edit</mat-icon>
                         </button>
                         <button mat-icon-button color="warn" (click)="move(note)"
                             aria-label="Example icon button with a home icon">
                             <mat-icon>assignment_returned</mat-icon>
-                            
+
                         </button>
-                        
+
 
                     </div>
                 </div>

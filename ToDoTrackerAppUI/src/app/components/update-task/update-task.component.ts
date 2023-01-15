@@ -33,15 +33,17 @@ export class UpdateTaskComponent implements OnInit{
 
     this.taskService.getTaskByTaskId(this.user,this.task1).subscribe(res => this.task = res)
     console.log(this.task1);
-    console.log("user details"+this.user);
+    console.log("user details id =="+this.user);
 
   }
 
 
 
   function1() {
-    this.taskService.updateTask(this.user,this.task).subscribe({next(){alert("successfully update done ")},error(){alert("error from server side ")}})
+    this.taskService.updateTask(this.user,this.task).subscribe()
+    
     console.log(this.task);
+    alert("go")
     window.location.reload();
     this.dialogRef.close()
   }

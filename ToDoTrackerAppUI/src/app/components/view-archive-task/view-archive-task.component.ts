@@ -36,7 +36,7 @@ export class ViewArchiveTaskComponent  implements OnInit{
 
     this.taskService.addTask(this.userId,task).subscribe(data=>{ console.log(data);});
     console.log(task);
-    this.taskArc.deleteTaskByInArchive(this.userId,task.taskId).subscribe(()=>alert("move to user service"+task)); 
+    this.taskArc.deleteTaskByInArchive(this.userId,task.taskName).subscribe(()=>alert("move to user service"+task)); 
     window.location.reload();
   }
 

@@ -29,11 +29,39 @@ export class ViewCompletedTaskComponent implements OnInit {
       this.emailId = this.taskService.getEmailId()
       console.log(this.emailId);
      // this.getCompletedTask()
-      this.taskService.getAllTasksOfUser(this.emailId).subscribe(response => {
+        this.taskService.getCompletedTask(this.emailId).subscribe(response => {
         this.notes = response
         console.log(this.emailId);})
   
     }
+
+
+ getCompletedTask() {                                                           
+    this.taskService.getAllTasksOfUser(this.emailId).subscribe({
+      next: data => {
+        this.notes = data.filter((task) => {
+       if(task.taskCompleted){
+        console.log(task);
+        
+            return task
+          }else{
+            return null
+          }
+        })
+      },
+      error() { alert("error occured while loading the Pizza Details") },
+    })
+ }
+
+
+
+
+
+
+
+
+
+
 
     move(note: any) {
       const dialogRef = this.dialog.open(SendConfirmationComponent, {
@@ -53,16 +81,7 @@ export class ViewCompletedTaskComponent implements OnInit {
 
   }
 
-  // getCompletedTask() {                                                           
-  //   this.taskService.getAllTasksOfUser(this.emailId).subscribe({
-  //     next: data => {
-  //       this.notes = data.filter((task) => {
-  //         return task.isTaskCompleted?.valueOf();
-  //       })
-  //     },
-  //     error() { alert("error occured while loading the Pizza Details") },
-  //   })
- // }
+ 
   
  
 

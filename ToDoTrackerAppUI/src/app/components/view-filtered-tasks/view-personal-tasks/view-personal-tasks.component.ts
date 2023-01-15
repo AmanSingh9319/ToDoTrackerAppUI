@@ -39,7 +39,7 @@ export class ViewPersonalTasksComponent {
   constructor(private taskService: UserTaskService, private router: Router,
     public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc: TaskArchiveService) { }
   delete(note: any) {
-    this.taskService.deleteTaskByTaskId(this.user, note.taskId).subscribe(()=>alert("successfull move to archive"))
+    this.taskService.deleteTaskByTaskId(this.user, note.taskName).subscribe()
     window.location.reload();
   }
 

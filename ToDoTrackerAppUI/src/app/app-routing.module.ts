@@ -14,6 +14,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/view-completed-task/view-completed-task.component';
 import { SendConfirmationComponent } from './components/view-filtered-tasks/send-confirmation/send-confirmation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeaderSidenavComponent } from './components/header-sidenav/header-sidenav.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     path:"view-personal-tasks",
     component:ViewPersonalTasksComponent,
     // canActivate:[ViewPizzaGuard]
+  },
+  {
+    path:"side-nav",
+    component: HeaderSidenavComponent,
   },
   {
     path:"view-today-tasks",
