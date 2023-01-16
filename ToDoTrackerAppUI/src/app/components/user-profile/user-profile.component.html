@@ -1,16 +1,19 @@
 
-   
-    <mat-card class="example-card">
+   <div class="example-card">
+
+    
         <span class="headerSpan">
             <h1><strong>My Profile</strong></h1>
         </span><br><br>
         <span>
-            <img mat-card-image [src]="'data:image/jpeg;base64,'+userDetail.img">
-        </span>
-        <mat-card-title style="color: rgb(221, 147, 147);">Name: {{userDetail.firstName}}&nbsp;{{userDetail.lastName}}</mat-card-title><br>
-        <mat-card-subtitle>Mobile No.:7854125896 </mat-card-subtitle>
+            <!-- <img [src]="'data:image/jpeg;base64,'+userDetail.img"> -->
+            <img src="https://www.w3schools.com/w3images/avatar2.png" alt="">
+        </span><br><br>
+        <mat-card-title class="detail">Name: {{userDetail.firstName}}&nbsp;{{userDetail.lastName}}</mat-card-title><br><br>
+        <mat-card-subtitle class="detail">Mobile No.:7854125896 </mat-card-subtitle><br><br>
 
-        <mat-card-subtitle>EmailId:{{userDetail.emailId}}  </mat-card-subtitle>
-    </mat-card>
+        <mat-card-subtitle class="detail">EmailId:{{userDetail.emailId}}  </mat-card-subtitle>
 
 
+
+    </div>

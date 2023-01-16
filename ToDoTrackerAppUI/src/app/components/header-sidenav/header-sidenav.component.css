@@ -50,5 +50,8 @@ h1.example-app-name {
 }
 .profileSpan{
   position: relative;
-  left: 89em;
+  margin-left: 75%;
+  
+  padding-top: 7px;
+  padding-bottom: 7px;
 }

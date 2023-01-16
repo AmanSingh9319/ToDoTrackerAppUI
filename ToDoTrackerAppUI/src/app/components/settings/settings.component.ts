@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-settings',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class SettingsComponent {
 
+
+  value!:FormGroup
+
+  report(){
+    alert("message recived")
+    window.location.reload()
+  }
 }

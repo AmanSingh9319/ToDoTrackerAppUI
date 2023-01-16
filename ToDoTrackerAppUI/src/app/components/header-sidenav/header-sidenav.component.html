@@ -34,13 +34,13 @@
           <a mat-list-item routerLink="view-personal-tasks">Personal</a>
           <a mat-list-item routerLink="view-work-tasks">Work</a>
           <a mat-list-item (click)="methodToGetId()">Archive</a>
-          <mat-divider></mat-divider><br>
+          <mat-divider></mat-divider><br><br>
        
           <!-- <mat-slide-toggle>slide me</mat-slide-toggle> -->
-          <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle>
-          <a mat-list-item routerLink="settings">Help</a>
-          <a mat-list-item routerLink="helpcenter">About</a>
-          <button class="logOutButton" mat-button (click)="logOutFunc()"><h3>log out</h3></button>
+          <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle><br><br>
+          <a mat-list-item routerLink="settings">Help</a><br>
+          <a mat-list-item routerLink="helpcenter">About</a><br>
+          <button class="logOutButton" mat-button (click)="logOutFunc()"><h6>log out</h6></button>
           <br><br><br>
         </div>
       </mat-nav-list>
