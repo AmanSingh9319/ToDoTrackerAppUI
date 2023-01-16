@@ -14,7 +14,7 @@ import { Task } from 'src/app/model/Task';
 })
 export class AddTaskComponent implements OnInit {
 
-  user: number = this.data.emailId;
+  user: number = this.data.emailId;  //emailId
   task: Task = {}
 
   addTaskForm = this.formBuilder.group({

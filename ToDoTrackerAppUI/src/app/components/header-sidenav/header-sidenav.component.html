@@ -14,6 +14,9 @@
   <mat-sidenav-container class="example-sidenav-container"
                          [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
 
+
+
+                         
     <mat-sidenav class="matSNav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 
@@ -34,9 +37,9 @@
           <mat-divider></mat-divider><br>
        
           <!-- <mat-slide-toggle>slide me</mat-slide-toggle> -->
-          <!-- <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle> -->
-          <a mat-list-item routerLink="settings">Settings</a>
-          <a mat-list-item routerLink="helpcenter">Help</a>
+          <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle>
+          <a mat-list-item routerLink="settings">Help</a>
+          <a mat-list-item routerLink="helpcenter">About</a>
           <button class="logOutButton" mat-button (click)="logOutFunc()"><h3>log out</h3></button>
           <br><br><br>
         </div>

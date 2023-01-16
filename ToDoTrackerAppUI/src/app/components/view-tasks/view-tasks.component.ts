@@ -79,16 +79,23 @@ export class ViewTasksComponent implements OnInit {
 
   search(searchText: string) {
       
-      //  if (searchText === " " || !searchText)
-      //     this.notes = this.searchResult;
-      //   else {
-      //     console.log(this.notes);
-      //      console.log(this.searchResult);
+       if (searchText === " " || !searchText)
+          this.notes = this.searchResult;
+        else {
+          console.log(this.notes);
+          console.log(this.searchResult);
             
-      //   this.notes = this.searchResult.filter(c => c.taskName?.startsWith(searchText));
-      //   console.log(searchText);
-      //   console.log(this.notes);
-      //  }
+        //this.notes = this.searchResult.filter(c => c.taskName?.startsWith(searchText.toLowerCase()));
+        this.taskService.getAllTasksOfUser(this.emailId).subscribe({
+          next:data => { this.notes=data.filter((task)=>
+            {
+              return task.taskName?.toLowerCase().startsWith(searchText.toLowerCase());
+            }) },
+          error() {alert ("no result")},          
+        })
+        console.log(searchText);
+        console.log(this.notes);
+       }
       }
 }
 

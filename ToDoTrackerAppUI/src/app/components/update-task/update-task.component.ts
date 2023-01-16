@@ -43,7 +43,6 @@ export class UpdateTaskComponent implements OnInit{
     this.taskService.updateTask(this.user,this.task).subscribe()
     
     console.log(this.task);
-    alert("go")
     window.location.reload();
     this.dialogRef.close()
   }

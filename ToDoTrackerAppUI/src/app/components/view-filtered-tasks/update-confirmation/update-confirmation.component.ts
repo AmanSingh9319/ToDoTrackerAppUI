@@ -39,7 +39,7 @@ export class UpdateConfirmationComponent {
  update() {
     this.taskService.updateTask(this.user,this.task).subscribe()
     console.log(this.task);
-    alert("ok"+this.task.taskCompleted)
+    alert("Mark Task As Completed")
     window.location.reload();
     this.dialogRef.close();
   }

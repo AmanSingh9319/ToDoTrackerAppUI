@@ -36,22 +36,6 @@ export class ViewCompletedTaskComponent implements OnInit {
     }
 
 
- getCompletedTask() {                                                           
-    this.taskService.getAllTasksOfUser(this.emailId).subscribe({
-      next: data => {
-        this.notes = data.filter((task) => {
-       if(task.taskCompleted){
-        console.log(task);
-        
-            return task
-          }else{
-            return null
-          }
-        })
-      },
-      error() { alert("error occured while loading the Pizza Details") },
-    })
- }
 
 
 

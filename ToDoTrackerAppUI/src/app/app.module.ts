@@ -99,6 +99,7 @@ import { UpdateConfirmationComponent } from './components/view-filtered-tasks/up
     MatGridListModule,
     MatSelectModule,
     MatSlideToggleModule
+  
 
   ],
   providers: [
