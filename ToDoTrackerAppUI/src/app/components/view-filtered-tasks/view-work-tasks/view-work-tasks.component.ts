@@ -52,6 +52,7 @@ export class ViewWorkTasksComponent {
   user:User={};
   tasks:Task[] = [];
 
+<<<<<<< HEAD
   getWorkTask(){                                                             //to view personal tasks
     this.userTaskService.getAllTasksOfUser(this.user).subscribe({
       next:data => { this.tasks=data.filter((task)=>
@@ -61,9 +62,18 @@ export class ViewWorkTasksComponent {
       error() {alert ("error occured while loading work tasks")},          
     })
   }
+=======
+  // getWorkTask(){                                                             //to view personal tasks
+  //   this.userTaskService.getAllTasksOfUser(this.user).subscribe({
+  //     next:data => { this.tasks=data.filter((task)=>
+  //       {
+  //         return task.taskCategory?.startsWith("work");
+  //       }) },
+  //     error() {alert ("error occured while loading the work tasks")},          
+  //   })
+  // }
+>>>>>>> bcd4fe26da7542ed43bd9f5c6369aebe1434b8f4
 
-  ngOnInit(): void {
-    this.getWorkTask();
-   
-  }
+  // ngOnInit(): void {
+  //   this.getWorkTask(); }
 }

@@ -20,7 +20,7 @@ import { ArchiveTaskCardComponent } from './components/archive-task-card/archive
 import { ViewTasksComponent } from './components/view-tasks/view-tasks.component';
 import { ViewArchiveTaskComponent } from './components/view-archive-task/view-archive-task.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRippleModule } from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
@@ -35,6 +35,13 @@ import { SettingsComponent } from './components/settings/settings.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { AuthInterceptor } from './services/authconfig.interceptor';
+import { UpdateTaskComponent } from './components/update-task/update-task.component';
 
 
 @NgModule({
@@ -55,7 +62,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ViewPersonalTasksComponent,
     ViewWorkTasksComponent,
     SettingsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddTaskComponent,
+    UpdateTaskComponent
 
   ],
   imports: [
@@ -78,10 +87,17 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

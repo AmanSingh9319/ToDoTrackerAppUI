@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { User } from 'src/app/model/User';
 import { UserAuthenticationService } from 'src/app/services/user-authentication.service';
 import { UserTaskService } from 'src/app/services/user-task.service';
+import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 
 
 @Component({
@@ -12,6 +14,8 @@ import { UserTaskService } from 'src/app/services/user-task.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
+
+@Injectable()
 export class LoginComponent {
   
   loginForm = new FormGroup({

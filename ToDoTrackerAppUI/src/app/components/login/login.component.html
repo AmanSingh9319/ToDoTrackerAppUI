@@ -16,11 +16,10 @@
                 <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId"  [(ngModel)]="email" />
 
                 
-                <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
-
                 <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
                 </mat-error>
+                
             </mat-form-field><br>
             <mat-form-field appearance="fill">
                 <input matInput type="password" placeholder="Password" id="password" formControlName="password">

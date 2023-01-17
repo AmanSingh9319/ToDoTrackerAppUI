@@ -1,0 +1,94 @@
+
+
+<div class="centre">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div id="heading" >
+            <h3>
+                update Task
+            </h3>
+    
+        </div>
+        <br>
+      </div>
+      <div class="modal-body">
+
+        <form (submit)="function1()">
+          <div>
+            <mat-form-field style=" width: 80%;" >
+              <mat-label>Task-Id</mat-label>
+              <input matInput type="taskId" name="taskId"  id="taskId" [(ngModel)]="task.taskId">
+
+            </mat-form-field>
+          </div>
+          <br>
+          <div>
+            <mat-form-field style=" width: 80%;">
+              <mat-label>Task-Name</mat-label>
+              <input matInput type="taskName" name="taskName"  id="taskName" [(ngModel)]="task.taskName">
+
+            </mat-form-field>
+          </div>
+          <br>
+          <div>
+            <mat-form-field style=" width: 80%;">
+              <mat-label>Task Content</mat-label>
+              <textarea  matInput type="taskContent" name="taskContent"  id="taskContent" [(ngModel)]="task.taskContent"></textarea>
+
+            </mat-form-field>
+          </div>
+          <br>
+          <div>
+            <mat-form-field style=" width: 80%;">
+                <mat-label>Choose a date YYYY-MM-DD</mat-label>
+                <input matInput type="taskDeadline" [matDatepicker]="picker" name="taskDeadline" [(ngModel)]="task.taskDeadline" id="taskDeadline">
+                <mat-hint>follow this pattern "YYYY-MM-DD"</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+          </div>
+          <br>
+         
+          <div>
+            <mat-radio-group aria-label="Overall priority"  name="taskPriorityLevel"  [(ngModel)]="task.taskPriorityLevel" id="taskPriorityLevel">
+                <mat-label class="radioBu">Priority</mat-label>
+                <mat-radio-button class="radioBu" value="Low">Low</mat-radio-button>
+                <mat-radio-button class="radioBu" value="Medium">Medium</mat-radio-button>
+                <mat-radio-button class="radioBu" value="High">High</mat-radio-button>
+                <mat-radio-button class="radioBu" value="Critical">Critical</mat-radio-button>
+              </mat-radio-group>
+          </div>
+          <br>
+          <div>
+            <mat-form-field style=" width: 80%;">
+                <mat-label>Is Task Completed </mat-label>
+            <mat-select  name="isTaskCompleted"  id="isTaskCompleted"  [(ngModel)]="task.isTaskCompleted">
+                <mat-option value="true">true</mat-option>
+                <mat-option value="false">false</mat-option>
+            </mat-select>
+             </mat-form-field>
+          </div>
+          <br>
+
+          <div>
+                <mat-form-field style=" width: 80%;">
+                    <mat-label>select the task Category </mat-label>
+                <mat-select name="taskCategory"  [(ngModel)]="task.taskCategory">
+                    <mat-option value="Work">Work</mat-option>
+                    <mat-option value="Personal">Personal</mat-option>
+                    <mat-option value="Archive">Archive</mat-option>
+                </mat-select>
+               </mat-form-field>
+          </div>
+          <br>
+
+          <div id="btn">
+            <button type="submit" mat-raised-button color="primary">update</button>
+          </div>
+        </form>
+
+      </div>
+    
+    </div>
+
+</div>

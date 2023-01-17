@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from 'src/app/model/Task';
 import { UserTaskService } from 'src/app/services/user-task.service';
+import { AddTaskComponent } from '../add-task/add-task.component';
+import { UpdateTaskComponent } from '../update-task/update-task.component';
+
 
 @Component({
   selector: 'app-view-tasks',
@@ -16,7 +20,6 @@ export class ViewTasksComponent implements OnInit {
       taskContent:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ',
       taskCategory: 'work',
-      taskDeadline: '23/01/2022',
       taskPriorityLevel: 'Low',
       isTaskCompleted: true,
     },
@@ -26,7 +29,6 @@ export class ViewTasksComponent implements OnInit {
       taskContent:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ',
       taskCategory: 'work',
-      taskDeadline: '23/01/2022',
       taskPriorityLevel: 'Low',
       isTaskCompleted: true,
     },
@@ -50,6 +52,28 @@ export class ViewTasksComponent implements OnInit {
     this.notes = this.notes.filter((data) =>
       data?.taskName?.includes(searchText)
     );
+  }
+  delete(taskId: any) {
+    console.log(taskId);
+
+    this.taskService.deleteTaskByTaskId(this.userId, taskId).subscribe({
+      next() {
+        alert('successfully deleted ');
+      },
+      error() {
+        alert('error from server side ');
+      },
+    });
+    window.location.reload();
+  }
+
+  ngOnInit(): void {
+    this.userId = this.actRoute.snapshot.paramMap.get('userId');
+    this.taskService.getAllTasksOfUser(this.userId).subscribe((response) => {
+      this.notes = response;
+      console.log(response);
+      console.log(this.userId);
+    });
   }
 
   check: any = '';
