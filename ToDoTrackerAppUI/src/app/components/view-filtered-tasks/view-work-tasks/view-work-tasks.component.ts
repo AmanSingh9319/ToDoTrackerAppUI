@@ -33,7 +33,11 @@ export class ViewWorkTasksComponent {
   ngOnInit(): void {
     this.user = this.taskService.getEmailId()
     console.log(this.user);
-    this.getWorkTask(); }
+    this.getWorkTask();
+    this.taskService.Refresh.subscribe(res=>{
+      this.getWorkTask()
+    })
+   }
 
    
     delete(note: any) {

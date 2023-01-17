@@ -40,7 +40,7 @@ export class SendConfirmationComponent {
  move(task: any) {
     this.taskarc.addTaskInArchive(task, this.user).subscribe(data => { console.log(task) });
     this.taskService.deleteTaskByTaskId(this.user, task.taskName).subscribe(() => alert("successfull move to archive"))
-    window.location.reload();
+    
     this.dialogRef.close();
   }
   

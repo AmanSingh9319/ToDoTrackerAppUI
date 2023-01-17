@@ -19,6 +19,11 @@ export class ViewPersonalTasksComponent {
   user:any;
   tasks:Task[] = [];
 
+
+  constructor(private taskService: UserTaskService, private router: Router,
+    public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc: TaskArchiveService) { }
+
+
   getPersonalTask(){                                                             //to view personal tasks
     this.taskService.getAllTasksOfUser(this.user).subscribe({
       next:data => { this.tasks=data.filter((task)=>
@@ -31,18 +36,12 @@ export class ViewPersonalTasksComponent {
 
   ngOnInit(): void {
     this.user = this.taskService.getEmailId()
-    console.log(this.user);
-    
     this.getPersonalTask();
+    this.taskService.Refresh.subscribe(res=>{
+      this.getPersonalTask()
+    })
    
   }
-  constructor(private taskService: UserTaskService, private router: Router,
-    public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc: TaskArchiveService) { }
-  delete(note: any) {
-    this.taskService.deleteTaskByTaskId(this.user, note.taskName).subscribe()
-    window.location.reload();
-  }
-
 
   update(taskId: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {

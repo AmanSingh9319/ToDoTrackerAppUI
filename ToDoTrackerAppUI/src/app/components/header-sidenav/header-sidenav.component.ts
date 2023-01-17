@@ -21,6 +21,8 @@ export class HeaderSidenavComponent implements OnInit {
   //send this id to view task component and the we get all task of user
   userId: any;
   userDetail: any = {}
+  notifycount?:number;
+ 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
@@ -28,7 +30,11 @@ export class HeaderSidenavComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+   this.service.notifycount.subscribe(res=>{
+    this.notifycount=res
+   })
   }
+  
 
 
 
@@ -51,11 +57,13 @@ export class HeaderSidenavComponent implements OnInit {
       }
     })
     this.userId = this.service.getEmailId()
+    this.getUserData()
+}
+
+  getUserData(){
     this.service.getUserById(this.userId).subscribe(data => {
       this.userDetail = data
     })
-
-
   }
 
 

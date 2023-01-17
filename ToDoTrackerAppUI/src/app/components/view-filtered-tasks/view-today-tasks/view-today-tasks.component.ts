@@ -50,7 +50,11 @@ getTodayTask(){
 ngOnInit(): void {
   this.emailId = this.taskService.getEmailId()
   console.log(this.emailId);
-  this.getTodayTask() }
+  this.getTodayTask() 
+  this.taskService.Refresh.subscribe(res=>{
+    this.getTodayTask()
+  })
+}
 
   update(taskId: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {

@@ -1,7 +1,7 @@
 export class Task {
     taskId?: number;
     taskName?: string;
-    taskContent?:String;
+    taskContent?:string;
     taskDeadline?: Date ;
     taskCategory?: string;
     taskPriorityLevel?: string;

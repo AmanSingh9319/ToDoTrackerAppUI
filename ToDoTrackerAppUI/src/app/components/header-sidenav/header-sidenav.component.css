@@ -50,8 +50,13 @@ h1.example-app-name {
 }
 .profileSpan{
   position: relative;
-  margin-left: 75%;
+  margin-left: 2%;
   
   padding-top: 7px;
   padding-bottom: 7px;
+}
+.notify{
+  margin-left: 70%;
+  position: relative;
+  padding-top: 7px; 
 }

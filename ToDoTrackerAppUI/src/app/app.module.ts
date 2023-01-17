@@ -46,7 +46,7 @@ import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/vie
 import { SendConfirmationComponent } from './components/view-filtered-tasks/send-confirmation/send-confirmation.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { UpdateConfirmationComponent } from './components/view-filtered-tasks/update-confirmation/update-confirmation.component';
-
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,7 +98,8 @@ import { UpdateConfirmationComponent } from './components/view-filtered-tasks/up
     MatChipsModule,
     MatGridListModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatBadgeModule
   
 
   ],

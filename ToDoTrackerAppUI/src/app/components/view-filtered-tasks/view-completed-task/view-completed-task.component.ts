@@ -28,11 +28,18 @@ export class ViewCompletedTaskComponent implements OnInit {
     ngOnInit(): void {
       this.emailId = this.taskService.getEmailId()
       console.log(this.emailId);
-     // this.getCompletedTask()
-        this.taskService.getCompletedTask(this.emailId).subscribe(response => {
+      this.getCompletedTask()
+      this.taskService.Refresh.subscribe(res=>{
+        this.getCompletedTask()
+      })
+     
+  
+    }
+
+    getCompletedTask(){
+      this.taskService.getCompletedTask(this.emailId).subscribe(response => {
         this.notes = response
         console.log(this.emailId);})
-  
     }
 
 

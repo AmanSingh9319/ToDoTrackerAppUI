@@ -3,22 +3,19 @@
 <div class="cont">
   <div id="con">
 
-    <div *ngFor="let note of notes">
+    <div *ngFor="let note of notes$">
 
-      <mat-card class="card" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
-                                          'high': note.taskPriorityLevel == 'High', 
-                                         'medium': note.taskPriorityLevel == 'Medium',
-                                          'low': note.taskPriorityLevel =='Low' }" >
+      <mat-card class="card"  >
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
-          <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
+          <mat-card-subtitle style="color: black;" >{{note.taskCategory}}</mat-card-subtitle>
           
         <mat-card-title-group>
           
               <ng-container [ngSwitch]="note.taskPriorityLevel">
               <ng-container *ngSwitchCase="'Critical'">
-                <mat-icon style="float: right ;" color="warn" aria-hidden="false" aria-label="Example home icon"
+                <mat-icon color="warn" style="float: right ;" aria-hidden="false" aria-label="Example home icon"
                   fontIcon="gpp_maybe" (click)="refresh(note.taskPriorityLevel)" ></mat-icon>
               </ng-container>
               <ng-container *ngSwitchCase="'High'">
@@ -37,16 +34,21 @@
             </ng-container>
           </mat-card-title-group>
         </mat-card-header>
-        <hr>
+        <div id="divider" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
+        'high': note.taskPriorityLevel == 'High', 
+       'medium': note.taskPriorityLevel == 'Medium',
+        'low': note.taskPriorityLevel =='Low' }">
+         
+        </div><br>
         <mat-card-content>
-          <p class="text-center" style="color: black;">{{ note.taskContent }}</p>
+          <p  style="color: black;">{{ note.taskContent }}</p>
          
         </mat-card-content>
-        <hr>
+        <hr style="color: black;">
         <div style="justify-content: space-between;">
           
           <div class="button">
-            <p style="color: black;">
+            <p class="date" style="color: black;">
               {{note.taskDeadline}}
             </p>
             <button mat-icon-button color="primary" (click)="update1(note.taskName)"
@@ -64,17 +66,23 @@
         </div>
         
       </mat-card>
+   
 
     </div>
+    <mat-card  (click)="add()" id="add" >
+
+    <mat-icon id="addicon"  >add</mat-icon>
+  
+        
+    </mat-card>
 
   </div>
 
 </div>
 
-<button id="addButton" mat-fab color="warn" (click)="add()">
-  <mat-icon>add</mat-icon>
 
-</button>
+
+
 
 
 

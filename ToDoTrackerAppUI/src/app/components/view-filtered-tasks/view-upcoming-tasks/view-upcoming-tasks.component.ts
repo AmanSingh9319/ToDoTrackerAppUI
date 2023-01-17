@@ -40,6 +40,9 @@ export class ViewUpcomingTasksComponent implements OnInit{
     this.emailId = this.taskService.getEmailId()
     console.log(this.emailId);
     this.getUpcomingTask() 
+    this.taskService.Refresh.subscribe(res=>{
+      this.getUpcomingTask()
+    })
    }
 
     update(taskId: any) {

@@ -2,12 +2,21 @@
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button  (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">To Do Tracker</h1>
+   
 
-    <mat-chip class="profileSpan"  (click)="userProfileRouteFunc()">
+    <mat-chip class="notify" [matBadge]="notifycount" matBadgePosition="after" matBadgeColor="accent" [matBadgeHidden]="notifycount==0">
+      <!-- <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> -->
+      <mat-icon>notifications</mat-icon> 
+    </mat-chip>
+
+    <mat-chip class="profileSpan"  (click)="userProfileRouteFunc()" >
        <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> 
       
      Hii {{userDetail.firstName}}
     </mat-chip>
+
+  
+
     
   </mat-toolbar>
 
@@ -21,6 +30,8 @@
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 
       <mat-nav-list>
+
+      
         <span><h2 class="menuSpan">Menu</h2></span>
         <div class="navListDiv">
           <br>
@@ -40,7 +51,8 @@
           <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle><br><br>
           <a mat-list-item routerLink="settings">Help</a><br>
           <a mat-list-item routerLink="helpcenter">About</a><br>
-          <button class="logOutButton" mat-button (click)="logOutFunc()"><h6>log out</h6></button>
+          <a mat-list-item (click)="logOutFunc()">log out</a><br>
+        
           <br><br><br>
         </div>
       </mat-nav-list>

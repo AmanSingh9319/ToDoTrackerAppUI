@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { AddTaskComponent } from '../components/add-task/add-task.component';
 import { Task } from '../model/Task';
 import { User } from '../model/User';
@@ -10,9 +10,15 @@ import { User } from '../model/User';
 })
 export class UserTaskService {
 
-
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient:HttpClient) { }
+  notifycount = new BehaviorSubject<number>(0)
+  private _refresh = new Subject<void>();
+
+  get Refresh(){
+    return this._refresh
+  }
+  headers = new HttpHeaders().set('Content-Type', 'application/json');
+  
 
   url:string="http://localhost:9000"
   
@@ -22,11 +28,15 @@ export class UserTaskService {
   }
 
   addTask(userId:number, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+userId, task );
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+userId, task ).pipe(tap(()=>{
+      this.Refresh.next()
+    }));
   }
 
   updateTask(userId:any, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+userId, task);
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+userId, task).pipe(tap(()=>{
+      this.Refresh.next()
+    }));
   }
 
  
@@ -75,7 +85,9 @@ export class UserTaskService {
   }
 
   getUserById(user:any):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user);
+    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user).pipe(tap(()=>{
+      this.Refresh.next()
+    }));;
   }
 
   getCompletedTask(userId:any):Observable<Task[]>{
@@ -96,7 +108,9 @@ export class UserTaskService {
   }
 
   deleteTaskByTaskId(userId:number, taskId:number):Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteTaskByTaskIdInUserTask/"+userId+"/"+taskId);
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteTaskByTaskIdInUserTask/"+userId+"/"+taskId).pipe(tap(()=>{
+      this.Refresh.next()
+    }));;
   }
 
 

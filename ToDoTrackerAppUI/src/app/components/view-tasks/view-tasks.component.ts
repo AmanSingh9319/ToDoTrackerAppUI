@@ -17,10 +17,10 @@ import { UpdateConfirmationComponent } from '../view-filtered-tasks/update-confi
 })
 export class ViewTasksComponent implements OnInit {
 
-  notes: Task[] = [];
+  notes$:any;
   searchResult: Task[] = [];
   emailId: any;
-
+  addCount:number=0
   
 
   constructor(private taskService: UserTaskService, private router: Router,
@@ -51,19 +51,30 @@ export class ViewTasksComponent implements OnInit {
  
 
   delete(task: any) {
-    this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe(()=>alert("successfully deleted"))
-    window.location.reload();
+    this.addCount=this.addCount+1;
+    this.taskService.notifycount.next(this.addCount)
+    this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe({next(){alert("successfully delete ")},error(){alert("error from server side ")}})
+    
+  }
+  getAllTask(){
+    this.taskService.getAllTasksOfUser(this.emailId).subscribe(response => {
+      this.notes$= response
+      this.searchResult=response
+      })
   }
 
   ngOnInit(): void {
       this.emailId = this.taskService.getEmailId()
       console.log(this.emailId);
-      this.taskService.getAllTasksOfUser(this.emailId).subscribe(response => {
-      this.notes = response
-      this.searchResult=this.notes
+      this.getAllTask();
+      this.taskService.Refresh.subscribe(response=>{
+        this.getAllTask()
       })
-     
-    }
+
+  }
+
+
+   
 
     refresh(text:any){
       
@@ -80,27 +91,25 @@ export class ViewTasksComponent implements OnInit {
   search(searchText: string) {
       
        if (searchText === " " || !searchText)
-          this.notes = this.searchResult;
+          this.notes$ = this.searchResult;
         else {
-          console.log(this.notes);
+          console.log(this.notes$);
           console.log(this.searchResult);
-            
-        //this.notes = this.searchResult.filter(c => c.taskName?.startsWith(searchText.toLowerCase()));
         this.taskService.getAllTasksOfUser(this.emailId).subscribe({
-          next:data => { this.notes=data.filter((task)=>
+          next:data => { this.notes$=data.filter((task)=>
             {
               return task.taskName?.toLowerCase().startsWith(searchText.toLowerCase());
             }) },
           error() {alert ("no result")},          
         })
         console.log(searchText);
-        console.log(this.notes);
+        console.log(this.notes$);
        }
-      }
+      
 }
 
 
-
+}
 
 
 

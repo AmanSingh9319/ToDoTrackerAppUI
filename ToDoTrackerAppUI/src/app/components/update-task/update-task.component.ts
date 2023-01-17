@@ -15,7 +15,7 @@ import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 export class UpdateTaskComponent implements OnInit{
 
   task = new Task()
- 
+  addCount:number=0
   user: any = this.data.emailId;
   task1 :any =this.data.task;
 
@@ -40,10 +40,13 @@ export class UpdateTaskComponent implements OnInit{
 
 
   function1() {
+    this.addCount=this.addCount+1;
+        this.taskService.notifycount.next(this.addCount)
     this.taskService.updateTask(this.user,this.task).subscribe()
     
     console.log(this.task);
-    window.location.reload();
+   
     this.dialogRef.close()
+   // window.location.reload();
   }
 }
