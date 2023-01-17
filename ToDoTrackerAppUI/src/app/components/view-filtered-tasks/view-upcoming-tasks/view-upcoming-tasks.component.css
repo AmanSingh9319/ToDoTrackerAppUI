@@ -1,0 +1,41 @@
+.card {
+    background-color: rgba(48, 200, 227, 0.992);
+    border-radius: 4px;
+    margin-top: 80px;
+    padding: 5px;
+    width: 350px;
+    text-align: center;
+    float: left;
+    margin-left: 100px;
+}
+
+.example-header-image {
+    background-image: url('../../../assets/images/loginbackground.webp');
+    background-size: cover;
+    border: 1px solid;
+
+}
+
+h6 {
+    display: inline;
+    background-color: rgb(197, 190, 226);
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.button {
+    display: inline;
+    float: right;
+    margin-left: 20px;
+
+}
+
+.cat {
+    float: left;
+    margin-top: 10px;
+}
+
+.cont {
+    margin: 2px
+}

@@ -1,38 +1,58 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button  (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">To Do Tracker</h1>
+   
 
-    <mat-chip class="profileSpan" (click)="userProfileRouteFunc()">
-      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/>
-      profile Name
+    <mat-chip class="notify" [matBadge]="notifycount" matBadgePosition="after" matBadgeColor="accent" [matBadgeHidden]="notifycount==0">
+      <!-- <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> -->
+      <mat-icon>notifications</mat-icon> 
     </mat-chip>
+
+    <mat-chip class="profileSpan"  (click)="userProfileRouteFunc()" >
+       <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> 
+      
+     Hii {{userDetail.firstName}}
+    </mat-chip>
+
+  
+
     
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container"
-                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0" >
 
+
+
+                         
     <mat-sidenav class="matSNav" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
 
       <mat-nav-list>
+
+      
         <span><h2 class="menuSpan">Menu</h2></span>
         <div class="navListDiv">
           <br>
           <h5 class="headingSpan">Tasks</h5>
-          <a mat-list-item routerLink="view-tasks">All Tasks</a>
+          <a mat-list-item (click)="methodToGet()">All Tasks</a>
           <a mat-list-item routerLink="view-today-tasks">Today</a>
           <a mat-list-item routerLink="view-upcoming-tasks">Upcoming</a>
-          <mat-divider></mat-divider>
+          <mat-divider></mat-divider><br>
           <h5 class="headingSpan">Category</h5>
+          <a mat-list-item routerLink="view-complete-tasks">Completed</a>
           <a mat-list-item routerLink="view-personal-tasks">Personal</a>
           <a mat-list-item routerLink="view-work-tasks">Work</a>
-          <a mat-list-item routerLink="view-archive-task">Archive</a>
-          <mat-divider></mat-divider><br><br><br><br><br><br>
-          <a mat-list-item routerLink="settings">Settings</a>
-          <a mat-list-item routerLink="helpcenter">Help</a>
-          <button class="logOutButton" mat-button (click)="logOutFunc()"><h3>log out</h3></button>
+          <a mat-list-item (click)="methodToGetId()">Archive</a>
+          <mat-divider></mat-divider><br><br>
+       
+          <!-- <mat-slide-toggle>slide me</mat-slide-toggle> -->
+          <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle><br><br>
+          <a mat-list-item routerLink="settings">Help</a><br>
+          <a mat-list-item routerLink="helpcenter">About</a><br>
+          <a mat-list-item (click)="logOutFunc()">log out</a><br>
+        
           <br><br><br>
         </div>
       </mat-nav-list>
@@ -45,3 +65,40 @@
 
   </mat-sidenav-container>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!--  -->

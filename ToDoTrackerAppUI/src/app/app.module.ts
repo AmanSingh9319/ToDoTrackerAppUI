@@ -42,8 +42,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { AuthInterceptor } from './services/authconfig.interceptor';
 import { UpdateTaskComponent } from './components/update-task/update-task.component';
-
-
+import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/view-completed-task/view-completed-task.component';
+import { SendConfirmationComponent } from './components/view-filtered-tasks/send-confirmation/send-confirmation.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { UpdateConfirmationComponent } from './components/view-filtered-tasks/update-confirmation/update-confirmation.component';
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +67,10 @@ import { UpdateTaskComponent } from './components/update-task/update-task.compon
     SettingsComponent,
     PageNotFoundComponent,
     AddTaskComponent,
-    UpdateTaskComponent
+    UpdateTaskComponent,
+    ViewCompletedTaskComponent,
+    SendConfirmationComponent,
+    UpdateConfirmationComponent
 
   ],
   imports: [
@@ -88,7 +94,10 @@ import { UpdateTaskComponent } from './components/update-task/update-task.compon
     MatInputModule,
     MatChipsModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatBadgeModule
+  
 
   ],
   providers: [

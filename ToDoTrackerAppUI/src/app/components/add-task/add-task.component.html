@@ -12,18 +12,11 @@
       <div class="modal-body">
 
         <form [formGroup]="addTaskForm" (ngSubmit)="addSubmit()">
-          <div>
-            <mat-form-field style=" width: 80%;" >
-              <mat-label>Task-Id</mat-label>
-              <input matInput type="taskId" name="taskId" formControlName="taskId" id="taskId">
-
-            </mat-form-field>
-          </div>
-          <br>
+        
           <div>
             <mat-form-field style=" width: 80%;">
               <mat-label>Task-Name</mat-label>
-              <input matInput type="taskName" name="taskName" formControlName="taskName" id="taskName">
+              <input matInput type="taskName" name="taskName" formControlName="taskName" id="taskName" [(ngModel)]="task.taskName"  >
 
             </mat-form-field>
           </div>
@@ -31,7 +24,8 @@
           <div>
             <mat-form-field style=" width: 80%;">
               <mat-label>Task Content</mat-label>
-              <textarea  matInput type="taskContent" name="taskContent" formControlName="taskContent" id="taskContent"></textarea>
+              <textarea  matInput type="taskContent" name="taskContent" formControlName="taskContent" id="taskContent" [(ngModel)]="task.taskContent" [maxlength]="204"></textarea>
+              <div class="error" *ngIf="addTaskForm.controls['taskContent'].hasError('maxlength')" style="color: red;">You have reached the maximum limit</div>
 
             </mat-form-field>
           </div>
@@ -39,7 +33,7 @@
           <div>
             <mat-form-field style=" width: 80%;">
                 <mat-label>Choose a date YYYY-MM-DD</mat-label>
-                <input matInput type="taskDeadline" [matDatepicker]="picker" name="taskDeadline" formControlName="taskDeadline" id="taskDeadline">
+                <input matInput type="taskDeadline" [matDatepicker]="picker" [min]="todayDate" name="taskDeadline" formControlName="taskDeadline" id="taskDeadline" [(ngModel)]="task.taskDeadline" >
                 <mat-hint>follow this pattern "YYYY-MM-DD"</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -48,7 +42,7 @@
           <br>
          
           <div>
-            <mat-radio-group aria-label="Overall priority"  name="taskPriorityLevel" formControlName="taskPriorityLevel" id="taskPriorityLevel">
+            <mat-radio-group aria-label="Overall priority"  name="taskPriorityLevel" formControlName="taskPriorityLevel" id="taskPriorityLevel" [(ngModel)]="task.taskPriorityLevel">
                 <mat-label class="radioBu">Priority</mat-label>
                 <mat-radio-button class="radioBu" value="Low">Low</mat-radio-button>
                 <mat-radio-button class="radioBu" value="Medium">Medium</mat-radio-button>
@@ -57,21 +51,11 @@
               </mat-radio-group>
           </div>
           <br>
-          <div>
-            <mat-form-field style=" width: 80%;">
-                <mat-label>Is Task Completed </mat-label>
-            <mat-select  name="isTaskCompleted" formControlName="isTaskCompleted" id="isTaskCompleted">
-                <mat-option value="true">true</mat-option>
-                <mat-option value="false">false</mat-option>
-            </mat-select>
-             </mat-form-field>
-          </div>
-          <br>
-
+     
           <div>
                 <mat-form-field style=" width: 80%;">
                     <mat-label>select the task Category </mat-label>
-                <mat-select name="taskCategory" formControlName="taskCategory">
+                <mat-select name="taskCategory" formControlName="taskCategory" [(ngModel)]="task.taskCategory" >
                     <mat-option value="Work">Work</mat-option>
                     <mat-option value="Personal">Personal</mat-option>
                     <mat-option value="Archive">Archive</mat-option>
@@ -84,6 +68,7 @@
             <button type="submit" [disabled]="!addTaskForm.valid" mat-raised-button color="primary"
               data-bs-dismiss="modal" aria-label="Close"> ADD
             </button>
+         
           </div>
         </form>
 

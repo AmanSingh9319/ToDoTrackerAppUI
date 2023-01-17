@@ -1,19 +1,25 @@
 .example-card {
-    margin-top: 1em;
-    margin-left: 10em;
+   
     padding: 10px;
     width: 600px;
     border-radius: 10px;
+    padding-left: 160px;    
 }
 img{
-    margin: 20px;
-    margin-left: 3em;
-    width: 80%;
+  
+    width: 250px;
+
+    border: 1px solid;
+    border-radius: 80%;
 }
 strong{
-    color:dodgerblue
+    letter-spacing: 3px;
+    color:dodgerblue;
+    padding-left: 50px;
+    padding: auto;
 }
-.headerSpan{
-    position: relative;
-    left: 12em;
+.detail{
+    letter-spacing: 3px;
+    padding-left: 25px;
+    color: #000;
 }

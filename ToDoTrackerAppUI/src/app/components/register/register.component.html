@@ -2,13 +2,18 @@
 <p>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <span>User Registration Form</span>
+            <h2 style="text-align: center;">User Registration Form</h2>
         </mat-toolbar-row>
     </mat-toolbar>
 </p>
 <div>
     <form class="form" (ngSubmit)="onSubmit()" [formGroup]="registerForm">
         <fieldset class="backcolor">
+            <div id="imageUpload">
+                <label for="upload"><mat-icon id="icon">account_circle</mat-icon></label>
+                <input type="file"  (change)="onFileSelect($event)" id="upload">
+            </div>
+            
             <mat-form-field appearance="fill">
                 <input matInput placeholder="First Name" type="text" id="firstName" formControlName="firstName" />
                 <mat-error *ngIf="firstName?.errors?.['required']">
@@ -58,14 +63,6 @@
                 </mat-error>
             </mat-form-field>
 
-            <mat-form-field appearance="fill">
-                <input matInput type="password" placeholder="Confirm Password" id="confirmPassword"
-                    formControlName="confirmPassword">
-                <mat-error *ngIf="registerForm.errors?.['mustMatch']===false">
-                    Password and Confirm Password should match.
-                </mat-error>
-            </mat-form-field>
-
             <label>Role</label>
             <mat-radio-group aria-label="Select Role" class="radio-group" formControlName="role" id="role">
                 <mat-radio-button class="radio-button" [checked]="true" value="student">Student</mat-radio-button>
@@ -75,5 +72,7 @@
  <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" type="submit">Submit</button>
 </fieldset>
     </form>
-</div>
+</div><br>
+<span id="alreadyUserSpan">
+<strong>Already an User ? Please  </strong><a style="color: blue;" (click)="registerRoutefunc()">Login</a></span>
 </mat-card>

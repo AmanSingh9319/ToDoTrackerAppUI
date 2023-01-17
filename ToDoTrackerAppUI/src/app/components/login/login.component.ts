@@ -39,6 +39,7 @@ export class LoginComponent {
     private router: Router
   ) {}
 
+<<<<<<< HEAD
   error: String = '';
 
   onLogin() {
@@ -62,6 +63,34 @@ export class LoginComponent {
     //   panelClass: ['mat-toolbar', 'mat-primary']
     // });
     this.loginForm.reset();
+=======
+  constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router, private userTaskSer: UserTaskService) { }
+
+
+
+  onLogin() {
+    this.taskService.generateToken(this.loginForm.value).subscribe(
+      (response: any) => {
+        this.taskService.loginUser(response.secretKeyToken.token);
+        this.taskService.hideIcon = true
+        this.userTaskSer.captureEmail(response.user.emailId)
+        this.router.navigateByUrl('view-task')
+        this._snackBar.open('Congrats!!You have logged In!!', 'success', {
+          duration: 5000,
+          panelClass: ['mat-toolbar', 'mat-primary']
+        });
+
+      },
+      (err) => {
+        alert("invalid credentials")
+        console.log(err.message);
+      })
+    // window.location.reload()
+  }
+
+  registerRoutefunc() {
+    this.router.navigateByUrl("register")
+>>>>>>> 1b2b227fde048c781366c6d891f23d988d4165b3
   }
 
   registerRoutefunc() {

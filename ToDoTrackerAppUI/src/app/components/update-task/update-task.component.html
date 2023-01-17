@@ -14,18 +14,12 @@
       <div class="modal-body">
 
         <form (submit)="function1()">
-          <div>
-            <mat-form-field style=" width: 80%;" >
-              <mat-label>Task-Id</mat-label>
-              <input matInput type="taskId" name="taskId"  id="taskId" [(ngModel)]="task.taskId">
-
-            </mat-form-field>
-          </div>
+      
           <br>
           <div>
             <mat-form-field style=" width: 80%;">
               <mat-label>Task-Name</mat-label>
-              <input matInput type="taskName" name="taskName"  id="taskName" [(ngModel)]="task.taskName">
+              <input style="color: black;" matInput type="taskName" name="taskName" [disabled]="true" id="taskName" [(ngModel)]="task.taskName">
 
             </mat-form-field>
           </div>
@@ -33,7 +27,7 @@
           <div>
             <mat-form-field style=" width: 80%;">
               <mat-label>Task Content</mat-label>
-              <textarea  matInput type="taskContent" name="taskContent"  id="taskContent" [(ngModel)]="task.taskContent"></textarea>
+              <textarea  matInput type="taskContent" name="taskContent"  id="taskContent" [(ngModel)]="task.taskContent" rows="4" cols="50"></textarea>
 
             </mat-form-field>
           </div>
@@ -60,23 +54,11 @@
           </div>
           <br>
           <div>
-            <mat-form-field style=" width: 80%;">
-                <mat-label>Is Task Completed </mat-label>
-            <mat-select  name="isTaskCompleted"  id="isTaskCompleted"  [(ngModel)]="task.isTaskCompleted">
-                <mat-option value="true">true</mat-option>
-                <mat-option value="false">false</mat-option>
-            </mat-select>
-             </mat-form-field>
-          </div>
-          <br>
-
-          <div>
                 <mat-form-field style=" width: 80%;">
                     <mat-label>select the task Category </mat-label>
                 <mat-select name="taskCategory"  [(ngModel)]="task.taskCategory">
                     <mat-option value="Work">Work</mat-option>
                     <mat-option value="Personal">Personal</mat-option>
-                    <mat-option value="Archive">Archive</mat-option>
                 </mat-select>
                </mat-form-field>
           </div>

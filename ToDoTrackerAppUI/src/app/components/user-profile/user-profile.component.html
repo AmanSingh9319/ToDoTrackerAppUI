@@ -1,13 +1,19 @@
-<div>
-    <span class="headerSpan">
-        <h1><strong>My Profile</strong></h1>
-    </span><br><br>
-    <mat-card class="example-card">
-        <span>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        </span>
-        <mat-card-title>Name: </mat-card-title><br>
-        <mat-card-subtitle>EmailId: </mat-card-subtitle>
-    </mat-card>
-</div>
 
+   <div class="example-card">
+
+    
+        <span class="headerSpan">
+            <h1><strong>My Profile</strong></h1>
+        </span><br><br>
+        <span>
+            <!-- <img [src]="'data:image/jpeg;base64,'+userDetail.img"> -->
+            <img src="https://www.w3schools.com/w3images/avatar2.png" alt="">
+        </span><br><br>
+        <mat-card-title class="detail">Name: {{userDetail.firstName}}&nbsp;{{userDetail.lastName}}</mat-card-title><br><br>
+        <mat-card-subtitle class="detail">Mobile No.:7854125896 </mat-card-subtitle><br><br>
+
+        <mat-card-subtitle class="detail">EmailId:{{userDetail.emailId}}  </mat-card-subtitle>
+
+
+
+    </div>

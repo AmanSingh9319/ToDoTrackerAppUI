@@ -14,23 +14,34 @@ p{
     flex-direction: column;
 }
 
-.backcolor{
-    background-color:aliceblue;
-}
 
-.card{
+
+/* .card{
     padding: 30px;
     width: 500px;
     position: relative;
     right: -30em;
     bottom: -3em;
     border-radius: 10px;
-    background-image: url("src\app\assets\images\loginbackground.webp");
+    
     background-size: 100% 100%;
+  } */
+  .card{
+    /* padding: 30px;
+    width: 600px;
+    position: relative;
+    right: -30em;
+    bottom: -1em;
+    border-radius: 10px; */
+    /* background-image: "../../assets/images/loginbackground.webp"; */
+    margin: 200px auto ;
+    height: 430px;
+    width: 500px;
+    padding: 10px;
   }
 
   #alreadyUserSpan{
-    margin-left: 6em;
+    margin-left: 30%;
 }
 
 .button{
@@ -42,7 +53,7 @@ p{
 .emailId, .password{
     display: block;
     border-radius: 30px;
-    border: 1px solid black;
+    
     padding: 10px;
     margin: 10px, 0;
 }

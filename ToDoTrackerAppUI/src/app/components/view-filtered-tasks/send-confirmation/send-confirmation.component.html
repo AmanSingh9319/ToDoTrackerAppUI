@@ -1,0 +1,13 @@
+
+<mat-card>
+    <h3>Are you Sure to move this to archive ?</h3>
+    <mat-card-header>
+      <mat-card-title>Task Name : {{task.taskName}}</mat-card-title>
+      <mat-card-subtitle><strong>Task Category : {{task.taskCategory}}</strong> </mat-card-subtitle>
+      <mat-card-subtitle><strong>Task Deadline : {{task.taskDeadline}}</strong> </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" (click)="move(task)">Yes</button>
+      <button mat-raised-button color="primary" (click)="cancel()">No</button>
+    </mat-card-actions>
+  </mat-card>
