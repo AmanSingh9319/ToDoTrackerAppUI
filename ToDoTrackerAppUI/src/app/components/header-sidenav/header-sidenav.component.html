@@ -3,7 +3,9 @@
     <button mat-icon-button  (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     <h1 class="example-app-name">To Do Tracker</h1>
    
-
+    <span class="darkMode">
+      <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle>
+    </span>
     <mat-chip class="notify" [matBadge]="notifycount" matBadgePosition="after" matBadgeColor="accent" [matBadgeHidden]="notifycount==0">
       <!-- <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> -->
       <mat-icon>notifications</mat-icon> 
@@ -36,30 +38,29 @@
         <div class="navListDiv">
           <br>
           <h5 class="headingSpan">Tasks</h5>
-          <a mat-list-item (click)="methodToGet()">All Tasks</a>
-          <a mat-list-item routerLink="view-today-tasks">Today</a>
-          <a mat-list-item routerLink="view-upcoming-tasks">Upcoming</a>
+          <a mat-list-item (click)="methodToGet()"><mat-icon class="icon">dashboard</mat-icon> All Tasks</a>
+          <a mat-list-item routerLink="view-today-tasks"><mat-icon class="icon">today</mat-icon> Today</a>
+          <a mat-list-item routerLink="view-upcoming-tasks"><mat-icon class="icon">schedule</mat-icon> Upcoming</a>
           <mat-divider></mat-divider><br>
           <h5 class="headingSpan">Category</h5>
-          <a mat-list-item routerLink="view-complete-tasks">Completed</a>
-          <a mat-list-item routerLink="view-personal-tasks">Personal</a>
-          <a mat-list-item routerLink="view-work-tasks">Work</a>
-          <a mat-list-item (click)="methodToGetId()">Archive</a>
+          <a mat-list-item routerLink="view-complete-tasks"><mat-icon class="icon">assignment_turned_in</mat-icon> Completed</a>
+          <a mat-list-item routerLink="view-personal-tasks"><mat-icon class="icon">perm_identity</mat-icon> Personal</a>
+          <a mat-list-item routerLink="view-work-tasks"><mat-icon class="icon">work_outline</mat-icon> Work</a>
+          <a mat-list-item (click)="methodToGetId()"><mat-icon class="icon">archive</mat-icon>Archive</a>
           <mat-divider></mat-divider><br><br>
        
           <!-- <mat-slide-toggle>slide me</mat-slide-toggle> -->
-          <mat-slide-toggle [formControl]="toggleControl">Dark Mode</mat-slide-toggle><br><br>
-          <a mat-list-item routerLink="settings">Help</a><br>
-          <a mat-list-item routerLink="helpcenter">About</a><br>
-          <a mat-list-item (click)="logOutFunc()">log out</a><br>
+          
+          <a mat-list-item routerLink="settings"><mat-icon class="icon">help</mat-icon> Help</a>
+          <a mat-list-item routerLink="helpcenter"><mat-icon class="icon">info</mat-icon> About</a>
+          <a mat-list-item (click)="logOutFunc()"><mat-icon class="icon">power_settings_new</mat-icon> log out</a>
         
-          <br><br><br>
+          <br>
         </div>
       </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <!-- Add Content Here -->
       <router-outlet> </router-outlet>
     </mat-sidenav-content>
 

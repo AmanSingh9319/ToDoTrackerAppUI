@@ -12,17 +12,18 @@ import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 
 @Injectable()
 export class LoginComponent {
-  
+
   loginForm = new FormGroup({
     emailId: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-  });
-  email: string = '';
+
+  })
+  email: string = "";
 
   get emailId() {
     return this.loginForm.get('emailId');
@@ -31,39 +32,7 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-  constructor(
-    private httpClient: HttpClient,
-    private _snackBar: MatSnackBar,
-    private loginser: UserAuthenticationService,
-    private taskService: UserTaskService,
-    private router: Router
-  ) {}
 
-<<<<<<< HEAD
-  error: String = '';
-
-  onLogin() {
-    console.log(this.email);
-    this.router.navigate(['view-task']);
-    // this.loginser.loginUser(this.loginForm.value).subscribe(response=>{
-    //   localStorage.setItem("User_id",response.userid);
-    //   console.log(response.token+" "+response.username+" "+response.userid)
-    //   localStorage.setItem("Jwt_Token",response.token);
-    //   localStorage.setItem("User_Name",response.UserName);
-    //   this.loginser.userLoggedIn();
-    //   this.router.navigate(['admin'])
-    // },(error=>{
-    //   console.log(error);
-    //   alert("Login Failed!!");
-
-    // }))
-    console.log(this.loginForm.value); // .value is a property of ngform: that gives the value
-    // this._snackBar.open('Congrats!!You have logged In!!', 'success', {
-    //   duration: 5000,
-    //   panelClass: ['mat-toolbar', 'mat-primary']
-    // });
-    this.loginForm.reset();
-=======
   constructor(private _snackBar: MatSnackBar, private taskService: UserAuthenticationService, private router: Router, private userTaskSer: UserTaskService) { }
 
 
@@ -90,10 +59,6 @@ export class LoginComponent {
 
   registerRoutefunc() {
     this.router.navigateByUrl("register")
->>>>>>> 1b2b227fde048c781366c6d891f23d988d4165b3
   }
 
-  registerRoutefunc() {
-    this.router.navigateByUrl('register');
-  }
 }

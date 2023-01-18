@@ -30,7 +30,7 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 .matSNav{
-  width: 300px;
+  width: 250px;
 }
 .navListDiv{
   margin: 10px;
@@ -50,13 +50,20 @@ h1.example-app-name {
 }
 .profileSpan{
   position: relative;
-  margin-left: 2%;
-  
+  left: 65%; 
   padding-top: 7px;
   padding-bottom: 7px;
 }
 .notify{
-  margin-left: 70%;
   position: relative;
+  left: 62%;
   padding-top: 7px; 
+}
+.darkMode{
+  position: relative;
+  left: 60%;
+}
+.icon{
+  position: relative;
+  top: 6px;
 }

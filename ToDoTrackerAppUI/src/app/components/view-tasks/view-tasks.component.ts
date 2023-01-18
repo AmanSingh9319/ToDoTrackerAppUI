@@ -13,80 +13,9 @@ import { UpdateConfirmationComponent } from '../view-filtered-tasks/update-confi
 @Component({
   selector: 'app-view-tasks',
   templateUrl: './view-tasks.component.html',
-  styleUrls: ['./view-tasks.component.css'],
+  styleUrls: ['./view-tasks.component.css']
 })
 export class ViewTasksComponent implements OnInit {
-<<<<<<< HEAD
-  notes: Task[] = [
-    {
-      taskId: 1,
-      taskName: 'continue',
-      taskContent:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ',
-      taskCategory: 'work',
-      taskPriorityLevel: 'Low',
-      isTaskCompleted: true,
-    },
-    {
-      taskId: 2,
-      taskName: 'okokok',
-      taskContent:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil cum sit impedit recusandae reprehenderit cupiditate in qui. Corrupti, incidunt adipisci quo magni necessitatibus, in accusantium fuga non animi, sit placeat! ',
-      taskCategory: 'work',
-      taskPriorityLevel: 'Low',
-      isTaskCompleted: true,
-    },
-  ];
-
-  constructor(private taskService: UserTaskService, private router: Router) {}
-
-  search(searchText: string) {
-    //   this.noteService.getNote().subscribe({
-    //     next: data =>
-
-    //   {if(searchText || searchText !== ''){
-    //  this.notes =data.filter(data => data?.title?.includes(searchText));}
-    //   else
-    //   {
-    //     this.notes = data;
-    //   }
-    // }})
-    //   }
-    //   }
-    this.notes = this.notes.filter((data) =>
-      data?.taskName?.includes(searchText)
-    );
-  }
-  delete(taskId: any) {
-    console.log(taskId);
-
-    this.taskService.deleteTaskByTaskId(this.userId, taskId).subscribe({
-      next() {
-        alert('successfully deleted ');
-      },
-      error() {
-        alert('error from server side ');
-      },
-    });
-    window.location.reload();
-  }
-
-  ngOnInit(): void {
-    this.userId = this.actRoute.snapshot.paramMap.get('userId');
-    this.taskService.getAllTasksOfUser(this.userId).subscribe((response) => {
-      this.notes = response;
-      console.log(response);
-      console.log(this.userId);
-    });
-  }
-
-  check: any = '';
-  ngOnInit(): void {
-    this.check = this.taskService.email;
-    this.taskService.getUserByEmailId().subscribe();
-  }
-}
-=======
 
   notes$:any;
   searchResult: Task[] = [];
@@ -198,4 +127,3 @@ export class ViewTasksComponent implements OnInit {
 
 
 // this.userId = this.actRoute.snapshot.paramMap.get('userId');
->>>>>>> 1b2b227fde048c781366c6d891f23d988d4165b3

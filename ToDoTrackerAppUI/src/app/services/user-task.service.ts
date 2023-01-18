@@ -17,8 +17,9 @@ export class UserTaskService {
   get Refresh(){
     return this._refresh
   }
+
   headers = new HttpHeaders().set('Content-Type', 'application/json');
-  
+
 
   url:string="http://localhost:9000"
   
@@ -39,18 +40,6 @@ export class UserTaskService {
     }));
   }
 
-<<<<<<< HEAD
-  getAllUsers():Observable<User[]>{
-    return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask",{ headers: this.headers });
-  }
-
-  getUserById(user:User):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user.userId,{ headers: this.headers });
-  }
-
-  getUserByEmailId(user:User):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByEmailIdInUserTask/"+user.emailId);
-=======
  
 ///////////////////////////// All Get request \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -86,7 +75,6 @@ export class UserTaskService {
   getUserByEmailId(emailId :string):Observable<any>{
 
     return this.httpClient.get<any>(this.url+"/api/v1/task/getUserByEmailIdInUserTask/"+emailId);
->>>>>>> 1b2b227fde048c781366c6d891f23d988d4165b3
   }
 
   getTaskByTaskId(userId:number, taskId:number):Observable<Task>{

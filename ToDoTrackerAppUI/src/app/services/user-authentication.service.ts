@@ -3,29 +3,42 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class UserAuthenticationService {
-  constructor(private httpClient: HttpClient) {}
 
-  url: string = 'http://localhost:9000';
+constructor(private httpClient:HttpClient) { }
 
-<<<<<<< HEAD
-  loginUser(data: any): Observable<any> {
-    return this.httpClient.post<any>(this.url + '/api/v2/login', data);
-  }
-=======
 url:string="http://localhost:9000";
   hideIcon?:boolean;
 generateToken(data:any):Observable<any>{
   return this.httpClient.post<any>(this.url+"/api/v2/login",data);
  }
->>>>>>> 1b2b227fde048c781366c6d891f23d988d4165b3
 
-  isLoggedIn: boolean = false;
 
-  public userLoggedIn() {
-    this.isLoggedIn = true;
-    console.log(this.isLoggedIn);
-  }
+
+ //to check that the user is logged in or not !!
+loginUser(token: any) {
+ localStorage.setItem("token", token);
+ return true;
+}
+
+isLoggedIn() {
+ let token = localStorage.getItem("token");
+ if (token == undefined || token === "" || token == null) {
+   return false;
+ }
+ else {
+   return true;
+ }
+}
+
+logout() {
+ localStorage.removeItem('token');
+ return true;
+}
+
+getToken() {
+ return localStorage.getItem("token");
+}
 }
