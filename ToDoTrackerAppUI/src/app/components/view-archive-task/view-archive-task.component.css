@@ -1,12 +1,14 @@
 .card {
-  background-color: rgb(236, 216, 85);
-  border-radius: 4px;
+  background-color: rgb(242, 234, 186);
+  border-radius: 10px;
   margin-top: 80px;
   padding: 5px;
-  width: 350px;
+  width: 360px;
+  height: 360px;
   text-align: center;
   float: left;
   margin-left: 100px;
+  box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
 }
 
 .example-header-image {
@@ -15,13 +17,20 @@
   border: 1px solid;
 
 }
+mat-card-content{
+  height: 160px;
+ }
 
 h6 {
   display: inline;
-  background-color: rgb(242, 164, 92);
+  background-color: rgb(242, 234, 186);
   padding: 10px;
   border-radius: 15px;
+  
 
+}
+hr{
+  color: black;
 }
 
 .button {

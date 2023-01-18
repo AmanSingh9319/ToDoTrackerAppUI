@@ -27,7 +27,7 @@
           <div>
             <mat-form-field style=" width: 80%;">
               <mat-label>Task Content</mat-label>
-              <textarea  matInput type="taskContent" name="taskContent"  id="taskContent" [(ngModel)]="task.taskContent" rows="4" cols="50"></textarea>
+              <textarea  matInput type="taskContent" [maxlength]="203" name="taskContent"  id="taskContent" [(ngModel)]="task.taskContent" rows="4" cols="50"></textarea>
 
             </mat-form-field>
           </div>

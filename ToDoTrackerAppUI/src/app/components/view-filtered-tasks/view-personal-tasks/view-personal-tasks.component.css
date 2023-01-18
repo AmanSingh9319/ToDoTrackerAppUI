@@ -1,4 +1,165 @@
-.card {
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('../../../assets/images/1342400-middle.png');
+    background-size: cover;
+    border: 1px solid;
+   
+  }
+  
+  #title{
+    font-size: xx-large;
+    margin-left: 20px;
+  }
+  
+  
+  .card {
+      background-color: rgb(231, 209, 245);
+      border-radius: 10px;
+      margin-top: 80px;
+      padding: 5px;
+      width: 360px;
+      height: 330px;
+      text-align: center;
+      float: left; 
+      margin-left: 100px;
+      box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
+      
+    }
+  
+    #chip{
+      
+       margin-bottom: 15%;
+       background-color: rgb(231, 209, 245);
+       padding-top: 5px;
+       padding-bottom: 5px;
+   
+     }
+     strong{
+       display: inline;
+       padding-left: 7px;
+       padding-right: 7px;
+       padding-top: 5px;
+       padding-bottom: 5px; 
+       margin-bottom: 10px;
+       border-radius: 7px;
+     }
+  
+    #add{
+      background-color:rgb(232, 242, 250);
+      border-radius: 10px;
+      margin-top: 80px;
+      padding: 5px;
+      width: 350px;
+      height: 350px;
+      text-align: center;
+      float: left; 
+      margin-left: 100px;
+      box-shadow: 10px 10px 5px 0px rgba(69, 68, 68, 0.75);
+    }
+    #addicon{
+     
+      font-size: 60px;
+      width: 50px;
+      height: 50px;
+      margin: 41%;
+      color: rgb(82, 82, 184);
+  
+     
+     
+      
+    }
+  .low{
+    background-color: rgb(12, 153, 12);
+  }
+  .medium{
+    background-color:rgb(220, 220, 10)
+  }
+  
+  .high{
+      background-color: rgb(250, 113, 63);
+  }
+  .critical{
+    background-color: rgb(240, 23, 23);
+  }
+  
+  
+    mat-card-title{
+      display: flex;
+      font-weight: 550;
+      font-size: large;
+      
+      letter-spacing: 0.5px;
+      justify-content: space-around;
+      padding: 10px;
+    }
+    p{
+      display: inline;
+      font-family: Arial;
+      
+    }
+    .date{
+      display: flex;
+      margin-right: 10px;
+      margin-top: 18px;
+  
+    }
+  
+   #divider{
+   
+    border-radius: 15px;
+    height: 5px;
+    background-color: rgb(202, 148, 235);
+   }
+  
+   mat-card-content{
+    height: 200px;
+   }
+  
+    h6{
+      display: inline;
+      background-color: rgb(47, 221, 221);
+      padding: 10px;
+      border-radius: 15px;
+      
+    }
+    .button{
+      display: flex;
+      float: right;
+      justify-content: space-around;
+      margin-left: 20px;
+    }
+    .cat{
+      float: left;
+      margin-top: 10px;
+    }
+    .cont{
+      margin:2px
+    }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .card {
     background-color: rgb(231, 209, 245);
     border-radius: 4px;
     margin-top: 80px;
@@ -38,4 +199,4 @@ h6 {
 
 .cont {
     margin: 2px
-}
+} */

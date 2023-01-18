@@ -47,6 +47,6 @@ export class UpdateTaskComponent implements OnInit{
     console.log(this.task);
    
     this.dialogRef.close()
-   // window.location.reload();
+   
   }
 }

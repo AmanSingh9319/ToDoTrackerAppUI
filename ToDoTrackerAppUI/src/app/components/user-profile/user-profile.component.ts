@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   
     ngOnInit(): void {
       this.userId = this.taskService.getEmailId()
-    this.taskService.getUserById(this.userId).subscribe(data=>{
+      this.taskService.getUserById(this.userId).subscribe(data=>{
       this.userDetail=data })}
 
 }

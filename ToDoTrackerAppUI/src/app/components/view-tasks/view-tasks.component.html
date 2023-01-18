@@ -15,8 +15,10 @@
           
               <ng-container [ngSwitch]="note.taskPriorityLevel">
               <ng-container *ngSwitchCase="'Critical'">
+                
                 <mat-icon color="warn" style="float: right ;" aria-hidden="false" aria-label="Example home icon"
                   fontIcon="gpp_maybe" (click)="refresh(note.taskPriorityLevel)" ></mat-icon>
+                  
               </ng-container>
               <ng-container *ngSwitchCase="'High'">
                 <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_up" (click)="refresh(note.taskPriorityLevel)">
@@ -34,23 +36,22 @@
             </ng-container>
           </mat-card-title-group>
         </mat-card-header>
-        <div id="divider" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
-        'high': note.taskPriorityLevel == 'High', 
-       'medium': note.taskPriorityLevel == 'Medium',
-        'low': note.taskPriorityLevel =='Low' }">
+        <div id="divider" style="background-color: rgb(90, 173, 246);"></div>
          
-        </div><br>
+        <br>
         <mat-card-content>
           <p  style="color: black;">{{ note.taskContent }}</p>
-         
         </mat-card-content>
-        <hr style="color: black;">
-        <div style="justify-content: space-between;">
+    
+        <div id="divider" style="background-color: rgb(90, 173, 246);"></div>
+    
+        <div style="justify-content: space-between; height: 60px;">
           
           <div class="button">
-            <p class="date" style="color: black;">
-              {{note.taskDeadline}}
-            </p>
+            <mat-chip id="chip" class="date" style="color: black;"><strong  style="color: black;" >{{note.taskPriorityLevel}}&nbsp;&nbsp;{{note.taskDeadline}}</strong>
+              
+            </mat-chip>
+            
             <button mat-icon-button color="primary" (click)="update1(note.taskName)"
             aria-label="Example icon button with a home icon">
             <mat-icon>check</mat-icon>
@@ -64,14 +65,23 @@
            </button>
          </div>
         </div>
+        <mat-card-footer>
+          <mat-progress-bar mode="buffer" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
+          'high': note.taskPriorityLevel == 'High', 
+         'medium': note.taskPriorityLevel == 'Medium',
+          'low': note.taskPriorityLevel =='Low' }"  color="primary"></mat-progress-bar>
+        </mat-card-footer>
+     
         
       </mat-card>
    
 
     </div>
     <mat-card  (click)="add()" id="add" >
-
-    <mat-icon id="addicon"  >add</mat-icon>
+      <div id="addicon">
+        <mat-icon  >add</mat-icon>
+      </div>
+    
   
         
     </mat-card>
