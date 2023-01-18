@@ -15,9 +15,6 @@ import { UserTaskService } from 'src/app/services/user-task.service';
 })
 export class RegisterComponent {
 
-
-
-
   registerForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
     lastName: ['', [Validators.required, Validators.minLength(2), Validators.pattern("[a-zA-Z][a-zA-Z ]+")]],
@@ -93,38 +90,6 @@ export class RegisterComponent {
     this.router.navigateByUrl("login")
   }
 
-
-
-
-
-
-
-
-
-
-
-
-  //     console.log(" form data--"+this.registerForm.value)
-  //     let data1=JSON.stringify(this.registerForm.value)
-  //     this.userTaskSer.registerUser(this.registerForm.value).subscribe(response=>{
-  //       console.log(response);
-
-  //       this.router.navigate(['user'])
-  //   },
-  //     (error)=>{
-  //       console.log(error);
-  //       alert("Form Not Submitted!!");
-  //     }
-  //   ),
-  //     console.log(this.registerForm.value);
-  //  ()=> this._snackBar.open('Congrats!!You have submiited the form!!', 'success', {
-  //       duration: 5000,
-  //       panelClass: ['mat-toolbar', 'mat-primary']
-  //     });
-  //      this.registerForm.reset();
-
-
-
   get firstName() { return this.registerForm.get("firstName") }
 
   get lastName() { return this.registerForm.get("lastName") }
@@ -136,15 +101,5 @@ export class RegisterComponent {
   get role() { return this.registerForm.get("role") }
 
 
-  get emailId() {
-    return this.registerForm.get('emailId');
-  }
-
-  get password() {
-    return this.registerForm.get('password');
-  }
-
-  get role() {
-    return this.registerForm.get('role');
-  }
+  
 }
