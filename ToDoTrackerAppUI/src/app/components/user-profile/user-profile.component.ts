@@ -14,13 +14,16 @@ export class UserProfileComponent implements OnInit {
   userId: any;
   userDetail: any = {};
 
-  constructor(
-    private taskService: UserTaskService,
-    private router: Router,
-    public dialog: MatDialog,
-    private actRoute: ActivatedRoute,
-    private taskArc: TaskArchiveService
-  ) {}
+  userId:any;
+  userDetail:any={}
+  
+  constructor(private taskService: UserTaskService, private router: Router,
+    public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc : TaskArchiveService) { }
+  
+    ngOnInit(): void {
+      this.userId = this.taskService.getEmailId()
+      this.taskService.getUserById(this.userId).subscribe(data=>{
+      this.userDetail=data })}
 
   ngOnInit(): void {
     this.userId = this.taskService.getEmailId();

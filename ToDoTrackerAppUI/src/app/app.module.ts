@@ -47,6 +47,7 @@ import { SendConfirmationComponent } from './components/view-filtered-tasks/send
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { UpdateConfirmationComponent } from './components/view-filtered-tasks/update-confirmation/update-confirmation.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +100,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatGridListModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressBarModule
   
 
   ],

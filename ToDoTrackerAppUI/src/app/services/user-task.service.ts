@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap, throwError } from 'rxjs';
 import { AddTaskComponent } from '../components/add-task/add-task.component';
 import { Task } from '../model/Task';
 import { User } from '../model/User';
@@ -28,6 +28,12 @@ export class UserTaskService {
     return this.httpClient.post<any>(this.url+"/api/v1/AddUserInUserTask",data);
   }
 
+  registerUserWithNoImage(data:any){
+    console.log(data)
+    return this.httpClient.post<any>(this.url+"/api/v1/AddUserInUserTaskNoImage",data);
+  }
+  
+
   addTask(userId:number, task:Task){
     return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+userId, task ).pipe(tap(()=>{
       this.Refresh.next()
@@ -39,6 +45,8 @@ export class UserTaskService {
       this.Refresh.next()
     }));
   }
+
+
 
  
 ///////////////////////////// All Get request \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

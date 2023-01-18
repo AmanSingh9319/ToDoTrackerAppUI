@@ -40,8 +40,8 @@ export class UpdateTaskComponent implements OnInit {
     this.taskService.updateTask(this.user, this.task).subscribe();
 
     console.log(this.task);
-
-    this.dialogRef.close();
-    // window.location.reload();
+   
+    this.dialogRef.close()
+   
   }
 }

@@ -7,6 +7,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 import { Task } from 'src/app/model/Task';
  import * as moment from 'moment';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-task',
@@ -44,34 +46,32 @@ export class AddTaskComponent implements OnInit {
   }
 
   addSubmit() {
-    this.taskService.getAllTasksOfUser(this.user).subscribe((data) => {
-      const availableTask = data.find((res: Task) => {
-        return res.taskName === this.task.taskName;
-      });
-      if (availableTask) {
-        alert('Task Name already exist');
-      } else {
-        this.addCount = this.addCount + 1;
-        this.taskService.notifycount.next(this.addCount);
-        this.taskService.addTask(this.user, this.task).subscribe(
-          (response: Task) => {
-            this.task.taskName = response.taskName;
-            this.task.taskContent = response.taskContent;
-            this.task.taskDeadline = response.taskDeadline;
-            this.task.taskCategory = response.taskCategory;
-            this.task.taskPriorityLevel = response.taskPriorityLevel;
-            this.task.taskCompleted = response.taskCompleted;
+  
+      
+        this.addCount=this.addCount+1;
+        this.taskService.notifycount.next(this.addCount)
+        this.taskService.addTask(this.user, this.task).subscribe((response: Task) => {
 
-            console.log(this.user);
-            console.log(this.addTaskForm.value);
-            this.dialogRef.close();
-          },
-          (error) => {
-            alert('server site issue');
+          this.task.taskName = response.taskName;
+          this.task.taskContent = response.taskContent;
+          this.task.taskDeadline = response.taskDeadline;
+          this.task.taskCategory = response.taskCategory;
+          this.task.taskPriorityLevel = response.taskPriorityLevel;
+          this.task.taskCompleted = response.taskCompleted;
+          console.log(this.user);
+          console.log(this.addTaskForm.value);
+          this.dialogRef.close()
+
+        },(error:HttpErrorResponse) => {
+          if(error.status==409){
+          console.log(error.message);
+          alert("Task with specified detail already exists.")   }
+          else{
+            alert("server site problem")
           }
-        );
-      }
-    });
+        })
+      
+    
     console.log(this.task);
   }
   

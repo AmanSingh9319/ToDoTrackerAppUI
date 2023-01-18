@@ -43,13 +43,16 @@
               <hr>
               <div style="justify-content: space-around;">
                   <div class="button">
+                    
                       <div class="cat">
-                          <h6 style="color: black;">{{note.taskDeadline}}</h6>
+                             <span><mat-icon  style="color:rgb(210, 90, 90);padding-top: 3px;">check_circle</mat-icon>&nbsp;</span>
+                          <h6 style="color: black;">{{note.taskPriorityLevel}}&nbsp;&nbsp;{{note.taskDeadline}}&nbsp;</h6>
+                          
                       </div>
                      
                       <button mat-icon-button color="warn" (click)="restore(note)"
                           aria-label="Example icon button with a home icon">
-                          <mat-icon>check_circle</mat-icon>
+                          <mat-icon>move_to_inbox</mat-icon>
                       </button>
                       
 
