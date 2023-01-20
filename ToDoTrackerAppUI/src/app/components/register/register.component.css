@@ -55,3 +55,8 @@ p{
 button{
 margin-left: 45%;
 }
+.passwordShowButton{
+  position: relative;
+  left: 40%;
+  bottom: 25%;
+}

@@ -12,17 +12,14 @@
     <form class="form" (ngSubmit)="onLogin()" [formGroup]="loginForm">
 
             <mat-form-field appearance="fill">
-
                 <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId"  [(ngModel)]="email" />
-
-                
                 <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
-                </mat-error>
-                
+                </mat-error>     
             </mat-form-field><br>
+
             <mat-form-field appearance="fill">
-                <input matInput type="password" placeholder="Password" id="password" formControlName="password">
+                <input matInput type="text" placeholder="Password" id="password" formControlName="password" [type]="show ? 'text' : 'password'">
                 <mat-error *ngIf="password?.errors?.['required']">
                     Password is required.
                 </mat-error>
@@ -32,7 +29,12 @@
                 <button color="primary" mat-button mat-raised-button [disabled]="loginForm.invalid" type="submit"class="button alt-gradient-button" >Log In</button>
             </div>
         </form>
-</div><br>
+</div>
+
+<span class="passwordShowButton">
+    <button mat-button (click)="passwordFunc()">{{show ? 'Hide' : 'Show'}}</button>
+</span>
+
 <span id="alreadyUserSpan">
     <strong>New User ? Please  </strong><a style="color: blue;" (click)="registerRoutefunc()">Register</a>
 </span>

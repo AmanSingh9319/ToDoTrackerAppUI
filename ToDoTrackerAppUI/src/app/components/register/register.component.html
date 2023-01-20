@@ -53,7 +53,7 @@
             </mat-form-field>
             
             <mat-form-field appearance="fill">
-                <input matInput type="password" placeholder="Password" id="password" formControlName="password">
+                <input matInput type="text" placeholder="Password" id="password" formControlName="password" [type]="show ? 'text' : 'password'">
                 <mat-error *ngIf="password?.errors?.['required']">
                     Password is required.
                 </mat-error>
@@ -66,13 +66,16 @@
             <label>Role</label>
             <mat-radio-group aria-label="Select Role" class="radio-group" formControlName="role" id="role">
                 <mat-radio-button class="radio-button" [checked]="false" value="student">Student</mat-radio-button>
-                <mat-radio-button value="Employee">Employee</mat-radio-button>
+                <mat-radio-button value="Employee">Employee</mat-radio-button> 
             </mat-radio-group>
-      <br><br>
- <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" type="submit">Submit</button>
-</fieldset>
+            <br><br>
+            <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" type="submit">Submit</button>
+        </fieldset>
     </form>
-</div><br>
+</div>
+<span class="passwordShowButton">
+    <button mat-button (click)="passwordFunc()">{{show ? 'Hide' : 'Show'}}</button>
+</span>
 <span id="alreadyUserSpan">
 <strong>Already an User ? Please  </strong><a style="color: blue;" (click)="registerRoutefunc()">Login</a></span>
 </mat-card>

@@ -16,7 +16,7 @@ import { SendConfirmationComponent } from '../send-confirmation/send-confirmatio
 export class ViewPersonalTasksComponent {
   
 
-  user:any;
+  emailId:any;
   tasks:Task[] = [];
 
 
@@ -25,7 +25,7 @@ export class ViewPersonalTasksComponent {
 
 
   getPersonalTask(){                                                             //to view personal tasks
-    this.taskService.getAllTasksOfUser(this.user).subscribe({
+    this.taskService.getAllTasksOfUser(this.emailId).subscribe({
       next:data => { this.tasks=data.filter((task)=>
         {
           return task.taskCategory?.startsWith("Personal");
@@ -35,7 +35,7 @@ export class ViewPersonalTasksComponent {
   }
 
   ngOnInit(): void {
-    this.user = this.taskService.getEmailId()
+    this.emailId = this.taskService.getEmailId()
     this.getPersonalTask();
     this.taskService.Refresh.subscribe(res=>{
       this.getPersonalTask()
@@ -43,9 +43,9 @@ export class ViewPersonalTasksComponent {
    
   }
 
-  update(taskId: any) {
+  update(taskname: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
-      data: { emailId: this.user, task: taskId },
+      data: { emailId: this.emailId, task: taskname },
       width: "700px",
       height: "900px"
     })

@@ -23,9 +23,10 @@ export class NotificationService {
     return this.httpClient.put<any>(api,task);
   }
 
-  getAllTasksFromNotification():Observable<any>{
-    let api = `${this.endpoint}/notification/getAllTasksFromNotification/${this.currentUser}`;
-    return this.httpClient.get<any>(api);
+  getAllTasksFromNotification(email:any):Observable<any>{
+    // let api = `${this.endpoint}/notification/getAllTasksFromNotification/${email}`;
+   
+    return this.httpClient.get<any>("http://localhost:9000/api/v4/notification/getAllTasksFromNotification/"+email);
   }
 
   getAllUser():Observable<any>{
@@ -33,7 +34,7 @@ export class NotificationService {
     return this.httpClient.get<any>(api);
   }
 
-  deleteTaskFromNotification(userId:number, taskId:number):Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.endpoint+"/deleteFromNotification/"+userId+"/"+taskId);
+  deleteTaskFromNotification(userId:any, taskname:any):Observable<boolean>{
+    return this.httpClient.delete<boolean>(this.endpoint+"/deleteFromNotification/"+userId+"/"+taskname);
   }
 }

@@ -1,0 +1,39 @@
+
+   <div class="example-card" *ngIf="userId!=null">
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col" class="table-info"></th>
+            <th scope="col" class="table-info">NOTIFICATIONS</th>
+            <th scope="col" class="table-info"></th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of notification$">
+            <th scope="row" class="table-info"><i class="bi bi-bell"></i></th>
+            <td class="table-info"> Task&nbsp;&nbsp;<strong>"{{i.taskName}}"</strong>&nbsp;&nbsp;has&nbsp; been&nbsp; added</td>
+            <td class="table-danger"><i class="bi bi-x" (click)="delete(i.taskName)"></i></td>
+            
+          </tr>
+         
+      
+        </tbody>
+      </table>
+    
+    
+  </div>
+
+
+<div class="example-card" *ngIf="userId==null">
+
+
+    <span class="headerSpan">
+        <h4 style="text-align:center;"> No Notifications </h4>
+    </span><br><br>
+    <span >
+        <img src="https://img.freepik.com/premium-vector/silent-notification-icon-alarm-off-icon-no-notification-symbol-neumorphic-ui-ux-white-user-interface-web-button-neumorphism-vector-eps-10_399089-3323.jpg?w=2000"  >
+    </span><br><br>
+
+
+</div>
