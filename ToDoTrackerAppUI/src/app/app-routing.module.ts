@@ -16,6 +16,7 @@ import { SendConfirmationComponent } from './components/view-filtered-tasks/send
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderSidenavComponent } from './components/header-sidenav/header-sidenav.component';
 import { AuthGuard } from './guards/auth.guard';
+import { NotificationComponent } from './components/notification/notification.component';
 
 const routes: Routes = [
   {
@@ -87,6 +88,16 @@ const routes: Routes = [
   {
     path:"popup",
     component: SendConfirmationComponent
+  },
+  {
+    path:"notification",
+    component: NotificationComponent,
+    
+  },
+  {
+    path:"navbar",
+    component: HeaderSidenavComponent,
+    
   },
   {
     path:"**" ,

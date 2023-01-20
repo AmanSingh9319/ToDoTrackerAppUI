@@ -48,6 +48,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { UpdateConfirmationComponent } from './components/view-filtered-tasks/update-confirmation/update-confirmation.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { NotificationComponent } from './components/notification/notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     UpdateTaskComponent,
     ViewCompletedTaskComponent,
     SendConfirmationComponent,
-    UpdateConfirmationComponent
+    UpdateConfirmationComponent,
+    NotificationComponent
 
   ],
   imports: [

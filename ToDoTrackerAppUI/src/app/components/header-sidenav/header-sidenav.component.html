@@ -11,13 +11,13 @@
     <span class="darkMode">
       <mat-slide-toggle [formControl]="toggleControl"><mat-icon class="darkModeIcon">brightness_6</mat-icon></mat-slide-toggle>
     </span>
-    <mat-chip class="notify" [matBadge]="notifycount" matBadgePosition="after" matBadgeColor="accent" [matBadgeHidden]="notifycount==0">
-      <!-- <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> -->
+    <mat-chip class="notify" [matBadge]="notifycount" matBadgePosition="after" matBadgeColor="accent" [matBadgeHidden]="notifycount==0" (click)="notification()" >
+    
       <mat-icon>notifications</mat-icon> 
     </mat-chip>
 
     <mat-chip class="profileSpan"  (click)="userProfileRouteFunc()" >
-       <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg"/> 
+       <img matChipAvatar src="https://cdn1.vectorstock.com/i/1000x1000/99/70/note-book-logo-vector-20569970.jpg"/> 
       
      Hii {{userDetail.firstName}}
     </mat-chip>
