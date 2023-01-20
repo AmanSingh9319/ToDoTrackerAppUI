@@ -99,7 +99,12 @@ export class RegisterComponent {
   get password() { return this.registerForm.get("password"); }
 
   get role() { return this.registerForm.get("role") }
-
+  
 
   
+  show: boolean = false;
+  passwordFunc() {
+    this.show = !this.show;
+  }
+
 }
