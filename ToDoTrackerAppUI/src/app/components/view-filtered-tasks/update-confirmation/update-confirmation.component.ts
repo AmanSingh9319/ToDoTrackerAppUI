@@ -38,24 +38,23 @@ export class UpdateConfirmationComponent {
   }
 
  update() {
+    this.task.taskCompleted = true;
     this.taskService.updateTask(this.user,this.task).subscribe()
     if(this.task.taskCompleted){
       
       this._snackBar.open('Mark', 'ok', {
-        duration: 5000,
+        duration: 800,
         panelClass: ['mat-toolbar', 'mat-primary']
       });
     }else{
       this._snackBar.open('Mark', 'ok', {
-        duration: 5000,
+        duration: 800,
         panelClass: ['mat-toolbar', 'mat-primary']
       });
     }
       this.dialogRef.close();
   }
 
-
-  
   cancel(){
     this.dialogRef.close()
   }
