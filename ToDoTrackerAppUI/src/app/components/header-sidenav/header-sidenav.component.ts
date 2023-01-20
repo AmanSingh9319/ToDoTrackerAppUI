@@ -100,7 +100,7 @@ export class HeaderSidenavComponent implements OnInit {
 
   logOutFunc() {
     this.userDetail.firstName = ""
-    
+    this.authService.logout()
     this.service.removeEmail()
     window.location.reload
     this.router.navigateByUrl('login')
