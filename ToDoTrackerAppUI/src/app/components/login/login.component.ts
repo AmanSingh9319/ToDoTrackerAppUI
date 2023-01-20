@@ -20,7 +20,7 @@ export class LoginComponent {
 
   loginForm = new FormGroup({
     emailId: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
 
   })
   email: string = "";
