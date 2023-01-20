@@ -56,9 +56,9 @@ ngOnInit(): void {
   })
 }
 
-  update(taskId: any) {
+  update(taskname: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
-      data: { emailId: this.emailId, task: taskId },
+      data: { emailId: this.emailId, task: taskname },
       width: "700px",
       height: "700px"
     })

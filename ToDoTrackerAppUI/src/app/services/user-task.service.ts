@@ -18,7 +18,6 @@ export class UserTaskService {
     return this._refresh
   }
 
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   url:string="http://localhost:9000"
   
@@ -33,14 +32,14 @@ export class UserTaskService {
   }
   
 
-  addTask(userId:number, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+userId, task ).pipe(tap(()=>{
+  addTask(emailId:any, task:Task){
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/addTaskInUserTask/"+emailId, task ).pipe(tap(()=>{
       this.Refresh.next()
     }));
   }
 
-  updateTask(userId:any, task:Task){
-    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+userId, task).pipe(tap(()=>{
+  updateTask(emailId:any, task:Task){
+    return this.httpClient.put<Task>(this.url+"/api/v1/task/updateTaskInUserTask/"+emailId, task).pipe(tap(()=>{
       this.Refresh.next()
     }));
   }
@@ -54,11 +53,7 @@ export class UserTaskService {
 
   
   
-  endpoint: string = 'http://localhost:9000/api/v1';
   currentEmailId:any ;
-
-
-
   captureEmail(email: any) {
     this.currentEmailId = localStorage.setItem("email", email);
     return true;
@@ -74,7 +69,7 @@ export class UserTaskService {
    
   
   getAllTasksOfUser(emailId:any):Observable<Task[]>{
-    let api = `${this.endpoint}/task/getAllTasksOfUserFromUserTask/${emailId}`;
+    let api = `${this.url}/api/v1/task/getAllTasksOfUserFromUserTask/${emailId}`;
     return this.httpClient.get<Task[]>(api);
   }
   
@@ -92,14 +87,14 @@ export class UserTaskService {
     return this.httpClient.get<User[]>(this.url+"/api/v1/task/getAllUsersFromUserTask");
   }
 
-  getUserById(user:any):Observable<User>{
-    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+user).pipe(tap(()=>{
+  getUserById(emailId:any):Observable<User>{
+    return this.httpClient.get<User>(this.url+"/api/v1/task/getUserByIdInUserTask/"+emailId).pipe(tap(()=>{
       this.Refresh.next()
     }));;
   }
 
-  getCompletedTask(userId:any):Observable<Task[]>{
-    return this.httpClient.get<Task[]>(this.url+"/api/v1/completed/"+userId);
+  getCompletedTask(emailId:any):Observable<Task[]>{
+    return this.httpClient.get<Task[]>(this.url+"/api/v1/completed/"+emailId);
   }
 
 
@@ -115,8 +110,8 @@ export class UserTaskService {
     return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteUserByIdInUserTask/"+user.userId);
   }
 
-  deleteTaskByTaskId(userId:number, taskId:number):Observable<boolean>{
-    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteTaskByTaskIdInUserTask/"+userId+"/"+taskId).pipe(tap(()=>{
+  deleteTaskByTaskId(email:any, taskname:any):Observable<boolean>{
+    return this.httpClient.delete<boolean>(this.url+"/api/v1/task/deleteTaskByTaskIdInUserTask/"+email+"/"+taskname).pipe(tap(()=>{
       this.Refresh.next()
     }));;
   }

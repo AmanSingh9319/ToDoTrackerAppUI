@@ -19,7 +19,8 @@ export class ViewTasksComponent implements OnInit {
   notes$: any;
   searchResult: Task[] = [];
   emailId: any;
-  addCount: number = 0;
+  addCount:number = 0
+ 
 
   constructor(
     private taskService: UserTaskService,
@@ -54,14 +55,17 @@ export class ViewTasksComponent implements OnInit {
   }
 
   delete(task: any) {
-    this.addCount = this.addCount + 1;
-    this.taskService.notifycount.next(this.addCount);
+    this.addCount=this.addCount+1;
+    this.taskService.notifycount.next(this.addCount)
+
     this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe({
       next() {
-        alert('successfully delete ');
+        console.log;
+        ('successfully delete ');
       },
       error() {
-        alert('error from server side ');
+        console.log
+        ('error from server side ');
       },
     });
   }
