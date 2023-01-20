@@ -61,4 +61,9 @@ export class LoginComponent {
     this.router.navigateByUrl("register")
   }
 
+  show: boolean = false;
+  passwordFunc() {
+    this.show = !this.show;
+  }
+
 }
