@@ -13,102 +13,116 @@ import { UpdateConfirmationComponent } from '../view-filtered-tasks/update-confi
 @Component({
   selector: 'app-view-tasks',
   templateUrl: './view-tasks.component.html',
-  styleUrls: ['./view-tasks.component.css']
+  styleUrls: ['./view-tasks.component.css'],
 })
 export class ViewTasksComponent implements OnInit {
-
-  notes$:any;
+  notes$: any;
   searchResult: Task[] = [];
   emailId: any;
-  addCount:number=0
-  
+  addCount: number = 0;
 
-  constructor(private taskService: UserTaskService, private router: Router,
-    public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc : TaskArchiveService,private _snackBar: MatSnackBar) { }
-  
+  constructor(
+    private taskService: UserTaskService,
+    private router: Router,
+    public dialog: MatDialog,
+    private actRoute: ActivatedRoute,
+    private taskArc: TaskArchiveService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   add() {
     const dialogRef = this.dialog.open(AddTaskComponent, {
       data: { emailId: this.emailId },
-      width: "700px",
-      height: "650px"
-    })
+      width: '700px',
+      height: '650px',
+    });
   }
   update(taskName: any) {
     const dialogRef = this.dialog.open(UpdateTaskComponent, {
       data: { emailId: this.emailId, task: taskName },
-      width: "700px",
-      height: "750px" })
+      width: '700px',
+      height: '750px',
+    });
   }
-
 
   update1(taskName: any) {
     const dialogRef = this.dialog.open(UpdateConfirmationComponent, {
       data: { emailId: this.emailId, task: taskName },
-      width: "300px",
-      height: "200px" })
+      width: '300px',
+      height: '200px',
+    });
   }
- 
 
   delete(task: any) {
-    this.addCount=this.addCount+1;
-    this.taskService.notifycount.next(this.addCount)
-    this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe({next(){alert("successfully delete ")},error(){alert("error from server side ")}})
-    
+    this.addCount = this.addCount + 1;
+    this.taskService.notifycount.next(this.addCount);
+    this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe({
+      next() {
+        alert('successfully delete ');
+      },
+      error() {
+        alert('error from server side ');
+      },
+    });
   }
-  getAllTask(){
-    this.taskService.getAllTasksOfUser(this.emailId).subscribe(response => {
-      this.notes$= response
-      this.searchResult=response
+  getAllTask() {
+    this.taskService.getAllTasksOfUser(this.emailId).subscribe((response) => {
+      this.notes$ = response;
+      this.searchResult = response;
+    });
+  }
+
+  getTaskPrioritywise(priority:string){
+    if(priority==null){
+      this.taskService.getAllTasksOfUser(this.emailId).subscribe({
+        next:data => {this.notes$=data },
+        error() {alert ("error occured while loading the tasks")},         
       })
+    }else{
+      this.taskService.getAllTasksOfUser(this.emailId).subscribe({
+        next:data => { this.notes$=data.filter((task)=>
+          {
+            return task.taskPriorityLevel?.startsWith(priority);
+          }) },
+        error() {alert ("error occured while loading the tasks")},          
+      })
+    }
   }
 
   ngOnInit(): void {
-      this.emailId = this.taskService.getEmailId()
-      console.log(this.emailId);
+    this.emailId = this.taskService.getEmailId();
+    console.log(this.emailId);
+    this.getAllTask();
+    this.taskService.Refresh.subscribe((response) => {
       this.getAllTask();
-      this.taskService.Refresh.subscribe(response=>{
-        this.getAllTask()
-      })
-
+    });
   }
 
-
-   
-
-    refresh(text:any){
-      
-      window.location.reload()
-      // this._snackBar.open('This is '+text+' task', 'ok', {
-      //   duration: 5000,
-      //   panelClass: ['mat-toolbar', 'mat-primary']
-      // });
-    }
-
-
-  
+  refresh(text: any) {
+    window.location.reload();
+  }
 
   search(searchText: string) {
-      
-       if (searchText === " " || !searchText)
-          this.notes$ = this.searchResult;
-        else {
-          console.log(this.notes$);
-          console.log(this.searchResult);
-        this.taskService.getAllTasksOfUser(this.emailId).subscribe({
-          next:data => { this.notes$=data.filter((task)=>
-            {
-              return task.taskName?.toLowerCase().startsWith(searchText.toLowerCase());
-            }) },
-          error() {alert ("no result")},          
-        })
-        console.log(searchText);
-        console.log(this.notes$);
-       }
-      
-}
-
-
+    if (searchText === ' ' || !searchText) this.notes$ = this.searchResult;
+    else {
+      console.log(this.notes$);
+      console.log(this.searchResult);
+      this.taskService.getAllTasksOfUser(this.emailId).subscribe({
+        next: (data) => {
+          this.notes$ = data.filter((task) => {
+            return task.taskName
+              ?.toLowerCase()
+              .startsWith(searchText.toLowerCase());
+          });
+        },
+        error() {
+          alert('no result');
+        },
+      });
+      console.log(searchText);
+      console.log(this.notes$);
+    }
+  }
 }
 
 

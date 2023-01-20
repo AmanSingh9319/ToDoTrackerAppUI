@@ -30,7 +30,7 @@ export class ViewPersonalTasksComponent {
         {
           return task.taskCategory?.startsWith("Personal");
         }) },
-      error() {alert ("error occured while loading the Pizza Details")},          
+      error() {alert ("error occured while loading personal tasks")},          
     })
   }
 

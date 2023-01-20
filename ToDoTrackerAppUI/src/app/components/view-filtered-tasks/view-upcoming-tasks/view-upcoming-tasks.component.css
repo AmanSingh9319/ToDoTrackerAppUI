@@ -1,7 +1,3 @@
-.example-card {
-    max-width: 400px;
-  }
-  
   .example-header-image {
     background-image: url('../../../assets/images/1342400-middle.png');
     background-size: cover;
@@ -14,25 +10,35 @@
     margin-left: 20px;
   }
   
+  .heading{
+    margin-top: 1%;
+    color:rgb(89, 142, 240);
+    margin-left: 6%;
+    display: flex;
+    justify-content: center;
+  }  
   
   .card {
-      background-color: rgba(212, 244, 241, 0.992);
-      border-radius: 10px;
-      margin-top: 80px;
-      padding: 5px;
-      width: 360px;
-      height: 330px;
-      text-align: center;
-      float: left; 
-      margin-left: 100px;
-      box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
-      
+    background-color:aliceblue;
+    margin-top: 1%;
+    border-radius: 10px;
+    margin-top: 10%;
+    padding: 5px;
+    width: 360px;
+    height: 330px;
+    text-align: center;
+    float: left;
+    margin-left: 100px;
+    box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
+    position: relative;
+    right: 10%;
+    bottom: 10%;
     }
   
     #chip{
       
        margin-bottom: 15%;
-       background-color: rgba(212, 244, 241, 0.992);
+       background-color: aliceblue;
        padding-top: 5px;
        padding-bottom: 5px;
    
@@ -86,15 +92,14 @@
   }
   
   
-    mat-card-title{
-      display: flex;
-      font-weight: 550;
-      font-size: large;
-      
-      letter-spacing: 0.5px;
-      justify-content: space-around;
-      padding: 10px;
-    }
+  mat-card-title {
+    display: flex;
+    font-weight: bold;
+    font-size: x-large;
+    letter-spacing: 0.5px;
+    justify-content: space-around;
+    padding: 6px;
+  }
     p{
       display: inline;
       font-family: Arial;
@@ -127,7 +132,7 @@
     }
     .button{
       display: flex;
-      float: right;
+      float: center;
       justify-content: space-around;
       margin-left: 20px;
     }
@@ -138,6 +143,25 @@
     .cont{
       margin:2px
     }
+    mat-grid-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    .headerMid{
+      width: 90%;
+    }
+    .headerRight{
+      width: 10%;
+    }
+    mat-progress-bar{
+      border-radius: 15px;
+      padding-left: 2px;
+      padding-right: 2px;
+      padding-top: 4px;
+      padding-bottom: 6px;
+    }
 
 
 
@@ -158,149 +182,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .card {
-    background-color: rgba(178, 193, 251, 0.992);
-    border-radius: 4px;
-    margin-top: 80px;
-    padding: 5px;
-    width: 350px;
-    text-align: center;
-    float: left;
-    margin-left: 100px;
-}
-
-.example-header-image {
-    background-image: url('../../../assets/images/loginbackground.webp');
-    background-size: cover;
-    border: 1px solid;
-
-}
-
-h6 {
-    display: inline;
-    background-color: rgb(73, 65, 230);
-    padding: 10px;
-    border-radius: 15px;
-
-}
-
-.button {
-    display: inline;
-    float: right;
-    margin-left: 20px;
-
-}
-
-.cat {
-    float: left;
-    margin-top: 10px;
-}
-
-.cont {
-    margin: 2px
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .card {
-    background-color: rgba(48, 200, 227, 0.992);
-    border-radius: 4px;
-    margin-top: 80px;
-    padding: 5px;
-    width: 350px;
-    text-align: center;
-    float: left;
-    margin-left: 100px;
-}
-
-.example-header-image {
-    background-image: url('../../../assets/images/loginbackground.webp');
-    background-size: cover;
-    border: 1px solid;
-
-}
-
-h6 {
-    display: inline;
-    background-color: rgb(197, 190, 226);
-    padding: 10px;
-    border-radius: 15px;
-
-}
-
-.button {
-    display: inline;
-    float: right;
-    margin-left: 20px;
-
-}
-
-.cat {
-    float: left;
-    margin-top: 10px;
-}
-
-.cont {
-    margin: 2px
-} */
