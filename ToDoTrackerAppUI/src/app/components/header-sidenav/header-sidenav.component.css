@@ -19,8 +19,9 @@
 } */
 .appLogo{
   display: inline-block;
+  box-sizing: border-box;
   margin-left: 3%;
-  margin-right: -22%;
+  margin-right: -8%;
 }
 .img{
   border-radius: 10px;
@@ -30,6 +31,7 @@
 .container{
   display: inline-block;
   box-sizing: border-box;
+  margin-left: 1%;
 }
 .typed-out{
   overflow: hidden;
