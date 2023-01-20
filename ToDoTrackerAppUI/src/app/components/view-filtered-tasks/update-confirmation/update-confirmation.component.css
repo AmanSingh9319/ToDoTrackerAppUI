@@ -1,12 +1,8 @@
-.centre{
-    text-align: center;
+.issCompletedCard{
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
-#heading{
-    margin-top: 5%;
- margin-left: 10%;
-}
-
-.mat-mdc-radio-button ~ .mat-mdc-radio-button {
-    margin-left: 16px;
-  }
-  
