@@ -16,7 +16,7 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./add-task.component.css'],
 })
 export class AddTaskComponent implements OnInit {
-  user: number = this.data.emailId; //emailId
+  emailId: any = this.data.emailId; //emailId
   task: Task = {};
   todayDate = new Date();
   addCount: number = 0;
@@ -39,7 +39,7 @@ export class AddTaskComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.user);
+    console.log(this.emailId);
     let today = moment().format('YYYY-MM-DD');
 
     console.log(today);
@@ -50,7 +50,7 @@ export class AddTaskComponent implements OnInit {
       
         this.addCount=this.addCount+1;
         this.taskService.notifycount.next(this.addCount)
-        this.taskService.addTask(this.user, this.task).subscribe((response: Task) => {
+        this.taskService.addTask(this.emailId, this.task).subscribe((response: Task) => {
 
           this.task.taskName = response.taskName;
           this.task.taskContent = response.taskContent;
@@ -58,9 +58,9 @@ export class AddTaskComponent implements OnInit {
           this.task.taskCategory = response.taskCategory;
           this.task.taskPriorityLevel = response.taskPriorityLevel;
           this.task.taskCompleted = response.taskCompleted;
-          console.log(this.user);
+          console.log(this.emailId);
           console.log(this.addTaskForm.value);
-          this.dialogRef.close()
+          //this.dialogRef.close()
 
         },(error:HttpErrorResponse) => {
           if(error.status==409){

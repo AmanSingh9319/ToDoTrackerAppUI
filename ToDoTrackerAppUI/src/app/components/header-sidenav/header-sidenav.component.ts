@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { Overlay, OverlayContainer } from '@angular/cdk/overlay';
 import { UserAuthenticationService } from 'src/app/services/user-authentication.service';
+import { NotificationComponent } from '../notification/notification.component';
 
 @Component({
   selector: 'app-header-sidenav',
@@ -90,7 +91,19 @@ export class HeaderSidenavComponent implements OnInit {
     const dialogRef = this.dialog.open(UserProfileComponent, {
 
       width: "600px",
-      height: "610px"
+      height: "610px",
+      
+    })
+
+ 
+  }
+
+  notification(){
+    const dialogRef = this.dialog.open(NotificationComponent, {
+
+      width: "400px",
+      height: "410px",
+      position: {top: '0px', right:'0px'}  
     })
   }
 
@@ -100,7 +113,7 @@ export class HeaderSidenavComponent implements OnInit {
 
   logOutFunc() {
     this.userDetail.firstName = ""
-    
+    this.authService.logout()
     this.service.removeEmail()
     window.location.reload
     this.router.navigateByUrl('login')

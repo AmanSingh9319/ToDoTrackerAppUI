@@ -16,7 +16,7 @@ export class SendConfirmationComponent {
 
   task = new Task()
  
-  user: any = this.data.emailId;
+  emailId: any = this.data.emailId;
   task1 :any =this.data.task;
 
 
@@ -31,15 +31,15 @@ export class SendConfirmationComponent {
 
   ngOnInit(): void {
 
-    this.taskService.getTaskByTaskId(this.user,this.task1.taskName).subscribe(res => this.task = res)
+    this.taskService.getTaskByTaskId(this.emailId,this.task1.taskName).subscribe(res => this.task = res)
     console.log(this.task1);
-    console.log("user details"+this.user);
+    console.log("user details"+this.emailId);
 
   }
 
  move(task: any) {
-    this.taskarc.addTaskInArchive(task, this.user).subscribe(data => { console.log(task) });
-    this.taskService.deleteTaskByTaskId(this.user, task.taskName).subscribe(() => alert("successfull move to archive"))
+    this.taskarc.addTaskInArchive(task, this.emailId).subscribe(data => { console.log(task) });
+    this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe(() => alert("successfull move to archive"))
     
     this.dialogRef.close();
   }

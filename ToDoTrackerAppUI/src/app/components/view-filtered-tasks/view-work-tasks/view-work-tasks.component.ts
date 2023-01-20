@@ -15,13 +15,13 @@ import { UpdateTaskComponent } from '../../update-task/update-task.component';
 export class ViewWorkTasksComponent {
   
 
-  user:any;
+  emailId:any;
   tasks:Task[] = [];
   constructor(private taskService: UserTaskService, private router: Router,
     public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc: TaskArchiveService) { }
 
   getWorkTask(){                                                             //to view personal tasks
-    this.taskService.getAllTasksOfUser(this.user).subscribe({
+    this.taskService.getAllTasksOfUser(this.emailId).subscribe({
       next:data => { this.tasks=data.filter((task)=>
         {
           return task.taskCategory?.startsWith("Work");
@@ -31,8 +31,8 @@ export class ViewWorkTasksComponent {
   }
 
   ngOnInit(): void {
-    this.user = this.taskService.getEmailId()
-    console.log(this.user);
+    this.emailId = this.taskService.getEmailId()
+    console.log(this.emailId);
     this.getWorkTask();
     this.taskService.Refresh.subscribe(res=>{
       this.getWorkTask()
@@ -41,14 +41,14 @@ export class ViewWorkTasksComponent {
 
    
     delete(note: any) {
-      this.taskService.deleteTaskByTaskId(this.user, note.taskName).subscribe()
+      this.taskService.deleteTaskByTaskId(this.emailId, note.taskName).subscribe()
       window.location.reload();
     }
   
   
-    update(taskId: any) {
+    update(taskname: any) {
       const dialogRef = this.dialog.open(UpdateTaskComponent, {
-        data: { emailId: this.user, task: taskId },
+        data: { emailId: this.emailId, task: taskname },
         width: "700px",
         height: "900px"
       })

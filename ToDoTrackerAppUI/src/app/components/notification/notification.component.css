@@ -1,0 +1,24 @@
+.example-card {
+   
+    
+    
+    border-radius: 10px;
+     
+}
+img{
+  
+    width: 250px;
+    margin-left: 20%;
+    border: 1px solid;
+    border-radius: 80%;
+}
+strong{
+    letter-spacing: 1px;
+   
+   
+}
+.detail{
+    letter-spacing: 1px;
+    padding-left: 25px;
+    color: #000;
+}

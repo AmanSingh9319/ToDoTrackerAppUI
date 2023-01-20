@@ -16,7 +16,7 @@ export class UpdateConfirmationComponent {
 
   task = new Task()
  
-  user: any = this.data.emailId;
+  emailId: any = this.data.emailId;
   task1 :any =this.data.task;
 
 
@@ -31,15 +31,15 @@ export class UpdateConfirmationComponent {
 
   ngOnInit(): void {
 
-    this.taskService.getTaskByTaskId(this.user,this.task1).subscribe(res => this.task = res)
+    this.taskService.getTaskByTaskId(this.emailId,this.task1).subscribe(res => this.task = res)
     console.log(this.task1);
-    console.log("user details"+this.user);
+    console.log("user details"+this.emailId);
 
   }
 
  update() {
     this.task.taskCompleted = true;
-    this.taskService.updateTask(this.user,this.task).subscribe()
+    this.taskService.updateTask(this.emailId,this.task).subscribe()
     if(this.task.taskCompleted){
       
       this._snackBar.open('Mark', 'ok', {

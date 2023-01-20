@@ -14,8 +14,8 @@ import { ViewTasksComponent } from '../view-tasks/view-tasks.component';
 })
 export class UpdateTaskComponent implements OnInit {
   task = new Task();
-  addCount: number = 0;
-  user: any = this.data.emailId;
+  
+  emailId: any = this.data.emailId;
   task1: any = this.data.task;
 
   constructor(
@@ -28,16 +28,15 @@ export class UpdateTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService
-      .getTaskByTaskId(this.user, this.task1)
+      .getTaskByTaskId(this.emailId, this.task1)
       .subscribe((res) => (this.task = res));
     console.log(this.task1);
-    console.log('user details id ==' + this.user);
+    console.log('user details id ==' + this.emailId);
   }
 
   function1() {
-    this.addCount = this.addCount + 1;
-    this.taskService.notifycount.next(this.addCount);
-    this.taskService.updateTask(this.user, this.task).subscribe();
+
+    this.taskService.updateTask(this.emailId, this.task).subscribe();
 
     console.log(this.task);
    
