@@ -15,6 +15,7 @@ import { ViewCompletedTaskComponent } from './components/view-filtered-tasks/vie
 import { SendConfirmationComponent } from './components/view-filtered-tasks/send-confirmation/send-confirmation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HeaderSidenavComponent } from './components/header-sidenav/header-sidenav.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -31,65 +32,65 @@ const routes: Routes = [
   },
   {
     path:"view-archive-task",
-    component:ViewArchiveTaskComponent
+    component:ViewArchiveTaskComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"view-personal-tasks",
     component:ViewPersonalTasksComponent,
-    // canActivate:[ViewPizzaGuard]
-  },
-  {
-    path:"side-nav",
-    component: HeaderSidenavComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"view-today-tasks",
     component:ViewTodayTasksComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"view-upcoming-tasks",
     component:ViewUpcomingTasksComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"view-work-tasks",
     component:ViewWorkTasksComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"settings",
-    component:SettingsComponent,
+    component:SettingsComponent
   },
   {
     path:"helpcenter",
-    component:HelpcenterComponent,
+    component:HelpcenterComponent
     
   },
   {
     path:"view-complete-tasks",
-    component:ViewCompletedTaskComponent
+    component:ViewCompletedTaskComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"user-profile",
-    component:UserProfileComponent
+    component:UserProfileComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"view-task/:userId",
-    component:ViewTasksComponent
+    component:ViewTasksComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"view-task",
-    component:ViewTasksComponent
-  },
-  {
-    path:"login",
-    component:LoginComponent
+    component:ViewTasksComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:"popup",
     component: SendConfirmationComponent
   },
   {
-      path:"**" ,
-      component: PageNotFoundComponent
+    path:"**" ,
+    component: PageNotFoundComponent
   }
 ];
 

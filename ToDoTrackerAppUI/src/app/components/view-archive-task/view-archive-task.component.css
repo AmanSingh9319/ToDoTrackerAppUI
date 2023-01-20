@@ -1,16 +1,46 @@
+.heading{
+  margin-top: 1%;
+  color:rgb(89, 142, 240);
+  margin-left: 6%;
+  display: flex;
+  justify-content: center;
+}  
+
 .card {
-  background-color: rgb(242, 234, 186);
+  background-color:aliceblue;
+  margin-top: 1%;
   border-radius: 10px;
-  margin-top: 80px;
+  margin-top: 10%;
   padding: 5px;
   width: 360px;
-  height: 360px;
+  height: 330px;
   text-align: center;
   float: left;
   margin-left: 100px;
   box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
-}
+  position: relative;
+  right: 10%;
+  bottom: 10%;
+  }
 
+  mat-card-title {
+    display: flex;
+    font-weight: bold;
+    font-size: x-large;
+    letter-spacing: 0.5px;
+    justify-content: space-around;
+    padding: 6px;
+  }
+
+  #chip{
+      
+    margin-bottom: 7%;
+    background-color: aliceblue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+  }
+  
 .example-header-image {
   background-image: url('../../assets/images/1342400-middle.png');
   background-size: cover;
@@ -35,7 +65,7 @@ hr{
 
 .button {
   display: inline;
-  float: right;
+  float: center;
   margin-left: 20px;
 
 }
@@ -47,4 +77,23 @@ hr{
 
 .cont {
   margin: 2px
+}
+mat-grid-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.headerMid{
+  width: 90%;
+}
+.headerRight{
+  width: 10%;
+}
+mat-progress-bar{
+  border-radius: 15px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 6px;
 }

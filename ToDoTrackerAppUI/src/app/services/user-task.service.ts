@@ -20,7 +20,6 @@ export class UserTaskService {
 
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-
   url:string="http://localhost:9000"
   
   registerUser(data:any){

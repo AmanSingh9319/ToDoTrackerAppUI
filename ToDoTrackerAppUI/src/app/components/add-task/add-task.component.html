@@ -16,8 +16,8 @@
           <div>
             <mat-form-field style=" width: 80%;">
               <mat-label>Task-Name</mat-label>
-              <input matInput type="taskName" name="taskName" formControlName="taskName" id="taskName" [(ngModel)]="task.taskName"  >
-
+              <input matInput type="taskName" name="taskName" formControlName="taskName" id="taskName" [(ngModel)]="task.taskName" >
+              <div class="error" *ngIf="addTaskForm.controls['taskName'].hasError('maxlength')" style="color: red;">You have reached the maximum limit</div>
             </mat-form-field>
           </div>
           <br>
@@ -26,7 +26,6 @@
               <mat-label>Task Content</mat-label>
               <textarea  matInput type="taskContent" name="taskContent" formControlName="taskContent" id="taskContent" [(ngModel)]="task.taskContent" [maxlength]="204"></textarea>
               <div class="error" *ngIf="addTaskForm.controls['taskContent'].hasError('maxlength')" style="color: red;">You have reached the maximum limit</div>
-
             </mat-form-field>
           </div>
           <br>

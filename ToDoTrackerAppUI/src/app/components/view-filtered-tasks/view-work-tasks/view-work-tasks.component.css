@@ -16,23 +16,25 @@
   
   
   .card {
-      background-color: rgb(241, 226, 226);
-      border-radius: 10px;
-      margin-top: 80px;
-      padding: 5px;
-      width: 360px;
-      height: 330px;
-      text-align: center;
-      float: left; 
-      margin-left: 100px;
-      box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
-      
-    }
+    background-color:aliceblue;
+    margin-top: 10%;
+    border-radius: 10px;
+    padding: 5px;
+    width: 360px;
+    height: 330px;
+    text-align: center;
+    float: left;
+    margin-left: 100px;
+    box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
+    position: relative;
+    right: 10%;
+    bottom: 10%; 
+  }
   
     #chip{
       
        margin-bottom: 15%;
-       background-color: rgb(241, 226, 226);
+       background-color: aliceblue;
        padding-top: 5px;
        padding-bottom: 5px;
    
@@ -48,7 +50,7 @@
      }
   
     #add{
-      background-color:rgb(232, 242, 250);
+      background-color:aliceblue;
       border-radius: 10px;
       margin-top: 80px;
       padding: 5px;
@@ -86,15 +88,14 @@
   }
   
   
-    mat-card-title{
-      display: flex;
-      font-weight: 550;
-      font-size: large;
-      
-      letter-spacing: 0.5px;
-      justify-content: space-around;
-      padding: 10px;
-    }
+  mat-card-title {
+    display: flex;
+    font-weight: bold;
+    font-size: x-large;
+    letter-spacing: 0.5px;
+    justify-content: space-around;
+    padding: 6px;
+  }
     p{
       display: inline;
       font-family: Arial;
@@ -127,7 +128,7 @@
     }
     .button{
       display: flex;
-      float: right;
+      float: center;
       justify-content: space-around;
       margin-left: 20px;
     }
@@ -138,44 +139,30 @@
     .cont{
       margin:2px
     }
-/* .card {
-    background-color: rgb(245, 209, 209);
-    border-radius: 4px;
-    margin-top: 80px;
-    padding: 5px;
-    width: 350px;
-    text-align: center;
-    float: left;
-    margin-left: 100px;
-}
+    mat-grid-tile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    .headerMid{
+      width: 90%;
+    }
+    .headerRight{
+      width: 10%;
+    }
+    .heading{
+      margin-top: 1%;
+      color:rgb(89, 142, 240);
+      margin-left: 6%;
+      display: flex;
+      justify-content: center;
+    }  
+    mat-progress-bar{
+      border-radius: 15px;
+      padding-left: 2px;
+      padding-right: 2px;
+      padding-top: 4px;
+      padding-bottom: 6px;
+    }
 
-.example-header-image {
-    background-image: url('../../../assets/images/1342400-middle.png');
-    background-size: cover;
-    border: 1px solid;
-
-}
-
-h6 {
-    display: inline;
-    background-color: rgb(195, 168, 213);
-    padding: 10px;
-    border-radius: 15px;
-
-}
-
-.button {
-    display: inline;
-    float: right;
-    margin-left: 20px;
-
-}
-
-.cat {
-    float: left;
-    margin-top: 10px;
-}
-
-.cont {
-    margin: 2px
-} */

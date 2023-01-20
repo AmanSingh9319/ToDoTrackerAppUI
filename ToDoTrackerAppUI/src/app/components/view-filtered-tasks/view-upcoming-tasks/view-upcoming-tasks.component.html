@@ -1,78 +1,73 @@
-<div class="cont">
-    <div id="con">
 
-        <div *ngFor="let note of upcomingTask">
+<span class="heading"><h2><strong>Upcoming Tasks</strong></h2></span>
+<mat-grid-list cols="4" rowHeight="1:1">
+   <mat-grid-tile *ngFor="let note of upcomingTask">
+     <mat-card class="card"  >
+       <mat-card-header>
+         <span class="headerMid">
+           <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
+           <mat-card-subtitle style="color: black;" >{{note.taskCategory}}</mat-card-subtitle>
+         </span>
 
-            <mat-card class="card">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
-                    <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
+         <span class="headerRight">
+           <mat-card-title-group>
+             <ng-container [ngSwitch]="note.taskPriorityLevel">
+             <ng-container *ngSwitchCase="'Critical'">
+               
+               <mat-icon color="warn" style="float: right ;" aria-hidden="false" aria-label="Example home icon"
+                 fontIcon="gpp_maybe"  ></mat-icon>
+                 
+             </ng-container>
+             <ng-container *ngSwitchCase="'High'">
+               <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_up" >
+               </mat-icon>
+             </ng-container>
+             <ng-container *ngSwitchCase="'Low'">
+               <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_circle_down" >
+               </mat-icon>
+             </ng-container>
+             <ng-container *ngSwitchCase="'Medium'">
+               <mat-icon color="accent" aria-hidden="false" aria-label="Example home icon" 
+                 fontIcon="remove_circle_outline"></mat-icon>
+             </ng-container>
+             <ng-container *ngSwitchDefault>Code Default</ng-container>
+           </ng-container>
+           </mat-card-title-group>
+         </span>
+         
+       </mat-card-header>
 
-                    <mat-card-title-group>
+       <mat-divider style="color: black;"></mat-divider><br>
 
-                        <ng-container [ngSwitch]="note.taskPriorityLevel">
-                            <ng-container *ngSwitchCase="'Critical'">
-
-                                <mat-icon color="warn" style="float: right ;" aria-hidden="false"
-                                    aria-label="Example home icon" fontIcon="gpp_maybe"></mat-icon>
-
-                            </ng-container>
-                            <ng-container *ngSwitchCase="'High'">
-                                <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon"
-                                    fontIcon="arrow_circle_up">
-                                </mat-icon>
-                            </ng-container>
-                            <ng-container *ngSwitchCase="'Low'">
-                                <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon"
-                                    fontIcon="arrow_circle_down">
-                                </mat-icon>
-                            </ng-container>
-                            <ng-container *ngSwitchCase="'Medium'">
-                                <mat-icon color="accent" aria-hidden="false" aria-label="Example home icon"
-                                    fontIcon="remove_circle_outline"></mat-icon>
-                            </ng-container>
-                            <ng-container *ngSwitchDefault>Code Default</ng-container>
-                        </ng-container>
-                    </mat-card-title-group>
-                </mat-card-header>
-                <div id="divider" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
-          'high': note.taskPriorityLevel == 'High', 
-         'medium': note.taskPriorityLevel == 'Medium',
-          'low': note.taskPriorityLevel =='Low' }">
-
-                </div><br>
-                <mat-card-content>
-                    <p style="color: black;">{{ note.taskContent }}</p>
-                </mat-card-content>
-
-                <div id="divider" ></div>
-
-                <div style="justify-content: space-between; height: 60px;">
-
-                    <div class="button">
-                        <mat-icon style="color:rgb(103, 103, 229);margin-top: 19px;">schedule</mat-icon>&nbsp;
-                        <mat-chip id="chip" class="date" style="color: black;"><strong  style="color: black;" >{{note.taskPriorityLevel}}&nbsp;&nbsp;{{note.taskDeadline}}</strong>
-              
-                        </mat-chip>
-
-
-                        <button mat-icon-button color="primary" (click)="update(note.taskName)"
-                            aria-label="Example icon button with a home icon">
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                    </div>
-                </div>
-
-            </mat-card>
-
-
-        </div>
-
-
-    </div>
-
-</div>
+       <mat-card-content>
+         <p  style="color: black;">{{ note.taskContent }}</p>
+       </mat-card-content>
+   
+       <mat-divider style="color: black;"></mat-divider>
+   
+       <div style="justify-content: space-between; height: 60px;">
+         
+         <div class="button">
+             <mat-icon  style="color:rgb(117, 0, 128);margin-top: 19px;">schedule</mat-icon>&nbsp;
+             <mat-chip id="chip" class="date" style="color: black;"><strong  style="color: black;" >{{note.taskDeadline}}</strong></mat-chip>
+       
+           <button mat-icon-button color="primary" (click)="update(note.taskName)"
+           aria-label="Example icon button with a home icon">
+           <mat-icon>edit</mat-icon>
+           </button>
+         </div>
+       </div>
+       <mat-card-footer>
+        <mat-progress-bar mode="buffer" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
+        'high': note.taskPriorityLevel == 'High', 
+       'medium': note.taskPriorityLevel == 'Medium',
+        'low': note.taskPriorityLevel =='Low' }"  color="primary"></mat-progress-bar>
+      </mat-card-footer> 
+       
+     </mat-card>
+   </mat-grid-tile>
+   
+ </mat-grid-list>
 
 
 
@@ -107,69 +102,6 @@
 
 
 
-<!-- 
-    <div class="cont">
-        <div id="con">
-    
-            <div *ngFor="let note of upcomingTask">
-    
-                <mat-card class="card">
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
-                        <mat-card-subtitle style="color: black;">{{note.taskCategory}}</mat-card-subtitle>
-    
-                        <mat-card-title-group>
-    
-                            <ng-container [ngSwitch]="note.taskPriorityLevel">
-                                <ng-container *ngSwitchCase="'Critical'">
-                                    <mat-icon style="float: right ;" color="warn" aria-hidden="false"
-                                        aria-label="Example home icon" fontIcon="gpp_maybe"></mat-icon>
-                                </ng-container>
-                                <ng-container *ngSwitchCase="'High'">
-                                    <mat-icon color="warn" aria-hidden="false" aria-label="Example home icon"
-                                        fontIcon="arrow_circle_up">
-                                    </mat-icon>
-                                </ng-container>
-                                <ng-container *ngSwitchCase="'Low'">
-                                    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon"
-                                        fontIcon="arrow_circle_down">
-                                    </mat-icon>
-                                </ng-container>
-                                <ng-container *ngSwitchCase="'Medium'">
-                                    <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon"
-                                        fontIcon="remove_circle_outline"></mat-icon>
-                                </ng-container>
-                                <ng-container *ngSwitchDefault>Code Default</ng-container>
-                            </ng-container>
-                        </mat-card-title-group>
-                    </mat-card-header>
-                    <hr>
-                    <mat-card-content>
-                        <p class="text-center" style="color: black;">{{ note.taskContent }}</p>
-                    </mat-card-content>
-    
-    
-                    <hr>
-                    <div style="justify-content: space-around;">
-                        <div class="button">
-                            <div class="cat">
-                                <h6 style="color: black;">{{note.taskDeadline}}</h6>
-                            </div>
-                            <button mat-icon-button color="primary" (click)="update(note.taskName)"
-                                aria-label="Example icon button with a home icon">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                           
-                            
-    
-                        </div>
-                    </div>
-                </mat-card>
-    
-            </div>
-    
-        </div>
-    
-    </div> -->
-    
+
+
+

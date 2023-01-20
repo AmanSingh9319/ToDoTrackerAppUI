@@ -22,7 +22,7 @@ export class AddTaskComponent implements OnInit {
   addCount: number = 0;
 
   addTaskForm = this.formBuilder.group({
-    taskName: ['', [Validators.required]],
+    taskName: ['', [Validators.required, Validators.maxLength(20)]],
     taskContent: ['', [Validators.required, Validators.maxLength(203)]],
     taskDeadline: ['', [Validators.required]],
     taskCategory: ['', [Validators.required]],
