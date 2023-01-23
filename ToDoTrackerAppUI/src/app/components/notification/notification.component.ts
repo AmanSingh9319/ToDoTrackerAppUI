@@ -14,6 +14,7 @@ export class NotificationComponent implements OnInit {
 
   userId: any;
   notification$: any;
+  addCount:number=1
 
   constructor(private taskService: UserTaskService,private notificationService :NotificationService, private router: Router,
     public dialog: MatDialog, private actRoute: ActivatedRoute, private taskArc : TaskArchiveService) { }
@@ -37,6 +38,8 @@ export class NotificationComponent implements OnInit {
     }
 
     delete(taskname:any){
+      this.addCount=this.addCount-1;
+      this.taskService.notifycount.next(this.addCount)
       this.notificationService.deleteTaskFromNotification(this.userId,taskname).subscribe(data=>{
         this.ngOnInit()
       })
