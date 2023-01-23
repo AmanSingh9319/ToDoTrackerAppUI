@@ -19,7 +19,6 @@
   <mat-grid-tile *ngFor="let note of notes$">
     <mat-card class="card">
       <mat-card-header>
-        <!-- <span class="headerLeft" mat-card-avatar class="example-header-image"></span> -->
         <span class="headerMid">
           <mat-card-title style="color: black;">{{ note.taskName }}</mat-card-title>
           <mat-card-subtitle style="color: black;" >{{note.taskCategory}}</mat-card-subtitle>
@@ -62,10 +61,10 @@
       <mat-divider style="color: black;"></mat-divider>
      
   
-      <div style="justify-content: space-between; height: 60px;">
+      <div class="footer">
         
         <div class="button">
-          <mat-chip id="chip" class="date" style="color: black;"><strong  style="color: black;" >{{note.taskDeadline}}</strong> </mat-chip>
+          <mat-chip id="chip" class="date" style="color: black;"><strong  style="color: black;" >{{note.taskDeadline}}</strong></mat-chip>
           
           <button mat-icon-button color="primary" (click)="update1(note.taskName)"
             aria-label="Example icon button with a home icon">
@@ -81,10 +80,12 @@
        </div>
       </div>
       <mat-card-footer>
-        <mat-progress-bar mode="buffer" [ngClass]="{'critical': note.taskPriorityLevel == 'Critical',
+        <mat-progress-bar mode="buffer" [ngClass]="{
+        'critical': note.taskPriorityLevel == 'Critical',
         'high': note.taskPriorityLevel == 'High', 
-       'medium': note.taskPriorityLevel == 'Medium',
-        'low': note.taskPriorityLevel =='Low' }"  color="primary"></mat-progress-bar>
+        'medium': note.taskPriorityLevel == 'Medium',
+        'low': note.taskPriorityLevel =='Low' }"  color="primary">
+      </mat-progress-bar>
       </mat-card-footer>  
     </mat-card>
   </mat-grid-tile>

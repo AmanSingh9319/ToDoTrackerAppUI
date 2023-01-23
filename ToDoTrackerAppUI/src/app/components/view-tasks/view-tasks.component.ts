@@ -61,11 +61,11 @@ export class ViewTasksComponent implements OnInit {
     this.taskService.deleteTaskByTaskId(this.emailId, task.taskName).subscribe({
       next() {
         console.log;
-        ('successfully delete ');
+        ('successfully deleted!! ');
       },
       error() {
         console.log
-        ('error from server side ');
+        ('Error from server side!! ');
       },
     });
   }
@@ -80,7 +80,7 @@ export class ViewTasksComponent implements OnInit {
     if(priority==null){
       this.taskService.getAllTasksOfUser(this.emailId).subscribe({
         next:data => {this.notes$=data },
-        error() {alert ("error occured while loading the tasks")},         
+        error() {alert ("Error occured while loading the tasks")},         
       })
     }else{
       this.taskService.getAllTasksOfUser(this.emailId).subscribe({
@@ -88,7 +88,7 @@ export class ViewTasksComponent implements OnInit {
           {
             return task.taskPriorityLevel?.startsWith(priority);
           }) },
-        error() {alert ("error occured while loading the tasks")},          
+        error() {alert ("Error occured while loading the tasks")},          
       })
     }
   }
@@ -120,7 +120,7 @@ export class ViewTasksComponent implements OnInit {
           });
         },
         error() {
-          alert('no result');
+          alert('No result');
         },
       });
       console.log(searchText);
@@ -128,20 +128,3 @@ export class ViewTasksComponent implements OnInit {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// this.userId = this.actRoute.snapshot.paramMap.get('userId');

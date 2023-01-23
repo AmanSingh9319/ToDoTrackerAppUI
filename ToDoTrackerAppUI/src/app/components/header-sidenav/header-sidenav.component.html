@@ -1,8 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" >
   <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button  (click)="snav.toggle()" ><mat-icon>menu</mat-icon></button>
-    
-    <!-- <h1 class="example-app-name">To Do Tracker</h1> -->
+    <button mat-icon-button (click)="snav.toggle()" ><mat-icon class="toggle">menu</mat-icon></button>
     <span class="appLogo"><img class="img" src="https://d4.alternativeto.net/ur48fchn4J4gTKoDztS7CMfj2p37awcDx1bd5rlTsrI/rs:fill:280:280:0/g:ce:0:0/YWJzOi8vZGlzdC9pY29ucy9sdW5hdGFza18yMDAxNDIucG5n.png"></span>
     <span class="container">
       <span><h1 class="typed-out">To Do Tracker</h1></span>
@@ -19,7 +17,7 @@
     <mat-chip class="profileSpan"  (click)="userProfileRouteFunc()" >
        <img matChipAvatar src="https://cdn1.vectorstock.com/i/1000x1000/99/70/note-book-logo-vector-20569970.jpg"/> 
       
-     Hii {{userDetail.firstName}}
+     Hi {{userDetail.firstName}}
     </mat-chip>
 
   
@@ -40,6 +38,7 @@
         <div class="navListDiv">
           <br>
           <h5 class="headingSpan">Tasks</h5>
+          <div class="tasks">
           <a mat-list-item (click)="methodToGet()"><mat-icon class="icon">dashboard</mat-icon> All Tasks</a>
           <a mat-list-item routerLink="view-today-tasks"><mat-icon class="icon">today</mat-icon> Today</a>
           <a mat-list-item routerLink="view-upcoming-tasks"><mat-icon class="icon">schedule</mat-icon> Upcoming</a>
@@ -49,14 +48,11 @@
           <a mat-list-item routerLink="view-personal-tasks"><mat-icon class="icon">perm_identity</mat-icon> Personal</a>
           <a mat-list-item routerLink="view-work-tasks"><mat-icon class="icon">work_outline</mat-icon> Work</a>
           <a mat-list-item (click)="methodToGetId()"><mat-icon class="icon">archive</mat-icon> Archive</a>
-          <mat-divider></mat-divider><br><br>
-       
-          <!-- <mat-slide-toggle>slide me</mat-slide-toggle> -->
-          
+          <mat-divider></mat-divider><br>
           <a mat-list-item routerLink="settings"><mat-icon class="icon">help</mat-icon> Help</a>
           <a mat-list-item routerLink="helpcenter"><mat-icon class="icon">info</mat-icon> About</a>
           <a mat-list-item (click)="logOutFunc()"><mat-icon class="icon">power_settings_new</mat-icon> log out</a>
-        
+        </div>
           <br>
         </div>
       </mat-nav-list>
@@ -68,40 +64,3 @@
 
   </mat-sidenav-container>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <!--  -->

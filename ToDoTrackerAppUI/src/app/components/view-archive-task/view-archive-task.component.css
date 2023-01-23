@@ -1,9 +1,11 @@
 .heading{
   margin-top: 1%;
-  color:rgb(89, 142, 240);
   margin-left: 6%;
   display: flex;
   justify-content: center;
+  color:rgb(20, 55, 121);
+  font-family: 'Linux Libertine','Georgia','Times',serif;
+  font-weight:bolder;
 }  
 
 .card {
@@ -25,10 +27,33 @@
   mat-card-title {
     display: flex;
     font-weight: bold;
-    font-size: x-large;
+    font-size: 29px;
     letter-spacing: 0.5px;
     justify-content: space-around;
     padding: 6px;
+    word-wrap: break-word;
+    font-family: serif;
+  }
+  
+  mat-card-subtitle {
+    font-family: system-ui;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  
+  mat-card-content {
+    height: 200px;
+    font-family: Arial;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .date {
+    position: relative;
+    bottom: 1px;
+    top: 15px;
+    font-size: 18px;
+
   }
 
   #chip{
@@ -46,26 +71,20 @@
   border: 1px solid;
 
 }
-mat-card-content{
-  height: 160px;
- }
 
 h6 {
   display: inline;
   background-color: rgb(242, 234, 186);
   padding: 10px;
   border-radius: 15px;
-  
-
 }
 hr{
   color: black;
 }
 
 .button {
-  display: inline;
-  float: center;
-  margin-left: 20px;
+  display: flex;
+  justify-content: space-evenly;
 
 }
 

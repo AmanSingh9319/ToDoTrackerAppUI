@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }else{
       this.router.navigate(['login'])
-      this._snackBar.open('Access Denied!! Please Login First', 'ok', {
+      this._snackBar.open('Access Denied!! Please Login First', 'Ok', {
         duration: 1000,
         panelClass: ['mat-toolbar', 'mat-primary']
       });
@@ -29,5 +29,3 @@ export class AuthGuard implements CanActivate {
     }
   }
 }
-  
-

@@ -26,7 +26,7 @@ export class ViewWorkTasksComponent {
         {
           return task.taskCategory?.startsWith("Work");
         }) },
-      error() {alert ("error occured while loading the work tasks")},          
+      error() {alert ("Error occured while loading the work tasks")},          
     })
   }
 

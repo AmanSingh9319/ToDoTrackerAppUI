@@ -12,10 +12,12 @@
   
   .heading{
     margin-top: 1%;
-    color:rgb(89, 142, 240);
     margin-left: 6%;
     display: flex;
     justify-content: center;
+    color:rgb(20, 55, 121);
+    font-family: 'Linux Libertine','Georgia','Times',serif;
+    font-weight:bolder;
   }  
   
   .card {
@@ -91,7 +93,40 @@
     background-color: rgb(240, 23, 23);
   }
   
+  mat-card-title {
+    display: flex;
+    font-weight: bold;
+    font-size: 29px;
+    letter-spacing: 0.5px;
+    justify-content: space-around;
+    padding: 6px;
+    word-wrap: break-word;
+    font-family: serif;
+  }
   
+  mat-card-subtitle {
+    font-family: system-ui;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  
+  mat-card-content {
+    height: 200px;
+    font-family: Arial;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .date {
+    position: relative;
+    bottom: 2px;
+    top: -4px;
+    display: flex;
+    float: left;
+    font-size: 18px;
+    justify-content: space-around;
+    float: left;
+  }
   mat-card-title {
     display: flex;
     font-weight: bold;
@@ -119,10 +154,6 @@
     background-color: rgba(68, 244, 226, 0.992);
    }
   
-   mat-card-content{
-    height: 200px;
-   }
-  
     h6{
       display: inline;
       background-color: rgb(47, 221, 221);
@@ -133,7 +164,7 @@
     .button{
       display: flex;
       float: center;
-      justify-content: space-around;
+      justify-content: space-evenly;
       margin-left: 20px;
     }
     .cat{

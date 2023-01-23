@@ -87,36 +87,46 @@
     background-color: rgb(240, 23, 23);
   }
   
-  
   mat-card-title {
     display: flex;
     font-weight: bold;
-    font-size: x-large;
+    font-size: 29px;
     letter-spacing: 0.5px;
     justify-content: space-around;
     padding: 6px;
+    word-wrap: break-word;
+    font-family: serif;
   }
-    p{
-      display: inline;
-      font-family: Arial;
-      
-    }
-    .date{
-      display: flex;
-      margin-right: 10px;
-      margin-top: 18px;
   
-    }
+  mat-card-subtitle {
+    font-family: system-ui;
+    font-weight: 600;
+    font-size: 22px;
+  }
   
+  mat-card-content {
+    height: 200px;
+    font-family: Arial;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .date {
+    position: relative;
+    bottom: 1px;
+    top: 11px;
+    display: flex;
+    float: left;
+    font-size: 18px;
+    justify-content: space-around;
+    float: left;
+  }
+
    #divider{
    
     border-radius: 15px;
     height: 5px;
     background-color: rgb(236, 171, 171);
-   }
-  
-   mat-card-content{
-    height: 200px;
    }
   
     h6{
@@ -153,10 +163,12 @@
     }
     .heading{
       margin-top: 1%;
-      color:rgb(89, 142, 240);
       margin-left: 6%;
       display: flex;
       justify-content: center;
+      color:rgb(20, 55, 121);
+      font-family: 'Linux Libertine','Georgia','Times',serif;
+      font-weight:bolder;
     }  
     mat-progress-bar{
       border-radius: 15px;

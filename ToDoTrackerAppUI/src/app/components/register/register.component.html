@@ -2,7 +2,7 @@
 <p>
     <mat-toolbar color="primary">
         <mat-toolbar-row>
-            <h2 style="text-align: center;">User Registration Form</h2>
+            <h2 style="margin-left: 160px;">User Registration Form</h2>
         </mat-toolbar-row>
     </mat-toolbar>
 </p>
@@ -15,6 +15,7 @@
             </div>
             
             <mat-form-field appearance="fill">
+                <i class="fa fa-user"></i>
                 <input matInput placeholder="First Name" type="text" id="firstName" formControlName="firstName" />
                 <mat-error *ngIf="firstName?.errors?.['required']">
                     First Name is required.
@@ -28,6 +29,7 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill">
+                <i class="fa fa-user"></i>
                 <input matInput placeholder="Last Name" type="text" id="lastName" formControlName="lastName" />
                 <mat-error *ngIf="lastName?.errors?.['required']">
                     Last Name is required.
@@ -41,6 +43,7 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill">
+                <i class="fa fa-envelope"></i>
                 <input matInput placeholder="Email Id" type="text" id="emailId" formControlName="emailId" />
                 <mat-error *ngIf="emailId?.errors?.['required']">
                     Email Id is required.
@@ -48,11 +51,12 @@
                 <mat-error *ngIf="emailId?.errors?.['minlength']">
                 </mat-error>
                 <mat-error *ngIf="emailId?.errors?.['pattern']">
-                   email id must be as name@gmail.com
+                   Email id must be as name@gmail.com
                 </mat-error>
             </mat-form-field>
             
             <mat-form-field appearance="fill">
+                <i class="fa fa-key"></i>
                 <input matInput type="text" placeholder="Password" id="password" formControlName="password" [type]="show ? 'text' : 'password'">
                 <mat-error *ngIf="password?.errors?.['required']">
                     Password is required.
@@ -63,19 +67,19 @@
                 </mat-error>
             </mat-form-field>
 
-            <label>Role</label>
+            <label style="font-weight: 500; margin-left: 10px; font-size: large;">Role</label>
             <mat-radio-group aria-label="Select Role" class="radio-group" formControlName="role" id="role">
                 <mat-radio-button class="radio-button" [checked]="false" value="student">Student</mat-radio-button>
                 <mat-radio-button value="Employee">Employee</mat-radio-button> 
             </mat-radio-group>
             <br><br>
             <button color="primary" mat-button mat-raised-button [disabled]="!registerForm.valid" type="submit">Submit</button>
-        </fieldset>
+        </fieldset><br>
+        <span id="alreadyUserSpan">
+            <strong>Already an User ? Please  </strong><a style="color: blue;" (click)="registerRoutefunc()">Login</a></span><br>
     </form>
 </div>
 <span class="passwordShowButton">
     <button mat-button (click)="passwordFunc()">{{show ? 'Hide' : 'Show'}}</button>
 </span>
-<span id="alreadyUserSpan">
-<strong>Already an User ? Please  </strong><a style="color: blue;" (click)="registerRoutefunc()">Login</a></span>
 </mat-card>

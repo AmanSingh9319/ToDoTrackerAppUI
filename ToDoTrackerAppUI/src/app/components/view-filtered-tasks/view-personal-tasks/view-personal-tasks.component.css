@@ -12,10 +12,12 @@
 
 .heading{
   margin-top: 1%;
-  color:rgb(89, 142, 240);
   margin-left: 6%;
   display: flex;
   justify-content: center;
+  color:rgb(20, 55, 121);
+  font-family: 'Linux Libertine','Georgia','Times',serif;
+  font-weight:bolder;
 }  
 
 .card {
@@ -90,28 +92,6 @@ strong {
 }
 
 
-mat-card-title {
-  display: flex;
-  font-weight: bold;
-  font-size: x-large;
-  letter-spacing: 0.5px;
-  justify-content: space-around;
-  padding: 6px;
-}
-
-p {
-  display: inline;
-  font-family: Arial;
-
-}
-
-.date {
-  display: flex;
-  margin-right: 10px;
-  margin-top: 18px;
-
-}
-
 #divider {
 
   border-radius: 15px;
@@ -119,9 +99,6 @@ p {
   background-color: rgb(202, 148, 235);
 }
 
-mat-card-content {
-  height: 200px;
-}
 
 h6 {
   display: inline;
@@ -164,4 +141,40 @@ mat-progress-bar{
   padding-right: 2px;
   padding-top: 4px;
   padding-bottom: 6px;
+}
+
+mat-card-title {
+  display: flex;
+  font-weight: bold;
+  font-size: 29px;
+  letter-spacing: 0.5px;
+  justify-content: space-around;
+  padding: 6px;
+  word-wrap: break-word;
+  font-family: serif;
+}
+
+mat-card-subtitle {
+  font-family: system-ui;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+mat-card-content {
+  display: inline;
+  height: 200px;
+  font-family: Arial;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.date {
+  position: relative;
+  bottom: 1px;
+  top: 11px;
+  display: flex;
+  float: left;
+  font-size: 18px;
+  justify-content: space-around;
+  float: left;
 }

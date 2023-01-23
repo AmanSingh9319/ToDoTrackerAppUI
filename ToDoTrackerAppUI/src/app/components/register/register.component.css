@@ -1,3 +1,12 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+ 
+#firstName, #lastName{
+ 
+}
+
 mat-form-field {
   display: block;
   padding: 5px;
@@ -5,36 +14,26 @@ mat-form-field {
 
 p{
   display: flex;
-  margin:0px;
+  margin-left:0px;
   justify-content: center;
   padding-bottom: 10px;
 }
 
-/* .form {
-  display: flex;
-  flex-direction: column;
-} */
-
-/* .backcolor{
-  background-color:white
-} */
-
 .card{
-  /* padding: 30px;
-  width: 600px;
-  position: relative;
-  right: -30em;
-  bottom: -1em;
-  border-radius: 10px; */
-  /* background-image: "../../assets/images/loginbackground.webp"; */
   margin: 100px auto ;
-  height: 720px;
+  height: 780px;
   width: 700px;
   padding: 10px;
+  position: absolute;
+  margin-left: 32%;
+  top: -3%;
+  background-color: aliceblue;
+  border-radius: 8px;
+  box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
 }
 
 #alreadyUserSpan{
-  margin-left: 9em;
+  margin-left: 12em;
 }
 #upload{
  display: none;
@@ -51,6 +50,8 @@ p{
 #alreadyUserSpan{
   text-align: center;
   margin-right: 150px;
+  font-size: large;
+  cursor: pointer;
 }
 button{
 margin-left: 45%;
@@ -58,5 +59,16 @@ margin-left: 45%;
 .passwordShowButton{
   position: relative;
   left: 40%;
-  bottom: 25%;
+  bottom: 31%;
 }
+input{
+  width: 94%;
+  border: none;
+  outline: none;
+  margin: -2px 10px -2px 10px; /* top left right bottom */
+  padding: 10px;
+  }
+
+  .radio-button{
+    margin-left: 10px;
+  }

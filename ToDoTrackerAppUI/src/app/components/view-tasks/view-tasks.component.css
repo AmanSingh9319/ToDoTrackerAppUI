@@ -76,24 +76,37 @@ strong {
 mat-card-title {
   display: flex;
   font-weight: bold;
-  font-size:x-large;
+  font-size:29px;
   letter-spacing: 0.5px;
   justify-content: space-around;
   padding: 6px;
   word-wrap: break-word;
+  font-family: serif;
 }
 
-p {
-  display: inline;
-  font-family: Arial;
+mat-card-subtitle{
+  font-family: system-ui;
+  font-weight: 600;
+  font-size:22px;
+}
 
+mat-card-content {
+  display: inline;
+  height: 200px;
+  font-family: Arial;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .date {
-  display: flex;
-  margin-right: 10px;
-  margin-top: 18px;
-
+ position: relative;
+ bottom: 1px;
+ top: 9px;
+ display: flex;
+ float: left;
+ font-size: 18px;
+ justify-content: space-around;
+ float: left;
 }
 
 #divider {
@@ -110,9 +123,7 @@ mat-progress-bar{
   padding-bottom: 6px;
 }
 
-mat-card-content {
-  height: 200px;
-}
+
 
 h6 {
   display: inline;
@@ -120,13 +131,6 @@ h6 {
   padding: 10px;
   border-radius: 15px;
 
-}
-
-.button {
-  display: flex;
-  float: right;
-  justify-content: space-around;
-  margin-left: 20px;
 }
 
 .cat {
@@ -138,14 +142,14 @@ h6 {
   margin: 2px
 }
 .heading{
-  color:rgb(89, 142, 240);
   margin-left: 6%;
   width: 20%;
   display: inline-block;
+  color:rgb(20, 55, 121);
+  font-family: 'Linux Libertine','Georgia','Times',serif;
+  font-weight:bolder;
+
 }
-/* .headerLeft{
-width: 20%;
-} */
 .headerMid{
   width: 90%;
 }
@@ -177,4 +181,11 @@ width: 20%;
 }
 #criticalChip{
   background-color: rgb(218, 8, 8);
+}
+
+.footer{
+  display: flex;
+  justify-content: space-evenly;
+  height: 60px;
+
 }

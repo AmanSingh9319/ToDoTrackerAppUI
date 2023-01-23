@@ -1,64 +1,60 @@
 mat-form-field {
-    display: block;
-  }
+  display: block;
+}
 
-p{
-    display: flex;
-    margin:0px;
-    justify-content: center;
-    padding-bottom: 10px;
+p {
+  display: flex;
+  margin: 0px;
+  justify-content: center;
+  padding-bottom: 10px;
+  font-family: sans-serif;
+  font-size: x-large;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-
-
-/* .card{
-    padding: 30px;
-    width: 500px;
-    position: relative;
-    right: -30em;
-    bottom: -3em;
-    border-radius: 10px;
-    
-    background-size: 100% 100%;
-  } */
-  .card{
-    /* padding: 30px;
-    width: 600px;
-    position: relative;
-    right: -30em;
-    bottom: -1em;
-    border-radius: 10px; */
-    /* background-image: "../../assets/images/loginbackground.webp"; */
-    margin: 200px auto ;
-    height: 430px;
-    width: 500px;
-    padding: 10px;
-  }
-
-  #alreadyUserSpan{
-    margin-left: 30%;
+.card {
+  margin: 200px auto;
+  height: 470px;
+  width: 550px;
+  padding: 25px;
+  background-color:aliceblue;
+  border-radius: 8px;
+  box-shadow: 6px 6px 3px 0px rgba(69, 68, 68, 0.75);
 }
 
-.button{
-    display: flex;
-    justify-content: center;
-    bottom: 1em;
+#alreadyUserSpan {
+  margin-left: 30%;
+  font-size: large;
+  cursor: pointer;
 }
 
-.emailId, .password{
-    display: block;
-    border-radius: 30px;
-    
-    padding: 10px;
-    margin: 10px, 0;
+.button {
+  display: flex;
+  justify-content: center;
+  bottom: 1em;
 }
-.passwordShowButton{
+
+.emailId,
+.password {
+  display: flex;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 1px, 0;
+}
+.passwordShowButton {
   position: relative;
   left: 85%;
-  top: -31%;
+  top: -38.5%;
+}
+
+input{
+width: 90%;
+border: none;
+outline: none;
+margin-left: 10px;
+padding: 10px;
 }
